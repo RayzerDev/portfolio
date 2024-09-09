@@ -1,0 +1,20 @@
+[
+    {
+      "id": "1",
+      "nom": "BUT Informatique",
+      "type": "Etudiant",
+      "ecole": "IUT de Lens",
+      "ville": "Lens",
+      "debut": "09/2022",
+      "fin": null
+    },
+    {
+      "id": "2",
+      "nom": "BAC Général NSI Math",
+      "type": "Lycéen",
+      "ecole": "Lycée Pasteur",
+      "ville": "Hénin-Beaumont",
+      "debut": "09/2020",
+      "fin": "07/2022"
+    }
+]

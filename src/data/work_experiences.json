@@ -1,0 +1,32 @@
+[
+    {
+      "id": "1",
+      "nom": "Préparateur de commandes",
+      "type": "Intérim",
+      "entreprise": "Intermarché",
+      "ville": "Avion",
+      "debut": "09/2023",
+      "fin": "01/2024",
+      "competences": []
+    },
+    {
+      "id": "2",
+      "nom": "Vendeur Polyvalent",
+      "type": "Etudiant",
+      "entreprise": "Primark",
+      "ville": "Noyelles-Godault",
+      "debut": "01/2023",
+      "fin": "06/2023",
+      "competences": []
+    },
+    {
+      "id": "3",
+      "nom": "Développeur",
+      "type": "Alternance",
+      "entreprise": "Lenrek Informatique",
+      "ville": "Eleu-Dit-Leauwette",
+      "debut": "01/2024",
+      "fin": "09/2025",
+      "competences": []
+    }
+]
