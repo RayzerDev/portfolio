@@ -3,7 +3,7 @@
       "id": "3",
       "nom": "HTML",
       "categorie": "Langages",
-      "image": "images/competences/20231229100957.png",
+      "image": "images/skills/20231229100957.png",
       "createdAt": null,
       "updatedAt": "2023-12-29 10:09:57"
     },
@@ -11,7 +11,7 @@
       "id": "4",
       "nom": "CSS",
       "categorie": "Langages",
-      "image": "images/competences/20231229101105.png",
+      "image": "images/skills/20231229101105.png",
       "createdAt": null,
       "updatedAt": "2023-12-29 10:11:05"
     },
@@ -19,7 +19,7 @@
       "id": "6",
       "nom": "JavaScript",
       "categorie": "Langages",
-      "image": "images/competences/20231229101153.png",
+      "image": "images/skills/20231229101153.png",
       "createdAt": null,
       "updatedAt": "2023-12-29 10:11:53"
     },
@@ -27,7 +27,7 @@
       "id": "7",
       "nom": "PHP",
       "categorie": "Langages",
-      "image": "images/competences/20231229104228.png",
+      "image": "images/skills/20231229104228.png",
       "createdAt": null,
       "updatedAt": "2023-12-29 10:42:28"
     },
@@ -35,7 +35,7 @@
       "id": "8",
       "nom": "Laravel",
       "categorie": "Frameworks",
-      "image": "images/competences/20231207091841.png",
+      "image": "images/skills/20231207091841.png",
       "createdAt": null,
       "updatedAt": "2024-08-18 14:24:31"
     },
@@ -43,7 +43,7 @@
       "id": "9",
       "nom": "MySQL",
       "categorie": "SGBD",
-      "image": "images/competences/20231207091926.png",
+      "image": "images/skills/20231207091926.png",
       "createdAt": null,
       "updatedAt": "2024-08-18 14:28:51"
     },
@@ -51,7 +51,7 @@
       "id": "10",
       "nom": "PostgreSQL",
       "categorie": "SGBD",
-      "image": "images/competences/20231207092004.png",
+      "image": "images/skills/20231207092004.png",
       "createdAt": null,
       "updatedAt": "2024-08-18 14:28:57"
     },
@@ -59,7 +59,7 @@
       "id": "11",
       "nom": "NodeJS",
       "categorie": "Langages",
-      "image": "images/competences/20231207092019.png",
+      "image": "images/skills/20231207092019.png",
       "createdAt": null,
       "updatedAt": null
     },
@@ -67,7 +67,7 @@
       "id": "12",
       "nom": "Java",
       "categorie": "Langages",
-      "image": "images/competences/20231207092028.png",
+      "image": "images/skills/20231207092028.png",
       "createdAt": null,
       "updatedAt": null
     },
@@ -75,7 +75,7 @@
       "id": "13",
       "nom": "Python",
       "categorie": "Langages",
-      "image": "images/competences/20231207092039.png",
+      "image": "images/skills/20231207092039.png",
       "createdAt": null,
       "updatedAt": null
     },
@@ -83,7 +83,7 @@
       "id": "14",
       "nom": "IntelliJ",
       "categorie": "Outils",
-      "image": "images/competences/20231207092107.png",
+      "image": "images/skills/20231207092107.png",
       "createdAt": null,
       "updatedAt": null
     },
@@ -91,7 +91,7 @@
       "id": "15",
       "nom": "PHPStorm",
       "categorie": "Outils",
-      "image": "images/competences/20231207092324.png",
+      "image": "images/skills/20231207092324.png",
       "createdAt": null,
       "updatedAt": null
     },
@@ -99,7 +99,7 @@
       "id": "16",
       "nom": "PyCharm",
       "categorie": "Outils",
-      "image": "images/competences/20231207092405.png",
+      "image": "images/skills/20231207092405.png",
       "createdAt": null,
       "updatedAt": null
     },
@@ -107,7 +107,7 @@
       "id": "17",
       "nom": "Git",
       "categorie": "Outils",
-      "image": "images/competences/20231229101406.png",
+      "image": "images/skills/20231229101406.png",
       "createdAt": null,
       "updatedAt": "2023-12-29 10:14:06"
     },
@@ -115,7 +115,7 @@
       "id": "18",
       "nom": "VsCode",
       "categorie": "Outils",
-      "image": "images/competences/20231229101444.png",
+      "image": "images/skills/20231229101444.png",
       "createdAt": null,
       "updatedAt": "2023-12-29 10:14:44"
     },
@@ -123,7 +123,7 @@
       "id": "19",
       "nom": "Debian",
       "categorie": "OS",
-      "image": "images/competences/20231207092451.png",
+      "image": "images/skills/20231207092451.png",
       "createdAt": null,
       "updatedAt": null
     },
@@ -131,7 +131,7 @@
       "id": "20",
       "nom": "Fedora",
       "categorie": "OS",
-      "image": "images/competences/20231207092509.png",
+      "image": "images/skills/20231207092509.png",
       "createdAt": null,
       "updatedAt": null
     },
@@ -139,7 +139,7 @@
       "id": "21",
       "nom": "Windows",
       "categorie": "OS",
-      "image": "images/competences/20240818142758.png",
+      "image": "images/skills/20240818142758.png",
       "createdAt": "2024-08-18 14:27:58",
       "updatedAt": "2024-08-18 14:27:58"
     },
@@ -147,7 +147,7 @@
       "id": "22",
       "nom": "Eclipse",
       "categorie": "Outils",
-      "image": "images/competences/20240818143048.png",
+      "image": "images/skills/20240818143048.png",
       "createdAt": "2024-08-18 14:29:42",
       "updatedAt": "2024-08-18 14:30:48"
     },
@@ -155,7 +155,7 @@
       "id": "23",
       "nom": "TypeScript",
       "categorie": "Langages",
-      "image": "images/competences/20240818143152.png",
+      "image": "images/skills/20240818143152.png",
       "createdAt": "2024-08-18 14:31:52",
       "updatedAt": "2024-08-18 14:31:52"
     },
@@ -163,7 +163,7 @@
       "id": "24",
       "nom": "Angular",
       "categorie": "Frameworks",
-      "image": "images/competences/20240818143335.png",
+      "image": "images/skills/20240818143335.png",
       "createdAt": "2024-08-18 14:33:35",
       "updatedAt": "2024-08-18 14:33:48"
     },
@@ -171,7 +171,7 @@
       "id": "25",
       "nom": "React",
       "categorie": "Frameworks",
-      "image": "images/competences/20240818143732.png",
+      "image": "images/skills/20240818143732.png",
       "createdAt": "2024-08-18 14:35:40",
       "updatedAt": "2024-08-18 14:37:32"
     },
@@ -179,7 +179,7 @@
       "id": "26",
       "nom": "Vaadin",
       "categorie": "Frameworks",
-      "image": "images/competences/20240818143833.png",
+      "image": "images/skills/20240818143833.png",
       "createdAt": "2024-08-18 14:38:33",
       "updatedAt": "2024-08-18 14:38:33"
     },
@@ -187,7 +187,7 @@
       "id": "27",
       "nom": "Selenium",
       "categorie": "Tests",
-      "image": "images/competences/20240818144409.png",
+      "image": "images/skills/20240818144409.png",
       "createdAt": "2024-08-18 14:44:09",
       "updatedAt": "2024-08-18 14:44:09"
     },
@@ -195,7 +195,7 @@
       "id": "28",
       "nom": "JUnit 5",
       "categorie": "Tests",
-      "image": "images/competences/20240818144516.png",
+      "image": "images/skills/20240818144516.png",
       "createdAt": "2024-08-18 14:45:16",
       "updatedAt": "2024-08-18 14:45:16"
     },
@@ -203,7 +203,7 @@
       "id": "29",
       "nom": "Jubula",
       "categorie": "Tests",
-      "image": "images/competences/20240819120641.png",
+      "image": "images/skills/20240819120641.png",
       "createdAt": "2024-08-19 12:04:44",
       "updatedAt": "2024-08-19 12:06:41"
     },
@@ -211,16 +211,8 @@
       "id": "30",
       "nom": "Wildfly",
       "categorie": "Serveur applications",
-      "image": "images/competences/20240902150336.png",
+      "image": "images/skills/20240902150336.png",
       "createdAt": "2024-09-02 15:03:36",
       "updatedAt": "2024-09-02 15:03:36"
-    },
-    {
-      "id": "31",
-      "nom": "Spring Boot",
-      "categorie": "Frameworks",
-      "image": "images/competences/20240902150516.png",
-      "createdAt": "2024-09-02 15:05:16",
-      "updatedAt": "2024-09-02 15:05:16"
     }
 ]

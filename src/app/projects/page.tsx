@@ -1,24 +1,19 @@
-import { promises as fs } from 'fs';
-import path from 'path';
 import Image from "next/image";
+import DataSingleton from "@/utils/dataUtils";
 
 export default async function Projects() {
-    const filePath = path.join(process.cwd(), 'src/data/projects.json');
 
-    const file = await fs.readFile(filePath, 'utf8');
-
-    const projects = JSON.parse(file);
+    const projects = await DataSingleton.getInstance().getProjectsData();
 
     return (
         <div>
             <h1>Projets</h1>
             <ul>
-                {projects.map((projet: any) => (
+                {projects?.map((projet: any) => (
                     <li key={projet.id}>
                         <Image src={"/" + projet.image} alt={projet.nom} width={50} height={50} />
                         <h2>{projet.nom}</h2>
                         <p>{projet.description}</p>
-                        <p>Techs: {projet.techs}</p>
                         {projet.previewLink && (
                             <a href={projet.previewLink} target="_blank" rel="noopener noreferrer">
                                 Preview
@@ -29,7 +24,7 @@ export default async function Projects() {
                                 GitHub
                             </a>
                         )}
-                        <p>Compétences: {projet.competenceIds.join(', ')}</p>
+                        <p>Techs: {projet.skills.map((skill: any) => skill.nom).join(', ')}</p>
                     </li>
                 ))}
             </ul>
