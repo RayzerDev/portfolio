@@ -17,6 +17,8 @@ interface Competence {
     id: string;
     nom: string;
     niveau: string;
+    categorie: string;
+    image: string;
 }
 
 interface Data {
@@ -70,6 +72,22 @@ class DataSingleton {
             await this.loadData('skills.json', 'skills');
         }
         return this.data.skills;
+    }
+
+    public async groupSkillsByCategory() {
+        const groupedSkills: { [categorie: string]: { id: string, nom: string, image:string }[] }  = {};
+
+        (await this.getSkillsData()).forEach(skill => {
+            const { id, nom, categorie, image } = skill;
+
+            if (!groupedSkills[categorie]) {
+                groupedSkills[categorie] = [];
+            }
+
+            groupedSkills[categorie].push({ id, nom, image });
+        });
+
+        return groupedSkills;
     }
 
     public async getWorkExperiencesData() {
