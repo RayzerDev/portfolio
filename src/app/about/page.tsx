@@ -1,5 +1,5 @@
 import DataSingleton from "@/utils/dataUtils";
-import {Building, CalendarIcon, Code, Dumbbell, Gamepad, Guitar, LocateIcon, MapPin, School} from "lucide-react";
+import {Building, CalendarIcon, Code, Dumbbell, Gamepad, Guitar, MapPin, School} from "lucide-react";
 
 export default async function About() {
 
@@ -13,14 +13,14 @@ export default async function About() {
                 <h1 className="text-5xl font-bold tracking-tight text-foreground">A propos</h1>
                 <p className="mt-4 max-w-[700px] text-muted-foreground md:text-xl">
                     Je suis Louis KARAMUCKI. Je suis développeur logiciel chez Lenrek Informatique en alternance,
-                    tout en suivant un BUT Informatique à Lens jusqu'en 2025.
+                    tout en suivant un BUT Informatique à Lens jusqu&apos;en 2025.
                 </p>
             </section>
             <section className="mb-12">
                 <h2 className="text-3xl font-bold tracking-tight text-foreground">Expériences Professionnelles</h2>
                 <div className="mt-6 grid gap-6">
                     {workExperiences.map((experience => (
-                            <div className="rounded-md border bg-card p-4 shadow-sm">
+                            <div key={experience.id} className="rounded-md border bg-card p-4 shadow-sm">
                                 <div className="flex items-center justify-between">
                                     <div>
                                         <h3 className="text-lg font-semibold text-foreground">{experience.nom}</h3>
@@ -53,7 +53,7 @@ export default async function About() {
                 <h2 className="text-3xl font-bold tracking-tight text-foreground">Diplômes</h2>
                 <div className="mt-6 grid gap-6">
                     {degrees.map((degree => (
-                            <div className="rounded-md border bg-card p-4 shadow-sm">
+                            <div key={degree.id} className="rounded-md border bg-card p-4 shadow-sm">
                                 <div className="flex items-center justify-between">
                                     <div>
                                         <h3 className="text-lg font-semibold text-foreground">{degree.nom}</h3>
@@ -88,8 +88,8 @@ export default async function About() {
                         <Dumbbell
                             className="w-2/6 h-2/6 m-auto"/>
                         <p className="mt-2 text-muted-foreground">
-                            J'aime tout type de sports. Je pratique de la musculation, le foot, et le Jiu-Jitsu.
-                            J'ai déjà réalisé 2 compétitions régionales.
+                            J&apos;aime tout type de sports. Je pratique de la musculation, le foot, et le Jiu-Jitsu.
+                            J&apos;ai déjà réalisé 2 compétitions régionales.
                         </p>
                     </div>
                     <div className="rounded-md border bg-card p-4 shadow-sm">
@@ -97,8 +97,8 @@ export default async function About() {
                         <Guitar
                             className="w-2/6 h-2/6 m-auto"/>
                         <p className="mt-2 text-muted-foreground">
-                            Je fais de la guitare depuis mes 4 ans. Les Red Hot Chili Peppers m'ont beaucoup
-                            influencé, notamment John Frusciante. J'ai pu jouer dans 2 concerts.
+                            Je fais de la guitare depuis mes 4 ans. Les Red Hot Chili Peppers m&apos;ont beaucoup
+                            influencé, notamment John Frusciante. J&apos;ai pu jouer dans 2 concerts.
                         </p>
                     </div>
                     <div className="rounded-md border bg-card p-4 shadow-sm">
@@ -114,7 +114,7 @@ export default async function About() {
                         <Code
                             className="w-2/6 h-2/6 m-auto"/>
                         <p className="mt-2 text-muted-foreground">
-                            J'ai des projets de développement pendant mon temps libre pour découvrir un peu les
+                            J&apos;ai des projets de développement pendant mon temps libre pour découvrir un peu les
                             différents langages de programmations que vous retrouverez sur ce portfolio.
                         </p>
                     </div>
