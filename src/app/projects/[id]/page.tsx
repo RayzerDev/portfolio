@@ -7,7 +7,7 @@ export async function generateStaticParams() {
   const projects = await dataSingleton.getProjectsData();
 
   return projects.map(project => ({
-    params: { id: project.id }
+    id: project.id
   }));
 }
 
