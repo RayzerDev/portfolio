@@ -83,36 +83,32 @@ export default async function About() {
             <section className="mb-12">
                 <h2 className="text-3xl font-bold tracking-tight text-foreground">Passions</h2>
                 <div className="mt-6 grid grid-cols-2 gap-4">
-                    <div className="rounded-md border bg-card p-4 shadow-sm">
+                    <div className="rounded-md border bg-card p-4 shadow-sm max-h-[200px]">
                         <h3 className="text-lg font-semibold text-foreground">Sport</h3>
-                        <Dumbbell
-                            className="w-2/6 h-2/6 m-auto"/>
+                        <Dumbbell className="w-2/6 h-2/6 m-auto"/>
                         <p className="mt-2 text-muted-foreground">
                             J&apos;aime tout type de sports. Je pratique de la musculation, le foot, et le Jiu-Jitsu.
                             J&apos;ai déjà réalisé 2 compétitions régionales.
                         </p>
                     </div>
-                    <div className="rounded-md border bg-card p-4 shadow-sm">
+                    <div className="rounded-md border bg-card p-4 shadow-sm max-h-[200px]">
                         <h3 className="text-lg font-semibold text-foreground">Guitare</h3>
-                        <Guitar
-                            className="w-2/6 h-2/6 m-auto"/>
+                        <Guitar className="w-2/6 h-2/6 m-auto"/>
                         <p className="mt-2 text-muted-foreground">
                             Je fais de la guitare depuis mes 4 ans. Les Red Hot Chili Peppers m&apos;ont beaucoup
                             influencé, notamment John Frusciante. J&apos;ai pu jouer dans 2 concerts.
                         </p>
                     </div>
-                    <div className="rounded-md border bg-card p-4 shadow-sm">
+                    <div className="rounded-md border bg-card p-4 shadow-sm max-h-[200px]">
                         <h3 className="text-lg font-semibold text-foreground">Jeux</h3>
-                        <Gamepad
-                            className="w-2/6 h-2/6 m-auto"/>
+                        <Gamepad className="w-2/6 h-2/6 m-auto"/>
                         <p className="mt-2 text-muted-foreground">
                             Je joue aussi à des jeux comme Rainbow Six Siege, Ready or Not et FIFA.
                         </p>
                     </div>
-                    <div className="rounded-md border bg-card p-4 shadow-sm">
+                    <div className="rounded-md border bg-card p-4 shadow-sm max-h-[200px]">
                         <h3 className="text-lg font-semibold text-foreground">Jeux</h3>
-                        <Code
-                            className="w-2/6 h-2/6 m-auto"/>
+                        <Code className="w-2/6 h-2/6 m-auto"/>
                         <p className="mt-2 text-muted-foreground">
                             J&apos;ai des projets de développement pendant mon temps libre pour découvrir un peu les
                             différents langages de programmations que vous retrouverez sur ce portfolio.
