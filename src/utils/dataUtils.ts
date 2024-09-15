@@ -8,7 +8,6 @@ interface Projet {
     categorie: string;
     description: string;
     competenceIds: string[];
-    previewLink?: string;
     githubLink?: string;
     skills: Competence[];
 }
@@ -72,6 +71,22 @@ class DataSingleton {
             await this.loadData('skills.json', 'skills');
         }
         return this.data.skills;
+    }
+
+    public async groupProjectsByCategory() {
+        const groupedProjects: { [categorie: string]: Projet[] } = {};
+
+        (await this.getProjectsData()).forEach(project => {
+            const { categorie } = project;
+
+            if (!groupedProjects[categorie]) {
+                groupedProjects[categorie] = [];
+            }
+
+            groupedProjects[categorie].push(project);
+        });
+
+        return groupedProjects;
     }
 
     public async groupSkillsByCategory() {
