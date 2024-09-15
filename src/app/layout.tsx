@@ -25,7 +25,7 @@ export default function RootLayout({
         <div className="container mx-auto flex items-center justify-between">
           <div className="flex items-center gap-4">
             <Avatar className="h-12 w-12">
-              <AvatarImage src="/logoDark.png" alt="LK" />
+              <AvatarImage src="/portfolio/logoDark.png" alt="LK" />
             </Avatar>
             <div className="space-y-1">
               <h1 className="text-2xl font-bold">Louis Karamucki</h1>

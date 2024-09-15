@@ -13,7 +13,7 @@ export default async function Projects() {
                             {skills.map((skill: any) => (
                                 <div key={skill.id} className="flex-col text-center">
                                     <Image
-                                        src={`/${skill.image}`}
+                                        src={`/portfolio/${skill.image}`}
                                         alt={skill.nom}
                                         width={100}
                                         height={100}

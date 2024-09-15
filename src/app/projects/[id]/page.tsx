@@ -24,7 +24,7 @@ export default async function Project({ params }: { params: { id: string } }) {
       <div className="container mx-auto py-12 px-4 md:px-6 lg:px-8">
         <Card>
           <CardHeader>
-            <Image src={`${project.image}`}  alt={project.nom} width={500} height={500} />
+            <Image src={`/portfolio${project.image}`}  alt={project.nom} width={500} height={500} />
             <h2>{project.nom}</h2>
           </CardHeader>
           <CardContent>
