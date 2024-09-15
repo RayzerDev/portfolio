@@ -1,38 +1,48 @@
 import Image from "next/image";
+import Link from "next/link";
 import DataSingleton from "@/utils/dataUtils";
-import {Card, CardContent, CardFooter, CardHeader} from "@/components/ui/card";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Github, ExternalLink } from "lucide-react";
 
 export default async function Projects() {
-
-    const projects = await DataSingleton.getInstance().getProjectsData();
+    const groupedProjects = await DataSingleton.getInstance().groupProjectsByCategory();
 
     return (
         <div className="container mx-auto py-12 px-4 md:px-6 lg:px-8">
             <section className="mb-12">
-                <h1 className="text-5xl font-bold tracking-tight text-foreground">Projets</h1>
-                {projects?.map((projet: any) => (
-                    <Card key={projet.id}>
-                        <CardHeader>
-                            <Image src={`/portfolio${projet.image}`} alt={projet.nom} width={500} height={500}/>
-                            <h2>{projet.nom}</h2>
-                        </CardHeader>
-                        <CardContent>
-                            <p>{projet.description}</p>
-                            <p>Techs: {projet.skills.map((skill: any) => skill.nom).join(', ')}</p>
-                        </CardContent>
-                        <CardFooter>
-                            {projet.previewLink && (
-                                <a href={projet.previewLink} target="_blank" rel="noopener noreferrer">
-                                    Preview
-                                </a>
-                            )}
-                            {projet.githubLink && (
-                                <a href={projet.githubLink} target="_blank" rel="noopener noreferrer">
-                                    GitHub
-                                </a>
-                            )}
-                        </CardFooter>
-                    </Card>
+                {Object.keys(groupedProjects).map((categorie) => (
+                    <div key={categorie} className="mb-8">
+                        <h2 className="text-4xl font-semibold text-foreground mb-4">{categorie}</h2>
+                        <div className="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            {groupedProjects[categorie].map((projet) => (
+                                <Card key={projet.id}>
+                                    <CardTitle>{projet.nom}</CardTitle>
+                                    <CardHeader>
+                                        <Image src={`/portfolio${projet.image}`} alt={projet.nom} width={500} height={500} />
+                                    </CardHeader>
+                                    <CardContent>
+                                        <p>{projet.description}</p>
+                                        <div className="mt-2.5">Techs: {projet.skills.map((skill) => (
+                                            <span key={skill.id}
+                                                  className="inline-flex items-center rounded-full bg-primary px-2 py-1 text-sm font-medium text-primary-foreground mr-1">{skill.nom}</span>
+                                        ))}</div>
+                                    </CardContent>
+                                    <CardFooter className="flex justify-between">
+                                        <Link href={`/projects/${projet.id}`} className="text-foreground hover:underline flex items-center">
+                                            <ExternalLink className="w-4 h-4 mr-1" />
+                                            Voir le projet
+                                        </Link>
+                                        {projet.githubLink && (
+                                            <Link href={projet.githubLink} className="text-foreground hover:underline flex items-center">
+                                                <Github className="w-4 h-4 mr-1" />
+                                                GitHub
+                                            </Link>
+                                        )}
+                                    </CardFooter>
+                                </Card>
+                            ))}
+                        </div>
+                    </div>
                 ))}
             </section>
         </div>
