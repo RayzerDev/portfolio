@@ -13,7 +13,7 @@ export default async function Projects() {
                 {projects?.map((projet: any) => (
                     <Card key={projet.id}>
                         <CardHeader>
-                            <Image src={"/" + projet.image} alt={projet.nom} width={500} height={500}/>
+                            <Image src={projet.image} alt={projet.nom} width={500} height={500}/>
                             <h2>{projet.nom}</h2>
                         </CardHeader>
                         <CardContent>

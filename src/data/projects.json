@@ -2,7 +2,7 @@
     {
       "id": "1",
       "nom": "Portfolio",
-      "image": "images/projects/20231224123810.png",
+      "image": "/images/projects/20231224123810.png",
       "categorie": "Projet Personnel",
       "description": "C'est un projet personnel que j'ai développé afin de montrer mes compétences, mes projects en tant que développeur.",
       "techs": "HTML/CSS/JS, Laravel",
@@ -15,7 +15,7 @@
     {
       "id": "2",
       "nom": "PurpleOctopus",
-      "image": "images/projects/20231229104046.png",
+      "image": "/images/projects/20231229104046.png",
       "categorie": "Projet Personnel",
       "description": "C'est l'un de mes premiers projects personnels. Il gère les membres de mon serveur discord en y ajoutant des rôles par rapport aux jeux. Il enregistre également dans une BDD l'ID Clash Royale des membres pour visualiser les prochains coffres.",
       "techs": "NodeJS, MariaDB, Debian, API",
@@ -28,7 +28,7 @@
     {
       "id": "3",
       "nom": "Flatcraft",
-      "image": "images/projects/20231207221234.png",
+      "image": "/images/projects/20231207221234.png",
       "categorie": "Projet Scolaire",
       "description": "Flatcraft est un jeu inspiré de Minecraft, mais en 2D. Nous devions rajouter au fur et à mesure des fonctionnalités comme la création du sous sol, la gestion de plusieurs dimensions en utilisant des patrons de conceptions.",
       "techs": "Java",
@@ -41,7 +41,7 @@
     {
       "id": "4",
       "nom": "RayTracer",
-      "image": "images/projects/20231229105812.png",
+      "image": "/images/projects/20231229105812.png",
       "categorie": "Projet Scolaire",
       "description": "C'est un projet réalisé en équipe de 4 sur une semaine. Nous devions à partir d'un fichier texte retourner une image avec un système de lumière, d'ombrage et de couleur. Le but du projet était d'implémenter des patrons de conception en Java.",
       "techs": "Java",
@@ -54,7 +54,7 @@
     {
       "id": "5",
       "nom": "ReadMe",
-      "image": "images/projects/20231224120617.png",
+      "image": "/images/projects/20231224120617.png",
       "categorie": "Projet Scolaire",
       "description": "ReadMe est un site permettant de lire des histoires dont le contenu dépend du choix du lecteur. A chaque étape, le lecteur a ainsi le choix entre plusieurs possibilités lui donnant accès à diverses suites possibles. Notre équipe “Front_2_Back”, était composée de 4 étudiants informatiques, et 5 en multimédia. Nous avions 2 jours.",
       "techs": "PHP, Laravel",
@@ -67,7 +67,7 @@
     {
       "id": "6",
       "nom": "RayTracer WebSite",
-      "image": "images/projects/20231229132951.png",
+      "image": "/images/projects/20231229132951.png",
       "categorie": "Projet Scolaire",
       "description": "Ce projet vient en complément du RayTracer en Java. Nous devions réaliser un site web pour publier des images de RayTracer, avec la possibilité de commenter ou de noter ces images. Nous avions 2 jours en groupe de 4 pour réaliser ce site.",
       "techs": "PHP, Laravel",
