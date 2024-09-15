@@ -4,9 +4,11 @@ import path from 'path';
 interface Projet {
     id: string;
     nom: string;
-    image: string;
-    categorie: string;
+    imagePreview: string;
+    images: string[];
+    category: string;
     description: string;
+    shortDescription: string;
     competenceIds: string[];
     githubLink?: string;
     skills: Competence[];
@@ -74,16 +76,16 @@ class DataSingleton {
     }
 
     public async groupProjectsByCategory() {
-        const groupedProjects: { [categorie: string]: Projet[] } = {};
+        const groupedProjects: { [category: string]: Projet[] } = {};
 
         (await this.getProjectsData()).forEach(project => {
-            const { categorie } = project;
+            const { category } = project;
 
-            if (!groupedProjects[categorie]) {
-                groupedProjects[categorie] = [];
+            if (!groupedProjects[category]) {
+                groupedProjects[category] = [];
             }
 
-            groupedProjects[categorie].push(project);
+            groupedProjects[category].push(project);
         });
 
         return groupedProjects;

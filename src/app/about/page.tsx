@@ -24,7 +24,7 @@ export default async function About() {
                             <div key={experience.id} className="rounded-md border bg-card p-4 shadow-sm">
                                 <div className="flex items-center justify-between">
                                     <div>
-                                        <h3 className="text-xl font-semibold text-foreground">{experience.nom}</h3>
+                                        <h3 className="text-lg font-semibold text-foreground">{experience.nom}</h3>
                                         <span
                                             className="inline-flex items-center rounded-full bg-primary px-2 py-1 text-sm font-medium text-primary-foreground">{experience.type}</span>
                                     </div>
@@ -82,7 +82,7 @@ export default async function About() {
                 <div className="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-4 ">
                     <Card>
                         <CardTitle>Sport</CardTitle>
-                        <CardHeader><Dumbbell className="w-2/6 h-2/6 m-auto"/></CardHeader>
+                        <CardHeader><Dumbbell className="w-12 h-12 m-auto"/></CardHeader>
                         <CardContent>
                             J&apos;aime tout type de sports. Je pratique de la musculation, le foot, et le Jiu-Jitsu.
                             J&apos;ai déjà réalisé 2 compétitions régionales.
@@ -90,7 +90,7 @@ export default async function About() {
                     </Card>
                     <Card>
                         <CardTitle>Guitare</CardTitle>
-                        <CardHeader><Guitar className="w-2/6 h-2/6 m-auto"/></CardHeader>
+                        <CardHeader><Guitar className="w-12 h-12 m-auto"/></CardHeader>
                         <CardContent>
                             Je fais de la guitare depuis mes 4 ans. Les Red Hot Chili Peppers m&apos;ont beaucoup
                             influencé, notamment John Frusciante. J&apos;ai pu jouer dans 2 concerts.
@@ -99,7 +99,7 @@ export default async function About() {
                     <Card>
                         <CardTitle>Jeux</CardTitle>
                         <CardHeader>
-                            <Gamepad className="w-2/6 h-2/6 m-auto"/>
+                            <Gamepad className="w-12 h-12 m-auto"/>
                         </CardHeader>
                         <CardContent>
                             Je joue aussi à des jeux comme Rainbow Six Siege, Ready or Not et FIFA.
@@ -108,7 +108,7 @@ export default async function About() {
                     <Card>
                         <CardTitle>Informatique</CardTitle>
                         <CardHeader>
-                            <Code className="w-2/6 h-2/6 m-auto"/>
+                            <Code className="w-12 h-12 m-auto"/>
                         </CardHeader>
                         <CardContent>
                             J&apos;ai des projets de développement pendant mon temps libre pour découvrir un peu les

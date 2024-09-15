@@ -18,10 +18,10 @@ export default async function Projects() {
                                 <Card key={projet.id}>
                                     <CardTitle>{projet.nom}</CardTitle>
                                     <CardHeader>
-                                        <Image src={`/portfolio${projet.image}`} alt={projet.nom} width={500} height={500} />
+                                        <Image src={`/portfolio${projet.imagePreview}`} alt={projet.nom} width={500} height={500} />
                                     </CardHeader>
                                     <CardContent>
-                                        <p>{projet.description}</p>
+                                        <p>{projet.shortDescription}</p>
                                         <div className="mt-2.5">Techs: {projet.skills.map((skill) => (
                                             <span key={skill.id}
                                                   className="inline-flex items-center rounded-full bg-primary px-2 py-1 text-sm font-medium text-primary-foreground mr-1">{skill.nom}</span>
