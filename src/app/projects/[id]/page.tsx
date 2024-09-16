@@ -19,7 +19,7 @@ export default async function Project({ params }: { params: { id: string } }) {
     const project = projects.find(p => p.id === params.id);
 
     if (!project) {
-        return <div>Project not found</div>;
+        return <div>Projet non trouvé</div>;
     }
 
     return (
@@ -70,6 +70,9 @@ export default async function Project({ params }: { params: { id: string } }) {
                             ))}
                         </div>
                     </div>
+                    <Link href="/projects" className="mt-4 text-primary-foreground hover:underline">
+                        &larr; Retour aux projets
+                    </Link>
                 </div>
             </div>
         </section>
