@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import DataSingleton from "@/utils/dataUtils";
-import {GithubIcon} from "lucide-react";
-import {Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious} from "@/components/ui/carousel";
+import { GithubIcon } from "lucide-react";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
 export async function generateStaticParams() {
     const dataSingleton = DataSingleton.getInstance();
@@ -13,7 +13,7 @@ export async function generateStaticParams() {
     }));
 }
 
-export default async function Project({params}: { params: { id: string } }) {
+export default async function Project({ params }: { params: { id: string } }) {
     const dataSingleton = DataSingleton.getInstance();
     const projects = await dataSingleton.getProjectsData();
     const project = projects.find(p => p.id === params.id);
@@ -24,8 +24,8 @@ export default async function Project({params}: { params: { id: string } }) {
 
     return (
         <section className="container mx-auto py-12 px-4 md:px-6 lg:px-8 bg-card">
-            <div className="flex-col sm:flex-row gap-8 md:gap-12 px-4 md:px-6">
-                <Carousel className="mx-auto max-w-screen-md"
+            <div className="flex flex-col lg:flex-row gap-8 md:gap-12 px-4 md:px-6">
+                <Carousel className="flex w-full max-w-[250px] sm:max-w-sm mx-auto"
                           opts={{
                               loop: true,
                           }}>
@@ -44,25 +44,24 @@ export default async function Project({params}: { params: { id: string } }) {
                     <CarouselPrevious/>
                     <CarouselNext/>
                 </Carousel>
-                <div className="grid gap-6">
+                <div className="lg:ml-10 flex flex-col gap-6">
                     <h2 className="text-3xl font-bold tracking-tighter">{project.nom}</h2>
-                    <div className="grid gap-2">
+                    <div className="flex flex-col gap-2">
                         <h2 className="text-xl font-bold">Description</h2>
                         <p className="text-muted-foreground">
                             {project.description}
                         </p>
                     </div>
                     {project.githubLink && (
-                        <div className="grid gap-2">
+                        <div className="flex flex-col gap-2">
                             <h2 className="text-xl font-bold">Dépôt GitHub</h2>
-                            <Link href={project.githubLink} className="flex items-center gap-2 text-foreground"
-                                  prefetch={false}>
-                                <GithubIcon className="w-5 h-5"/>
-                                {project.githubLink}
+                            <Link href={project.githubLink} className="flex items-center gap-2 text-foreground break-words" prefetch={false}>
+                                <GithubIcon className="w-5 h-5" />
+                                <span className="break-all">{project.githubLink}</span>
                             </Link>
                         </div>
                     )}
-                    <div className="grid gap-2">
+                    <div className="flex flex-col gap-2">
                         <h2 className="text-xl font-bold">Technologies utilisées</h2>
                         <div className="flex flex-wrap gap-2">
                             {project.skills.map((skill) => (

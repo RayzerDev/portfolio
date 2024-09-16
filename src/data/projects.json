@@ -8,7 +8,7 @@
       "shortDescription": "Site WEB type portfolio pour montrer mes compétences et mes projets.",
       "githubLink": "https://www.github.com/RayzerDev/PortfolioHTML",
       "competenceIds": ["3", "4", "6", "8"],
-      "images": ["/images/projects/20231224123810.png","/images/projects/20231224123810.png","/images/projects/20231224123810.png"]
+      "images": ["/images/projects/20231224123810.png"]
     },
     {
       "id": "2",
@@ -19,7 +19,7 @@
       "shortDescription": "1 er projet personnel. Gestion des membres de mon serveur discord. Enregistrement de l'ID Clash Royale des membres pour visualiser les prochains coffres.",
       "githubLink": "https://github.com/RayzerDev/PurpleOctopus",
       "competenceIds": ["11", "9", "19"],
-      "images": ["/images/projects/20231224123810.png","/images/projects/20231224123810.png","/images/projects/20231224123810.png"]
+      "images": ["/images/projects/20231229104046.png"]
     },
     {
       "id": "3",
@@ -30,7 +30,7 @@
       "shortDescription": "Jeu inspiré de Minecraft, mais en 2D. Rajout de fonctionnalités au fur et à mesure.",
       "githubLink": "https://github.com/RayzerDev/Flatcraft",
       "competenceIds": ["12"],
-      "images": ["/images/projects/20231224123810.png","/images/projects/20231224123810.png","/images/projects/20231224123810.png"]
+      "images": ["/images/projects/20231207221234.png"]
     },
     {
       "id": "4",
@@ -41,7 +41,7 @@
       "shortDescription": "Projet réalisé en équipe de 4 sur une semaine, sur un RayTracer en Java.",
       "githubLink": "https://github.com/RayzerDev/RayTracer",
       "competenceIds": ["12"],
-      "images": ["/images/projects/20231224123810.png","/images/projects/20231224123810.png","/images/projects/20231224123810.png"]
+      "images": ["/images/projects/20231229105812.png"]
     },
     {
       "id": "5",
@@ -52,7 +52,7 @@
       "shortDescription": "Site web pour lire des histoires dont le contenu dépend du choix du lecteur.",
       "githubLink": "https://github.com/RayzerDev/ReadMeWebSite",
       "competenceIds": ["7", "8"],
-      "images": ["/images/projects/20231224123810.png","/images/projects/20231224123810.png","/images/projects/20231224123810.png"]
+      "images": ["/images/projects/20231224120617.png"]
     },
     {
       "id": "6",
@@ -63,6 +63,6 @@
       "shortDescription": "Site web pour publier des images de RayTracer, avec la possibilité de commenter ou de noter ces images.",
       "githubLink": "https://github.com/RayzerDev/RayTracer-WebSite",
       "competenceIds": ["7", "8"],
-      "images": ["/images/projects/20231224123810.png","/images/projects/20231224123810.png","/images/projects/20231224123810.png"]
+      "images": ["/images/projects/20231229132951.png"]
     }
 ]
