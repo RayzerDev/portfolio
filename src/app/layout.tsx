@@ -27,8 +27,8 @@ export default function RootLayout({
           <div className="flex items-center gap-4">
             <Link href="/" className="text-lg font-medium hover:scale-110 transition" prefetch={false}>
               <Image src="/portfolio/logoWhite.png" alt="LK"
-                     width={175}
-                     height={175}/>
+                     width={150}
+                     height={150}/>
             </Link>
           </div>
           <nav className="flex items-center gap-4 flex-wrap justify-center ml-8">
