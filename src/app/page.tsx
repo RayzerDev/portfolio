@@ -7,7 +7,7 @@ export default function Home() {
               <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_550px]">
                   <div className="flex flex-col justify-center space-y-4">
                       <div className="space-y-2">
-                          <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">Louis Karamucki</h1>
+                          <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none text-secondary">Louis Karamucki</h1>
                           <p className="max-w-[600px] text-muted-foreground md:text-xl">
                               En 3ème année de BUT Informatique.
                               Découvrez mon parcours, mes compétences ainsi que mes projets.

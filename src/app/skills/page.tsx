@@ -8,7 +8,7 @@ export default async function Projects() {
             <section className="flex-row mb-12">
                 {Object.entries(groupedSkills).map(([category, skills]) => (
                     <div key={category} className="flex-col mb-8">
-                        <h2 className="text-3xl font-bold tracking-tight text-foreground mb-2">{category}</h2>
+                        <h2 className="text-3xl font-bold tracking-tight text-secondary mb-2">{category}</h2>
                         <div className="flex flex-wrap gap-4 justify-center">
                             {skills.map((skill: any) => (
                                 <div key={skill.id} className="flex-col text-center">

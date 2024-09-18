@@ -11,17 +11,17 @@ export default async function About() {
     return (
         <div className="container mx-auto py-12 px-4 md:px-6 lg:px-8">
             <section className="mb-12">
-                <h2 className="text-3xl font-bold tracking-tight text-foreground">A propos</h2>
+                <h2 className="text-3xl font-bold tracking-tight text-secondary">A propos</h2>
                 <p className="mt-4 max-w-[700px] text-muted-foreground md:text-xl">
                     Je suis Louis KARAMUCKI. Je suis développeur logiciel chez Lenrek Informatique en alternance,
                     tout en suivant un BUT Informatique à Lens jusqu&apos;en 2025.
                 </p>
             </section>
             <section className="mb-12">
-                <h2 className="text-3xl font-bold tracking-tight text-foreground">Expériences Professionnelles</h2>
+                <h2 className="text-3xl font-bold tracking-tight text-secondary">Expériences Professionnelles</h2>
                 <div className="mt-6 grid gap-6">
                     {workExperiences.map((experience => (
-                            <div key={experience.id} className="rounded-md border bg-card p-4 shadow-sm">
+                            <div key={experience.id} className="rounded-md border bg-card p-4 shadow-sm border-border">
                                 <div className="flex items-center justify-between">
                                     <div>
                                         <h3 className="text-lg font-semibold text-foreground">{experience.nom}</h3>
@@ -50,7 +50,7 @@ export default async function About() {
                 </div>
             </section>
             <section className="mb-12">
-                <h2 className="text-3xl font-bold tracking-tight text-foreground">Diplômes</h2>
+                <h2 className="text-3xl font-bold tracking-tight text-secondary">Diplômes</h2>
                 <div className="mt-6 grid gap-6">
                     {degrees.map((degree => (
                             <div key={degree.id} className="rounded-md border bg-card p-4 shadow-sm">
@@ -79,11 +79,11 @@ export default async function About() {
                 </div>
             </section>
             <section className="mb-12">
-                <h2 className="text-3xl font-bold tracking-tight text-foreground">Passions</h2>
+                <h2 className="text-3xl font-bold tracking-tight text-secondary">Passions</h2>
                 <div className="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-4 ">
                     <Card>
                         <CardTitle>Sport</CardTitle>
-                        <CardHeader><Dumbbell className="w-12 h-12 m-auto"/></CardHeader>
+                        <CardHeader><Dumbbell className="w-12 h-12 m-auto text-secondary"/></CardHeader>
                         <CardContent>
                             J&apos;aime tout type de sports. Je pratique de la musculation, le foot, et le Jiu-Jitsu.
                             J&apos;ai déjà réalisé 2 compétitions régionales.
@@ -91,7 +91,7 @@ export default async function About() {
                     </Card>
                     <Card>
                         <CardTitle>Guitare</CardTitle>
-                        <CardHeader><Guitar className="w-12 h-12 m-auto"/></CardHeader>
+                        <CardHeader><Guitar className="w-12 h-12 m-auto text-secondary"/></CardHeader>
                         <CardContent>
                             Je fais de la guitare depuis mes 4 ans. Les Red Hot Chili Peppers m&apos;ont beaucoup
                             influencé, notamment John Frusciante. J&apos;ai pu jouer dans 2 concerts.
@@ -100,7 +100,7 @@ export default async function About() {
                     <Card>
                         <CardTitle>Jeux</CardTitle>
                         <CardHeader>
-                            <Gamepad className="w-12 h-12 m-auto"/>
+                            <Gamepad className="w-12 h-12 m-auto text-secondary"/>
                         </CardHeader>
                         <CardContent>
                             Je joue aussi à des jeux comme Rainbow Six Siege, Ready or Not et FIFA.
@@ -109,7 +109,7 @@ export default async function About() {
                     <Card>
                         <CardTitle>Informatique</CardTitle>
                         <CardHeader>
-                            <Code className="w-12 h-12 m-auto"/>
+                            <Code className="w-12 h-12 m-auto text-secondary"/>
                         </CardHeader>
                         <CardContent>
                             J&apos;ai des projets de développement pendant mon temps libre pour découvrir un peu les

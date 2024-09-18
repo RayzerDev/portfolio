@@ -12,11 +12,11 @@ export default async function Projects() {
             <section className="mb-12">
                 {Object.keys(groupedProjects).map((categorie) => (
                     <div key={categorie} className="mb-8">
-                        <h2 className="text-4xl font-semibold text-foreground mb-4">{categorie}</h2>
+                        <h2 className="text-4xl font-semibold text-secondary mb-4">{categorie}</h2>
                         <div className="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
                             {groupedProjects[categorie].map((projet) => (
                                 <Card key={projet.id}>
-                                    <CardTitle>{projet.nom}</CardTitle>
+                                    <CardTitle className="text-secondary">{projet.nom}</CardTitle>
                                     <CardHeader>
                                         <Image src={`/portfolio${projet.imagePreview}`} alt={projet.nom} width={500} height={500} />
                                     </CardHeader>
