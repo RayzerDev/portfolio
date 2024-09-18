@@ -39,9 +39,6 @@ export default function RootLayout({
                 </Link>
               </div>
               <nav className="flex items-center gap-4 flex-wrap justify-center ml-8">
-                <Link href="/about" className="text-lg font-medium hover:scale-110 transition" prefetch={false}>
-                  A propos
-                </Link>
                 <Link href="/skills" className="text-lg font-medium hover:scale-110 transition" prefetch={false}>
                   Compétences
                 </Link>
