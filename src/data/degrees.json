@@ -5,8 +5,8 @@
       "type": "Etudiant",
       "ecole": "IUT de Lens",
       "ville": "Lens",
-      "debut": "09/2022",
-      "fin": "07/2025"
+      "debut": "09/22",
+      "fin": "07/25"
     },
     {
       "id": "2",
@@ -14,7 +14,7 @@
       "type": "Lycéen",
       "ecole": "Lycée Pasteur",
       "ville": "Hénin-Beaumont",
-      "debut": "09/2020",
-      "fin": "07/2022"
+      "debut": "09/20",
+      "fin": "07/22"
     }
 ]

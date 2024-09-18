@@ -28,7 +28,7 @@ export default async function About() {
                                         <span
                                             className="inline-flex items-center rounded-full bg-primary px-2 py-1 text-sm font-medium text-primary-foreground">{experience.type}</span>
                                     </div>
-                                    <div className="text-right">
+                                    <div className="text-right whitespace-nowrap w-[150px]">
                                         <p className="text-sm text-muted-foreground flex items-center">
                                             <CalendarIcon
                                                 className="mr-1 h-4 w-4 text-muted-foreground"/>
@@ -60,7 +60,7 @@ export default async function About() {
                                         <span
                                             className="inline-flex items-center rounded-full bg-primary px-2 py-1 text-sm font-medium text-primary-foreground">{degree.type}</span>
                                     </div>
-                                    <div className="text-right">
+                                    <div className="text-right whitespace-nowrap w-[150px]">
                                         <p className="text-sm text-muted-foreground flex items-center">
                                             <CalendarIcon className="mr-1 h-4 w-4 text-muted-foreground"/>
                                             {degree.debut} - {degree.fin}</p>
