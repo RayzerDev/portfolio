@@ -22,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-      <html lang="fr" suppressHydrationWarning>
+      <html lang="fr">
       <body>
       <ThemeProvider
           attribute="class"
