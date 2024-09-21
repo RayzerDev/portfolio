@@ -111,14 +111,14 @@ class DataSingleton {
         if (this.data.workExperiences.length === 0) {
             await this.loadData('work_experiences.json', 'workExperiences');
         }
-        return this.data.workExperiences;
+        return this.data.workExperiences.sort((a, b) => new Date(b.fin).getTime() - new Date(a.fin).getTime());
     }
 
     public async getDegreesData() {
         if (this.data.degrees.length === 0) {
             await this.loadData('degrees.json', 'degrees');
         }
-        return this.data.degrees;
+        return this.data.degrees.sort((a, b) => new Date(b.fin).getTime() - new Date(a.fin).getTime());
     }
 
     private async getSkillsByProjectId(skillIds: string[]) {
