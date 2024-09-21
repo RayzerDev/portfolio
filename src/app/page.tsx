@@ -55,7 +55,7 @@ export default async function Home() {
                             <div key={degree.id} className="rounded-md border bg-card p-4 shadow-sm">
                                 <div className="flex items-center justify-between">
                                     <div>
-                                        <h3 className="text-xl font-semibold text-foreground">{degree.nom}</h3>
+                                        <h3 className="text-lg font-semibold text-foreground">{degree.nom}</h3>
                                         <span
                                             className="inline-flex items-center rounded-full bg-primary px-2 py-1 text-sm font-medium text-primary-foreground">{degree.type}</span>
                                     </div>
