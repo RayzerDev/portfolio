@@ -111,14 +111,14 @@ class DataSingleton {
         if (this.data.workExperiences.length === 0) {
             await this.loadData('work_experiences.json', 'workExperiences');
         }
-        return this.data.workExperiences.sort((a, b) => new Date(b.fin).getTime() - new Date(a.fin).getTime());
+        return this.data.workExperiences.sort((a, b) => this.parseDate(b.fin).getTime() - this.parseDate(a.fin).getTime());
     }
 
     public async getDegreesData() {
         if (this.data.degrees.length === 0) {
             await this.loadData('degrees.json', 'degrees');
         }
-        return this.data.degrees.sort((a, b) => new Date(b.fin).getTime() - new Date(a.fin).getTime());
+        return this.data.degrees.sort((a, b) => this.parseDate(b.fin).getTime() - this.parseDate(a.fin).getTime());
     }
 
     private async getSkillsByProjectId(skillIds: string[]) {
@@ -127,6 +127,11 @@ class DataSingleton {
         }
 
         return this.data.skills?.filter(c => skillIds.includes(c.id)) || [];
+    }
+
+    private parseDate(dateStr: string): Date {
+        const [month, year] = dateStr.split('/').map(Number);
+        return new Date(year, month - 1);
     }
 }
 
