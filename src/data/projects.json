@@ -2,7 +2,7 @@
     {
       "id": "1",
       "nom": "Portfolio",
-      "imagePreview": "/images/projects/20231224123810.png",
+      "imagePreview": "/images/projects/20231224123810.jpg",
       "category": "Projet Personnel",
       "description": "C'est un projet personnel que j'ai développé afin de montrer mes compétences, mes projects en tant que développeur.",
       "shortDescription": "Site WEB type portfolio pour montrer mes compétences et mes projets.",
@@ -24,7 +24,7 @@
     {
       "id": "3",
       "nom": "Flatcraft",
-      "imagePreview": "/images/projects/20231207221234.png",
+      "imagePreview": "/images/projects/20231207221234.jpg",
       "category": "Projet Scolaire",
       "description": "Flatcraft est un jeu inspiré de Minecraft, mais en 2D. Nous devions rajouter au fur et à mesure des fonctionnalités comme la création du sous sol, la gestion de plusieurs dimensions en utilisant des patrons de conceptions.",
       "shortDescription": "Jeu inspiré de Minecraft, mais en 2D. Rajout de fonctionnalités au fur et à mesure.",
@@ -35,7 +35,7 @@
     {
       "id": "4",
       "nom": "RayTracer",
-      "imagePreview": "/images/projects/20231229105812.png",
+      "imagePreview": "/images/projects/20231229105812.jpg",
       "category": "Projet Scolaire",
       "description": "C'est un projet réalisé en équipe de 4 sur une semaine. Nous devions à partir d'un fichier texte retourner une image avec un système de lumière, d'ombrage et de couleur. Le but du projet était d'implémenter des patrons de conception en Java.",
       "shortDescription": "Projet réalisé en équipe de 4 sur une semaine, sur un RayTracer en Java.",
@@ -46,7 +46,7 @@
     {
       "id": "5",
       "nom": "ReadMe",
-      "imagePreview": "/images/projects/20231224120617.png",
+      "imagePreview": "/images/projects/20231224120617.jpg",
       "category": "Projet Scolaire",
       "description": "ReadMe est un site permettant de lire des histoires dont le contenu dépend du choix du lecteur. A chaque étape, le lecteur a ainsi le choix entre plusieurs possibilités lui donnant accès à diverses suites possibles. Notre équipe “Front_2_Back”, était composée de 4 étudiants informatiques, et 5 en multimédia. Nous avions 2 jours.",
       "shortDescription": "Site web pour lire des histoires dont le contenu dépend du choix du lecteur.",
@@ -57,7 +57,7 @@
     {
       "id": "6",
       "nom": "RayTracer WebSite",
-      "imagePreview": "/images/projects/20231229132951.png",
+      "imagePreview": "/images/projects/20231229132951.jpg",
       "category": "Projet Scolaire",
       "description": "Ce projet vient en complément du RayTracer en Java. Nous devions réaliser un site web pour publier des images de RayTracer, avec la possibilité de commenter ou de noter ces images. Nous avions 2 jours en groupe de 4 pour réaliser ce site.",
       "shortDescription": "Site web pour publier des images de RayTracer, avec la possibilité de commenter ou de noter ces images.",

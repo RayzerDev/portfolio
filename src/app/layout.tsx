@@ -35,7 +35,7 @@ export default function RootLayout({
             <div className="container mx-auto flex items-center justify-between">
               <div className="flex items-center gap-4">
                 <Link href="/" className="text-lg font-medium hover:scale-110 transition" prefetch={false}>
-                  <Image src="/portfolio/logo.png" alt="LK" width={150} height={150} />
+                  <Image src="/portfolio/logo.svg" alt="LK" width={160} height={160} />
                 </Link>
               </div>
               <nav className="flex items-center gap-4 flex-wrap justify-center ml-8">
@@ -49,10 +49,10 @@ export default function RootLayout({
                   Contact
                 </Link>
                 <Link href="https://github.com/RayzerDev" className="text-lg font-medium hover:scale-110 transition" prefetch={false}>
-                  <LinkedinIcon />
+                  <Github />
                 </Link>
                 <Link href="https://www.linkedin.com/in/louiskrmk/" className="text-lg font-medium hover:scale-110 transition" prefetch={false}>
-                  <Github />
+                  <LinkedinIcon />
                 </Link>
                 <ModeToggle />
               </nav>
