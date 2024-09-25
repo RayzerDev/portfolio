@@ -16,7 +16,7 @@
       "imagePreview": "/images/projects/20231229104046.png",
       "category": "Projet Personnel",
       "description": "C'est l'un de mes premiers projects personnels. Il gère les membres de mon serveur discord en y ajoutant des rôles par rapport aux jeux. Il enregistre également dans une BDD l'ID Clash Royale des membres pour visualiser les prochains coffres.",
-      "shortDescription": "1 er projet personnel. Gestion des membres de mon serveur discord. Enregistrement de l'ID Clash Royale des membres pour visualiser les prochains coffres.",
+      "shortDescription": "Gestion des membres de mon serveur discord. Enregistrement de l'ID Clash Royale pour visualiser ses prochains coffres.",
       "githubLink": "https://github.com/RayzerDev/PurpleOctopus",
       "competenceIds": ["11", "9", "19"],
       "images": ["/images/projects/20231229104046.png"]
