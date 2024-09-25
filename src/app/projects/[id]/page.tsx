@@ -23,46 +23,51 @@ export default async function Project({ params }: { params: { id: string } }) {
     }
 
     return (
-        <section className="container mx-auto py-12 px-4 md:px-6 lg:px-8 bg-card">
-            <div className="flex flex-col lg:flex-row gap-8 md:gap-12 px-4 md:px-6">
-                <Carousel className="flex w-full max-w-[250px] sm:max-w-sm mx-auto"
-                          opts={{
-                              loop: true,
-                          }}>
-                    <CarouselContent>
-                        {project.images.map((image, index) => (
-                            <CarouselItem key={index}>
-                                <Image
-                                    src={`/portfolio${image}`}
-                                    width={500}
-                                    height={500}
-                                    alt={`Projet ${project.nom} - Image ${index + 1}`}
-                                />
-                            </CarouselItem>
-                        ))}
-                    </CarouselContent>
-                    <CarouselPrevious/>
-                    <CarouselNext/>
-                </Carousel>
+        <section className="container mx-auto py-12 px-4 md:px-6 lg:px-8">
+            <div
+                className="border bg-card text-card-foreground shadow-sm flex flex-col xl:flex-row gap-8 md:gap-12 px-4 md:px-6 pt-5 pb-5">
+                <div className="flex flex-col w-full">
+                    <h2 className="text-3xl font-bold tracking-tighter text-secondary mb-5">{project.nom}</h2>
+                    <Carousel className="max-w-[75%] lg:max-w-[100%] m-auto lg:mx-auto"
+                              opts={{
+                                  loop: true,
+                              }}>
+                        <CarouselContent>
+                            {project.images.map((image, index) => (
+                                <CarouselItem key={index}
+                                              className="lg:pl-14">
+                                    <Image
+                                        src={`/portfolio${image}`}
+                                        width={500}
+                                        height={500}
+                                        alt={`Projet ${project.nom} - Image ${index + 1}`}
+                                    />
+                                </CarouselItem>
+                            ))}
+                        </CarouselContent>
+                        <CarouselPrevious className="lg:ml-10"/>
+                        <CarouselNext/>
+                    </Carousel>
+                </div>
                 <div className="lg:ml-10 flex flex-col gap-6">
-                    <h2 className="text-3xl font-bold tracking-tighter">{project.nom}</h2>
                     <div className="flex flex-col gap-2">
-                        <h2 className="text-xl font-bold">Description</h2>
+                        <h2 className="text-xl font-bold text-secondary">Description</h2>
                         <p className="text-muted-foreground">
                             {project.description}
                         </p>
                     </div>
                     {project.githubLink && (
                         <div className="flex flex-col gap-2">
-                            <h2 className="text-xl font-bold">Dépôt GitHub</h2>
-                            <Link href={project.githubLink} className="flex items-center gap-2 text-foreground break-words" prefetch={false}>
-                                <GithubIcon className="w-5 h-5" />
+                            <h2 className="text-xl font-bold text-secondary">Dépôt GitHub</h2>
+                            <Link href={project.githubLink}
+                                  className="flex items-center gap-2 text-foreground break-words" prefetch={false}>
+                                <GithubIcon className="w-5 h-5"/>
                                 <span className="break-all">{project.githubLink}</span>
                             </Link>
                         </div>
                     )}
                     <div className="flex flex-col gap-2">
-                        <h2 className="text-xl font-bold">Technologies utilisées</h2>
+                        <h2 className="text-xl font-bold text-secondary">Technologies utilisées</h2>
                         <div className="flex flex-wrap gap-2">
                             {project.skills.map((skill) => (
                                 <span key={skill.id}
