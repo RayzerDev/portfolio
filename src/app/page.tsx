@@ -28,18 +28,18 @@ export default async function Home() {
                                             className="inline-flex items-center rounded-full bg-primary px-2 py-1 text-sm font-medium text-primary-foreground">{experience.type}</span>
                                     </div>
                                     <div className="text-right whitespace-nowrap w-[150px]">
-                                        <p className="text-sm text-muted-foreground flex items-center">
+                                        <p className="text-sm text-primary-foreground flex items-center">
                                             <CalendarIcon
-                                                className="mr-1 h-4 w-4 text-muted-foreground"/>
+                                                className="mr-1 h-4 w-4 text-primary-foreground"/>
                                             {experience.debut} - {experience.fin}
                                         </p>
-                                        <p className="text-sm text-muted-foreground flex items-center">
+                                        <p className="text-sm text-primary-foreground flex items-center">
                                             <Building
-                                                className="mr-1 h-4 w-4 text-muted-foreground"/>{experience.entreprise}
+                                                className="mr-1 h-4 w-4 text-primary-foreground"/>{experience.entreprise}
                                         </p>
-                                        <p className="text-sm text-muted-foreground flex items-center">
+                                        <p className="text-sm text-primary-foreground flex items-center">
                                             <MapPin
-                                                className="mr-1 h-4 w-4 text-muted-foreground"/>{experience.ville}
+                                                className="mr-1 h-4 w-4 text-primary-foreground"/>{experience.ville}
                                         </p>
                                     </div>
                                 </div>
@@ -60,15 +60,15 @@ export default async function Home() {
                                             className="inline-flex items-center rounded-full bg-primary px-2 py-1 text-sm font-medium text-primary-foreground">{degree.type}</span>
                                     </div>
                                     <div className="text-right whitespace-nowrap w-[150px]">
-                                        <p className="text-sm text-muted-foreground flex items-center">
-                                            <CalendarIcon className="mr-1 h-4 w-4 text-muted-foreground"/>
+                                        <p className="text-sm text-primary-foreground flex items-center">
+                                            <CalendarIcon className="mr-1 h-4 w-4 text-primary-foreground"/>
                                             {degree.debut} - {degree.fin}</p>
-                                        <p className="text-sm text-muted-foreground flex items-center">
+                                        <p className="text-sm text-primary-foreground flex items-center">
                                             <School
-                                                className="mr-1 h-4 w-4 text-muted-foreground"/>{degree.ecole}
+                                                className="mr-1 h-4 w-4 text-primary-foreground"/>{degree.ecole}
                                         </p>
-                                        <p className="text-sm text-muted-foreground flex items-center">
-                                            <MapPin className="mr-1 h-4 w-4 text-muted-foreground"/>
+                                        <p className="text-sm text-primary-foreground flex items-center">
+                                            <MapPin className="mr-1 h-4 w-4 text-primary-foreground"/>
                                             {degree.ville}</p>
                                     </div>
                                 </div>
