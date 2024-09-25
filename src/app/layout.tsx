@@ -33,7 +33,7 @@ export default function RootLayout({
         <div className="flex flex-col min-h-[100dvh]">
           <header className="bg-primary text-foreground py-6 px-4 md:px-6 gap-4 ">
             <div className="container mx-auto flex items-center justify-between">
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-4 ml-2">
                 <Link href="/" className="text-lg font-medium hover:scale-110 transition" prefetch={false}>
                   <Image src="/portfolio/logo.svg" alt="LK" width={160} height={160} />
                 </Link>
