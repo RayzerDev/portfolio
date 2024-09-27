@@ -1,68 +1,102 @@
 [
-    {
-      "id": "1",
-      "nom": "Portfolio",
-      "imagePreview": "/images/projects/20231224123810.jpg",
-      "category": "Projet Personnel",
-      "description": "C'est un projet personnel que j'ai développé afin de montrer mes compétences, mes projects en tant que développeur.",
-      "shortDescription": "Site WEB type portfolio pour montrer mes compétences et mes projets.",
-      "githubLink": "https://www.github.com/RayzerDev/PortfolioHTML",
-      "competenceIds": ["3", "4", "6", "8"],
-      "images": ["/images/projects/20231224123810.jpg"]
-    },
-    {
-      "id": "2",
-      "nom": "PurpleOctopus",
-      "imagePreview": "/images/projects/20231229104046.png",
-      "category": "Projet Personnel",
-      "description": "C'est l'un de mes premiers projects personnels. Il gère les membres de mon serveur discord en y ajoutant des rôles par rapport aux jeux. Il enregistre également dans une BDD l'ID Clash Royale des membres pour visualiser les prochains coffres.",
-      "shortDescription": "Gestion des membres de mon serveur discord. Enregistrement de l'ID Clash Royale pour visualiser ses prochains coffres.",
-      "githubLink": "https://github.com/RayzerDev/PurpleOctopus",
-      "competenceIds": ["11", "9", "19"],
-      "images": ["/images/projects/20231229104046.png"]
-    },
-    {
-      "id": "3",
-      "nom": "Flatcraft",
-      "imagePreview": "/images/projects/20231207221234.jpg",
-      "category": "Projet Scolaire",
-      "description": "Flatcraft est un jeu inspiré de Minecraft, mais en 2D. Nous devions rajouter au fur et à mesure des fonctionnalités comme la création du sous sol, la gestion de plusieurs dimensions en utilisant des patrons de conceptions.",
-      "shortDescription": "Jeu inspiré de Minecraft, mais en 2D. Rajout de fonctionnalités au fur et à mesure.",
-      "githubLink": "https://github.com/RayzerDev/Flatcraft",
-      "competenceIds": ["12"],
-      "images": ["/images/projects/20231207221234.jpg"]
-    },
-    {
-      "id": "4",
-      "nom": "RayTracer",
-      "imagePreview": "/images/projects/20231229105812.jpg",
-      "category": "Projet Scolaire",
-      "description": "C'est un projet réalisé en équipe de 4 sur une semaine. Nous devions à partir d'un fichier texte retourner une image avec un système de lumière, d'ombrage et de couleur. Le but du projet était d'implémenter des patrons de conception en Java.",
-      "shortDescription": "Projet réalisé en équipe de 4 sur une semaine, sur un RayTracer en Java.",
-      "githubLink": "https://github.com/RayzerDev/RayTracer",
-      "competenceIds": ["12"],
-      "images": ["/images/projects/20231229105812.jpg"]
-    },
-    {
-      "id": "5",
-      "nom": "ReadMe",
-      "imagePreview": "/images/projects/20231224120617.jpg",
-      "category": "Projet Scolaire",
-      "description": "ReadMe est un site permettant de lire des histoires dont le contenu dépend du choix du lecteur. A chaque étape, le lecteur a ainsi le choix entre plusieurs possibilités lui donnant accès à diverses suites possibles. Notre équipe “Front_2_Back”, était composée de 4 étudiants informatiques, et 5 en multimédia. Nous avions 2 jours.",
-      "shortDescription": "Site web pour lire des histoires dont le contenu dépend du choix du lecteur.",
-      "githubLink": "https://github.com/RayzerDev/ReadMeWebSite",
-      "competenceIds": ["7", "8"],
-      "images": ["/images/projects/20231224120617.jpg"]
-    },
-    {
-      "id": "6",
-      "nom": "RayTracer WebSite",
-      "imagePreview": "/images/projects/20231229132951.jpg",
-      "category": "Projet Scolaire",
-      "description": "Ce projet vient en complément du RayTracer en Java. Nous devions réaliser un site web pour publier des images de RayTracer, avec la possibilité de commenter ou de noter ces images. Nous avions 2 jours en groupe de 4 pour réaliser ce site.",
-      "shortDescription": "Site web pour publier des images de RayTracer, avec la possibilité de commenter ou de noter ces images.",
-      "githubLink": "https://github.com/RayzerDev/RayTracer-WebSite",
-      "competenceIds": ["7", "8"],
-      "images": ["/images/projects/20231229132951.jpg"]
-    }
+  {
+    "id": "1",
+    "nom": "Portfolio",
+    "imagePreview": "/images/projects/20231224123810.jpg",
+    "category": "Projet Personnel",
+    "description": "C'est un projet personnel que j'ai développé afin de montrer mes compétences, mes projects en tant que développeur.",
+    "shortDescription": "Site WEB type portfolio pour montrer mes compétences et mes projets.",
+    "githubLink": "https://www.github.com/RayzerDev/PortfolioHTML",
+    "competenceIds": [
+      "3",
+      "4",
+      "6",
+      "8"
+    ],
+    "images": [
+      "/images/projects/20231224123810.jpg",
+      "/images/projects/portfolio-1.png",
+      "/images/projects/portfolio-2.png",
+      "/images/projects/portfolio-3.png"
+    ]
+  },
+  {
+    "id": "2",
+    "nom": "PurpleOctopus",
+    "imagePreview": "/images/projects/20231229104046.png",
+    "category": "Projet Personnel",
+    "description": "C'est l'un de mes premiers projects personnels. Il gère les membres de mon serveur discord en y ajoutant des rôles par rapport aux jeux. Il enregistre également dans une BDD l'ID Clash Royale des membres pour visualiser les prochains coffres.",
+    "shortDescription": "Gestion des membres de mon serveur discord. Enregistrement de l'ID Clash Royale pour visualiser ses prochains coffres.",
+    "githubLink": "https://github.com/RayzerDev/PurpleOctopus",
+    "competenceIds": [
+      "11",
+      "9",
+      "19"
+    ],
+    "images": [
+      "/images/projects/20231229104046.png"
+    ]
+  },
+  {
+    "id": "3",
+    "nom": "Flatcraft",
+    "imagePreview": "/images/projects/20231207221234.jpg",
+    "category": "Projet Scolaire",
+    "description": "Flatcraft est un jeu inspiré de Minecraft, mais en 2D. Nous devions rajouter au fur et à mesure des fonctionnalités comme la création du sous sol, la gestion de plusieurs dimensions en utilisant des patrons de conceptions.",
+    "shortDescription": "Jeu inspiré de Minecraft, mais en 2D. Rajout de fonctionnalités au fur et à mesure.",
+    "githubLink": "https://github.com/RayzerDev/Flatcraft",
+    "competenceIds": [
+      "12"
+    ],
+    "images": [
+      "/images/projects/20231207221234.jpg"
+    ]
+  },
+  {
+    "id": "4",
+    "nom": "RayTracer",
+    "imagePreview": "/images/projects/20231229105812.jpg",
+    "category": "Projet Scolaire",
+    "description": "C'est un projet réalisé en équipe de 4 sur une semaine. Nous devions à partir d'un fichier texte retourner une image avec un système de lumière, d'ombrage et de couleur. Le but du projet était d'implémenter des patrons de conception en Java.",
+    "shortDescription": "Projet réalisé en équipe de 4 sur une semaine, sur un RayTracer en Java.",
+    "githubLink": "https://github.com/RayzerDev/RayTracer",
+    "competenceIds": [
+      "12"
+    ],
+    "images": [
+      "/images/projects/20231229105812.jpg"
+    ]
+  },
+  {
+    "id": "5",
+    "nom": "ReadMe",
+    "imagePreview": "/images/projects/20231224120617.jpg",
+    "category": "Projet Scolaire",
+    "description": "ReadMe est un site permettant de lire des histoires dont le contenu dépend du choix du lecteur. A chaque étape, le lecteur a ainsi le choix entre plusieurs possibilités lui donnant accès à diverses suites possibles. Notre équipe “Front_2_Back”, était composée de 4 étudiants informatiques, et 5 en multimédia. Nous avions 2 jours.",
+    "shortDescription": "Site web pour lire des histoires dont le contenu dépend du choix du lecteur.",
+    "githubLink": "https://github.com/RayzerDev/ReadMeWebSite",
+    "competenceIds": [
+      "7",
+      "8"
+    ],
+    "images": [
+      "/images/projects/20231224120617.jpg"
+    ]
+  },
+  {
+    "id": "6",
+    "nom": "RayTracer WebSite",
+    "imagePreview": "/images/projects/20231229132951.jpg",
+    "category": "Projet Scolaire",
+    "description": "Ce projet vient en complément du RayTracer en Java. Nous devions réaliser un site web pour publier des images de RayTracer, avec la possibilité de commenter ou de noter ces images. Nous avions 2 jours en groupe de 4 pour réaliser ce site.",
+    "shortDescription": "Site web pour publier des images de RayTracer, avec la possibilité de commenter ou de noter ces images.",
+    "githubLink": "https://github.com/RayzerDev/RayTracer-WebSite",
+    "competenceIds": [
+      "7",
+      "8"
+    ],
+    "images": [
+      "/images/projects/20231229132951.jpg"
+    ]
+  }
 ]

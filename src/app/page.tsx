@@ -84,8 +84,9 @@ export default async function Home() {
                         <CardTitle>Sport</CardTitle>
                         <CardHeader><Dumbbell className="w-12 h-12 m-auto text-secondary"/></CardHeader>
                         <CardContent>
-                            J&apos;aime tout type de sports. Je pratique de la musculation, le foot, et le Jiu-Jitsu.
+                            Je pratique de la musculation et le Jiu-Jitsu.
                             J&apos;ai déjà réalisé 2 compétitions régionales.
+                            J&apos;aime aussi faire du foot avec mes amis le week-end.
                         </CardContent>
                     </Card>
                     <Card>
@@ -112,7 +113,7 @@ export default async function Home() {
                         </CardHeader>
                         <CardContent>
                             J&apos;ai des projets de développement pendant mon temps libre pour découvrir un peu les
-                            différents langages de programmations que vous retrouverez sur ce portfolio.
+                            différents langages de programmations, que vous retrouverez sur ce portfolio.
                         </CardContent>
                     </Card>
                 </div>
