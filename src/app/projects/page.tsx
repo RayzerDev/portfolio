@@ -31,19 +31,21 @@ export default async function Projects() {
                                         </CardContent>
                                     </Link>
                                     <CardFooter className="flex justify-between">
-                                            <Link href={`/projects/${projet.id}`}
-                                                  className="text-foreground hover:underline flex items-center">
-                                                <ExternalLink className="w-4 h-4 mr-1"/>
-                                                Voir le projet
+                                        <Link href={`/projects/${projet.id}`}
+                                              className="text-foreground hover:underline flex items-center"
+                                              target="_blank">
+                                            <ExternalLink className="w-4 h-4 mr-1"/>
+                                            Voir le projet
+                                        </Link>
+                                        {projet.githubLink && (
+                                            <Link href={projet.githubLink}
+                                                  className="text-foreground hover:underline flex items-center"
+                                                  target="_blank">
+                                                <Github className="w-4 h-4 mr-1"/>
+                                                GitHub
                                             </Link>
-                                            {projet.githubLink && (
-                                                <Link href={projet.githubLink}
-                                                      className="text-foreground hover:underline flex items-center">
-                                                    <Github className="w-4 h-4 mr-1"/>
-                                                    GitHub
-                                                </Link>
-                                            )}
-                                        </CardFooter>
+                                        )}
+                                    </CardFooter>
                                 </Card>
                             ))}
                         </div>
