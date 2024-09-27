@@ -47,7 +47,7 @@ export default async function Project({params}: { params: { id: string } }) {
                                 <CarouselContent>
                                     {project.images.map((image, index) => (
                                         <CarouselItem key={index}>
-                                            <Image src={`/portfolio${image}`} width={1024} height={1080}
+                                            <Image src={`/portfolio${image}`} width={1940} height={1091}
                                                    alt={`Projet ${project.nom} - Image ${index + 1}`}
                                                    className="mx-auto"/>
                                         </CarouselItem>
