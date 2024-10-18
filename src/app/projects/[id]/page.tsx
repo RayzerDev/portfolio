@@ -18,7 +18,7 @@ export default async function Project({params}: { params: { id: string } }) {
     const project = projects.find(p => p.id === params.id);
 
     if (!project) {
-        return <div>Projet non trouvé</div>;
+        return <h1 className="text-secondary">Projet non trouvé</h1>;
     }
 
     return (
