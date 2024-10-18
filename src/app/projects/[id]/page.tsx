@@ -28,7 +28,7 @@ export default async function Project({params}: { params: { id: string } }) {
                 <div className="flex flex-col w-full">
                     <h2 className="text-3xl font-bold tracking-tighter text-secondary mb-5">{project.nom}</h2>
                     <Image className="mx-auto cursor-pointertransition-transform"
-                           src={`/portfolio/${project.imagePreview}`} alt={project.nom} width={500}
+                           src={`${project.imagePreview}`} alt={project.nom} width={500}
                            height={500}/>
                 </div>
                 <div className="lg:ml-10 flex flex-col gap-6">

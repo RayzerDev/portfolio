@@ -35,7 +35,7 @@ export default function RootLayout({
                     <div className="container mx-auto flex items-center justify-between">
                         <div className="flex items-center gap-4 ml-2">
                             <Link href="/" className="text-lg font-medium hover:scale-110 transition" prefetch={false}>
-                                <Image src="/portfolio/logo.svg" alt="LK" width={160} height={160}/>
+                                <Image src="/logo.svg" alt="LK" width={160} height={160}/>
                             </Link>
                         </div>
                         <nav className="flex items-center gap-4 flex-wrap justify-center ml-8">

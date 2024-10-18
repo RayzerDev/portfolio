@@ -19,7 +19,7 @@ export default async function Projects() {
                                     <Link href={`/projects/${projet.id}`}>
                                         <CardTitle className="text-secondary">{projet.nom}</CardTitle>
                                         <CardHeader>
-                                            <Image src={`/portfolio${projet.imagePreview}`} alt={projet.nom} width={500}
+                                            <Image src={`${projet.imagePreview}`} alt={projet.nom} width={500}
                                                    height={500}/>
                                         </CardHeader>
                                         <CardContent>
