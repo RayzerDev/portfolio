@@ -32,8 +32,7 @@ export default async function Projects() {
                                     </Link>
                                     <CardFooter className="flex justify-between">
                                         <Link href={`/projects/${projet.id}`}
-                                              className="text-foreground hover:underline flex items-center"
-                                              target="_blank">
+                                              className="text-foreground hover:underline flex items-center">
                                             <ExternalLink className="w-4 h-4 mr-1"/>
                                             Voir le projet
                                         </Link>

@@ -94,7 +94,8 @@ export default async function Home() {
                         <CardHeader><Guitar className="w-12 h-12 m-auto text-secondary"/></CardHeader>
                         <CardContent>
                             Je fais de la guitare depuis mes 4 ans. Les Red Hot Chili Peppers m&apos;ont beaucoup
-                            influencé, notamment John Frusciante. J&apos;ai pu jouer dans 2 concerts.
+                            influencé, notamment John Frusciante. J&apos;ai pu jouer dans 2 concerts. J&apos;ai pour
+                            projet de fonder / trouver un groupe de musique.
                         </CardContent>
                     </Card>
                     <Card>
@@ -103,7 +104,7 @@ export default async function Home() {
                             <Gamepad className="w-12 h-12 m-auto text-secondary"/>
                         </CardHeader>
                         <CardContent>
-                            Je joue aussi à des jeux comme Rainbow Six Siege, Ready or Not et FIFA.
+                            Je joue à des jeux comme Rainbow Six Siege, Ready or Not et FIFA.
                         </CardContent>
                     </Card>
                     <Card>
@@ -113,7 +114,8 @@ export default async function Home() {
                         </CardHeader>
                         <CardContent>
                             J&apos;ai des projets de développement pendant mon temps libre pour découvrir un peu les
-                            différents langages de programmations, que vous retrouverez sur ce portfolio.
+                            différents langages de programmation, que vous retrouverez sur ce portfolio.
+                            Je touche également au Hardware. J&apos;ai monté mon propre ordinateur.
                         </CardContent>
                     </Card>
                 </div>

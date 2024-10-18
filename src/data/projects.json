@@ -1,10 +1,23 @@
 [
   {
     "id": "1",
+    "nom": "Refonte du portfolio",
+    "imagePreview": "/images/projects/refonte_portfolio.jpg",
+    "category": "Projet Personnel",
+    "description": "J'ai refait mon portfolio pour le rendre plus moderne, plus dynamique et plus eco-responsable. J'ai également ajouté un dark mode pour les utilisateurs qui préfèrent les couleurs sombres.",
+    "shortDescription": "Refonte de mon portfolio pour le rendre plus moderne, plus dynamique et plus eco-responsable.",
+    "githubLink": "https://www.github.com/RayzerDev/portfolio",
+    "competenceIds": [
+      "33",
+      "17"
+    ]
+  },
+  {
+    "id": "2",
     "nom": "Portfolio",
     "imagePreview": "/images/projects/20231224123810.jpg",
     "category": "Projet Personnel",
-    "description": "C'est un projet personnel que j'ai développé afin de montrer mes compétences, mes projects en tant que développeur.",
+    "description": "C'est un projet personnel que j'ai développé afin de montrer mes compétences, mes projets en tant que développeur.",
     "shortDescription": "Site WEB type portfolio pour montrer mes compétences et mes projets.",
     "githubLink": "https://www.github.com/RayzerDev/PortfolioHTML",
     "competenceIds": [
@@ -12,16 +25,10 @@
       "4",
       "6",
       "8"
-    ],
-    "images": [
-      "/images/projects/20231224123810.jpg",
-      "/images/projects/portfolio-1.png",
-      "/images/projects/portfolio-2.png",
-      "/images/projects/portfolio-3.png"
     ]
   },
   {
-    "id": "2",
+    "id": "3",
     "nom": "PurpleOctopus",
     "imagePreview": "/images/projects/20231229104046.png",
     "category": "Projet Personnel",
@@ -32,13 +39,10 @@
       "11",
       "9",
       "19"
-    ],
-    "images": [
-      "/images/projects/20231229104046.png"
     ]
   },
   {
-    "id": "3",
+    "id": "4",
     "nom": "Flatcraft",
     "imagePreview": "/images/projects/20231207221234.jpg",
     "category": "Projet Scolaire",
@@ -47,13 +51,10 @@
     "githubLink": "https://github.com/RayzerDev/Flatcraft",
     "competenceIds": [
       "12"
-    ],
-    "images": [
-      "/images/projects/20231207221234.jpg"
     ]
   },
   {
-    "id": "4",
+    "id": "5",
     "nom": "RayTracer",
     "imagePreview": "/images/projects/20231229105812.jpg",
     "category": "Projet Scolaire",
@@ -62,13 +63,10 @@
     "githubLink": "https://github.com/RayzerDev/RayTracer",
     "competenceIds": [
       "12"
-    ],
-    "images": [
-      "/images/projects/20231229105812.jpg"
     ]
   },
   {
-    "id": "5",
+    "id": "6",
     "nom": "ReadMe",
     "imagePreview": "/images/projects/20231224120617.jpg",
     "category": "Projet Scolaire",
@@ -78,13 +76,10 @@
     "competenceIds": [
       "7",
       "8"
-    ],
-    "images": [
-      "/images/projects/20231224120617.jpg"
     ]
   },
   {
-    "id": "6",
+    "id": "7",
     "nom": "RayTracer WebSite",
     "imagePreview": "/images/projects/20231229132951.jpg",
     "category": "Projet Scolaire",
@@ -94,9 +89,50 @@
     "competenceIds": [
       "7",
       "8"
-    ],
-    "images": [
-      "/images/projects/20231229132951.jpg"
+    ]
+  },
+  {
+    "id": "8",
+    "nom": "NexTicket",
+    "imagePreview": "/images/projects/default.jpg",
+    "category": "Projet Personnel",
+    "description": "Nexticket est un projet personnel de type HelpDesk que j'ai développé pour gérer des tickets d'une entreprise, notamment à des fins de maintenance. Il permet de créer des tickets, de les assigner à des membres d'une équipe selon les tags (catégories) et de les résoudre.",
+    "shortDescription": "Application de type HelpDesk pour gérer des tickets d'une entreprise.",
+    "githubLink": "https://github.com/RayzerDev/NexTicket",
+    "competenceIds": [
+      "17",
+      "32",
+      "25"
+    ]
+  },
+  {
+    "id": "9",
+    "nom": "TicketMain",
+    "imagePreview": "/images/projects/ticketmain.png",
+    "category": "Projet Scolaire",
+    "description": "TicketMain est un projet scolaire permettant de gérer la billeterie d'événement en ligne. Il permet de créer des événements, de les afficher, de les réserver. Il permet également de gérer les utilisateurs, les rôles et les permissions.",
+    "shortDescription": "Gestion de la billeterie d'événement en ligne.",
+    "githubLink": "https://github.com/RayzerDev/TicketMain-Front",
+    "competenceIds": [
+      "17",
+      "8",
+      "7",
+      "24"
+    ]
+  },
+  {
+    "id": "10",
+    "nom": "TicketMain Mobile",
+    "imagePreview": "/images/projects/default.jpg",
+    "category": "Projet Scolaire",
+    "description": "Ce projet est en complément du projet TicketMain. C'est une application permettant de gérer les billets achetés par les utilisateurs. L'application permet de générer un QRCode unique pour chaque billet pour le contrôle d'accès. Elle permet également de scanner les QRCode pour vérifier l'authenticité du billet.",
+    "shortDescription": "Gestion des billets achetés, et contrôle d'accès avec QRCode.",
+    "githubLink": "https://github.com/RayzerDev/TicketMainMobile",
+    "competenceIds": [
+      "17",
+      "8",
+      "7",
+      "34"
     ]
   }
 ]

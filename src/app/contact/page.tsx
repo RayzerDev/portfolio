@@ -37,7 +37,7 @@ export default function Contact() {
                         href="https://drive.google.com/file/d/1R2NlawC4Pe7JuSoMppkOclkfvtlaw-mh/view?usp=sharing"
                         target="_blank"
                         download
-                        className="inline-flex h-10 items-center justify-center rounded-md bg-secondary px-8 text-sm font-medium
+                        className="inline-flex h-10 items-center justify-center rounded-md bg-card px-8 text-sm font-medium
                 text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none
                 focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
                         prefetch={false}

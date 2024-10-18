@@ -1,9 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import DataSingleton from "@/utils/dataUtils";
-import {GithubIcon, ZoomIn} from "lucide-react";
-import {Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious} from "@/components/ui/carousel";
-import {Dialog, DialogContent, DialogTitle, DialogTrigger} from "@/components/ui/dialog";
+import {GithubIcon} from "lucide-react";
 
 export async function generateStaticParams() {
     const dataSingleton = DataSingleton.getInstance();
@@ -29,36 +27,9 @@ export default async function Project({params}: { params: { id: string } }) {
                 className="border bg-card text-card-foreground shadow-sm flex flex-col xl:flex-row gap-8 md:gap-12 px-4 md:px-6 pt-5 pb-5">
                 <div className="flex flex-col w-full">
                     <h2 className="text-3xl font-bold tracking-tighter text-secondary mb-5">{project.nom}</h2>
-                    <Dialog>
-                        <DialogTrigger asChild>
-                            <div className="relative group">
-                                <Image className="mx-auto cursor-pointer hover:scale-110 transition-transform"
-                                       src={`/portfolio/${project.imagePreview}`} alt={project.nom} width={500}
-                                       height={500}/>
-                                <div
-                                    className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-80 transition-opacity">
-                                    <ZoomIn></ZoomIn>
-                                </div>
-                            </div>
-                        </DialogTrigger>
-                        <DialogContent className="max-w-screen-lg max-h-[90%] sm:pl-14 sm:pr-14 pb-16 sm:pb-5">
-                            <DialogTitle>{project.nom}</DialogTitle>
-                            <Carousel opts={{loop: true}}>
-                                <CarouselContent>
-                                    {project.images.map((image, index) => (
-                                        <CarouselItem key={index}>
-                                            <Image src={`/portfolio${image}`} width={1024} height={1080}
-                                                   alt={`Projet ${project.nom} - Image ${index + 1}`}
-                                                   className="mx-auto"/>
-                                        </CarouselItem>
-                                    ))}
-                                </CarouselContent>
-                                <CarouselPrevious
-                                    className="top-full mt-8 sm:top-1/2 sm:mt-0 ml-14 sm:ml-0"></CarouselPrevious>
-                                <CarouselNext className="top-full mt-8 sm:top-1/2 sm:mt-0 mr-14 sm:mr-0"></CarouselNext>
-                            </Carousel>
-                        </DialogContent>
-                    </Dialog>
+                    <Image className="mx-auto cursor-pointertransition-transform"
+                           src={`/portfolio/${project.imagePreview}`} alt={project.nom} width={500}
+                           height={500}/>
                 </div>
                 <div className="lg:ml-10 flex flex-col gap-6">
                     <div className="flex flex-col gap-2">

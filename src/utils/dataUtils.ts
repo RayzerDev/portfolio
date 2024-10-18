@@ -1,11 +1,10 @@
-import { promises as fs } from 'fs';
+import {promises as fs} from 'fs';
 import path from 'path';
 
 interface Projet {
     id: string;
     nom: string;
     imagePreview: string;
-    images: string[];
     category: string;
     description: string;
     shortDescription: string;
@@ -37,8 +36,6 @@ class DataSingleton {
         workExperiences: [],
         degrees: []
     };
-
-    private constructor() {}
 
     public static getInstance(): DataSingleton {
         if (!DataSingleton.instance) {
@@ -79,7 +76,7 @@ class DataSingleton {
         const groupedProjects: { [category: string]: Projet[] } = {};
 
         (await this.getProjectsData()).forEach(project => {
-            const { category } = project;
+            const {category} = project;
 
             if (!groupedProjects[category]) {
                 groupedProjects[category] = [];
@@ -92,16 +89,16 @@ class DataSingleton {
     }
 
     public async groupSkillsByCategory() {
-        const groupedSkills: { [categorie: string]: { id: string, nom: string, image:string }[] }  = {};
+        const groupedSkills: { [categorie: string]: { id: string, nom: string, image: string }[] } = {};
 
         (await this.getSkillsData()).forEach(skill => {
-            const { id, nom, categorie, image } = skill;
+            const {id, nom, categorie, image} = skill;
 
             if (!groupedSkills[categorie]) {
                 groupedSkills[categorie] = [];
             }
 
-            groupedSkills[categorie].push({ id, nom, image });
+            groupedSkills[categorie].push({id, nom, image});
         });
 
         return groupedSkills;

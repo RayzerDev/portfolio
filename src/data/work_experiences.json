@@ -1,32 +1,32 @@
 [
-    {
-      "id": "1",
-      "nom": "Préparateur de commandes",
-      "type": "Intérim",
-      "entreprise": "Intermarché",
-      "ville": "Avion",
-      "debut": "09/23",
-      "fin": "01/24",
-      "competences": []
-    },
-    {
-      "id": "2",
-      "nom": "Vendeur Polyvalent",
-      "type": "Etudiant",
-      "entreprise": "Primark",
-      "ville": "Noyelles-Godault",
-      "debut": "01/23",
-      "fin": "06/23",
-      "competences": []
-    },
-    {
-      "id": "3",
-      "nom": "Développeur logiciel",
-      "type": "Alternance",
-      "entreprise": "Lenrek Informatique",
-      "ville": "Eleu-Dit-Leauwette",
-      "debut": "01/24",
-      "fin": "09/25",
-      "competences": []
-    }
+  {
+    "id": "1",
+    "nom": "Préparateur de commandes",
+    "type": "Intérim",
+    "entreprise": "Intermarché",
+    "ville": "Avion",
+    "debut": "09/23",
+    "fin": "01/24",
+    "competences": []
+  },
+  {
+    "id": "2",
+    "nom": "Vendeur Polyvalent",
+    "type": "Etudiant",
+    "entreprise": "Primark",
+    "ville": "Noyelles-Godault",
+    "debut": "01/23",
+    "fin": "06/23",
+    "competences": []
+  },
+  {
+    "id": "3",
+    "nom": "Développeur logiciel",
+    "type": "Alternance",
+    "entreprise": "Lenrek Informatique",
+    "ville": "Eleu-Dit-Leauwette",
+    "debut": "01/24",
+    "fin": "09/25",
+    "competences": []
+  }
 ]
