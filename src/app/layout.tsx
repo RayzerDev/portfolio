@@ -7,6 +7,7 @@ import Image from "next/image";
 import {Github, LinkedinIcon} from "lucide-react";
 import {ThemeProvider} from "next-themes";
 import {ModeToggle} from "@/components/ui/darkmodetoggle";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({subsets: ["latin"]});
 
@@ -68,6 +69,7 @@ export default function RootLayout({
                 <main className={inter.className}>{children}</main>
             </div>
         </ThemeProvider>
+        <SpeedInsights />
         </body>
         </html>
     );
