@@ -16,5 +16,14 @@
       "ville": "Hénin-Beaumont",
       "debut": "09/20",
       "fin": "07/22"
+    },
+    {
+      "id": "3",
+      "nom": "Diplôme d'ingénieur en informatique",
+      "type": "Etudiant",
+      "ecole": "IMT Nord Europe",
+      "ville": "Villeneuve d'ascq",
+      "debut": "09/25",
+      "fin": "07/28"
     }
 ]

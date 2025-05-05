@@ -32,8 +32,8 @@
     "nom": "PurpleOctopus",
     "imagePreview": "/images/projects/20231229104046.png",
     "category": "Projet Personnel",
-    "description": "C'est l'un de mes premiers projects personnels. Il gère les membres de mon serveur discord en y ajoutant des rôles par rapport aux jeux. Il enregistre également dans une BDD l'ID Clash Royale des membres pour visualiser les prochains coffres.",
-    "shortDescription": "Gestion des membres de mon serveur discord. Enregistrement de l'ID Clash Royale pour visualiser ses prochains coffres.",
+    "description": "C'est l'un de mes premiers projets personnels. Il gère les membres de mon serveur Discord en y ajoutant des rôles par rapport aux jeux. Il enregistre également dans une BDD l'ID Clash Royale des membres pour visualiser les prochains coffres.",
+    "shortDescription": "Gestion des membres de mon serveur Discord. Enregistrement de l'ID Clash Royale pour visualiser ses prochains coffres.",
     "githubLink": "https://github.com/RayzerDev/PurpleOctopus",
     "competenceIds": [
       "11",
@@ -46,7 +46,7 @@
     "nom": "Flatcraft",
     "imagePreview": "/images/projects/20231207221234.jpg",
     "category": "Projet Scolaire",
-    "description": "Flatcraft est un jeu inspiré de Minecraft, mais en 2D. Nous devions rajouter au fur et à mesure des fonctionnalités comme la création du sous sol, la gestion de plusieurs dimensions en utilisant des patrons de conceptions.",
+    "description": "Flatcraft est un jeu inspiré de Minecraft, mais en 2D. Nous devions rajouter au fur et à mesure des fonctionnalités comme la création du sous-sol, la gestion de plusieurs dimensions en utilisant des patrons de conceptions.",
     "shortDescription": "Jeu inspiré de Minecraft, mais en 2D. Rajout de fonctionnalités au fur et à mesure.",
     "githubLink": "https://github.com/RayzerDev/Flatcraft",
     "competenceIds": [
@@ -58,7 +58,7 @@
     "nom": "RayTracer",
     "imagePreview": "/images/projects/20231229105812.jpg",
     "category": "Projet Scolaire",
-    "description": "C'est un projet réalisé en équipe de 4 sur une semaine. Nous devions à partir d'un fichier texte retourner une image avec un système de lumière, d'ombrage et de couleur. Le but du projet était d'implémenter des patrons de conception en Java.",
+    "description": "C'est un projet réalisé en équipe de 4 sur une semaine. Nous devions, à partir d'un fichier texte retourner une image avec un système de lumière, d'ombrage et de couleur. Le but du projet était d'implémenter des patrons de conception en Java.",
     "shortDescription": "Projet réalisé en équipe de 4 sur une semaine, sur un RayTracer en Java.",
     "githubLink": "https://github.com/RayzerDev/RayTracer",
     "competenceIds": [
@@ -70,7 +70,7 @@
     "nom": "ReadMe",
     "imagePreview": "/images/projects/20231224120617.jpg",
     "category": "Projet Scolaire",
-    "description": "ReadMe est un site permettant de lire des histoires dont le contenu dépend du choix du lecteur. A chaque étape, le lecteur a ainsi le choix entre plusieurs possibilités lui donnant accès à diverses suites possibles. Notre équipe “Front_2_Back”, était composée de 4 étudiants informatiques, et 5 en multimédia. Nous avions 2 jours.",
+    "description": "ReadMe est un site permettant de lire des histoires dont le contenu dépend du choix du lecteur. A chaque étape, le lecteur a ainsi le choix entre plusieurs possibilités lui donnant accès à diverses suites possibles. Notre équipe “Front_2_Back”, était composée de 4 étudiants informatiques et 5 en multimédia. Nous avions 2 jours.",
     "shortDescription": "Site web pour lire des histoires dont le contenu dépend du choix du lecteur.",
     "githubLink": "https://github.com/RayzerDev/ReadMeWebSite",
     "competenceIds": [
@@ -110,8 +110,8 @@
     "nom": "TicketMain",
     "imagePreview": "/images/projects/ticketmain.png",
     "category": "Projet Scolaire",
-    "description": "TicketMain est un projet scolaire permettant de gérer la billeterie d'événement en ligne. Il permet de créer des événements, de les afficher, de les réserver. Il permet également de gérer les utilisateurs, les rôles et les permissions.",
-    "shortDescription": "Gestion de la billeterie d'événement en ligne.",
+    "description": "TicketMain est un projet scolaire permettant de gérer la billetterie d'événements en ligne. Il permet de créer des événements, de les afficher, de les réserver. Il permet également de gérer les utilisateurs, les rôles et les permissions.",
+    "shortDescription": "Gestion de la billetterie d'événements en ligne.",
     "githubLink": "https://github.com/RayzerDev/TicketMain-Front",
     "competenceIds": [
       "17",
@@ -133,6 +133,40 @@
       "8",
       "7",
       "34"
+    ]
+  },
+  {
+    "id": "11",
+    "nom": "DriveHub (frontend)",
+    "imagePreview": "/images/projects/drivehub.png",
+    "category": "Projet Scolaire",
+    "description": "Nous avons fait ce projet en groupe de 5 en suivant la méthode agile (Scrum Master et Product Owner). Le but était de reprendre l'API d'un autre groupe, et que celui-ci nous donne son avis sur l'état d'avancement du projet, et priorise les tickets à réaliser dans les prochains sprints d'une durée d'une heure et demie.",
+    "shortDescription": "Réseau social sur les voitures.",
+    "githubLink": "https://github.com/RayzerDev/DriveHub-Front",
+    "competenceIds": [
+      "23",
+      "25",
+      "37",
+      "38"
+    ]
+  },
+  {
+    "id": "12",
+    "nom": "Tripfolio (backend)",
+    "imagePreview": "/images/projects/default.jpg",
+    "category": "Projet Scolaire",
+    "description": "En groupe de 5, nous avons dû réaliser une API pour un réseau social avec un système de recommandation (posts, utilisateur) et un système de génération d'images IA pour les posts ou avatars en fonction du descriptif ou des caractéristiques. L'objectif était de fournir une API documentée et maintenable pour transmettre à un autre groupe.",
+    "shortDescription": "Réseau social sur les voyages.",
+    "githubLink": "https://github.com/RayzerDev/Tripfolio-API",
+    "competenceIds": [
+      "32",
+      "12",
+      "13",
+      "37",
+      "38",
+      "35",
+      "36",
+      "28"
     ]
   }
 ]

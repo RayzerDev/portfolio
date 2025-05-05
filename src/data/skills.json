@@ -178,5 +178,29 @@
     "nom": "React Native",
     "categorie": "Frameworks",
     "image": "images/skills/20240818143732.png"
+  },
+  {
+    "id": "35",
+    "nom": "MongoDB",
+    "categorie": "SGBD",
+    "image": "images/skills/mongodb.svg"
+  },
+  {
+    "id": "36",
+    "nom": "Neo4J",
+    "categorie": "SGBD",
+    "image": "images/skills/neo4j.png"
+  },
+  {
+    "id": "37",
+    "nom": "Docker",
+    "categorie": "DevOps",
+    "image": "images/skills/docker.png"
+  },
+  {
+    "id": "38",
+    "nom": "Nomad",
+    "categorie": "DevOps",
+    "image": "images/skills/nomad.png"
   }
 ]
