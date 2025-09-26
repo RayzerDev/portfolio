@@ -12,7 +12,7 @@ export default async function Home() {
             <section className="mb-12">
                 <h1 className="text-6xl font-bold tracking-tight text-secondary">Louis Karamucki</h1>
                 <p className="mt-4 max-w-[700px] text-muted-foreground md:text-xl">
-                    En 3ème année de BUT Informatique.
+                    Étudiant en 1ère année du cycle ingénieur en informatique à l’IMT Nord Europe, en alternance.
                     Découvrez mon parcours, mes compétences ainsi que mes projets.
                 </p>
             </section>
