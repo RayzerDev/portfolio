@@ -2,7 +2,9 @@
   {
     "id": "1",
     "nom": "Préparateur de commandes",
+    "nom_en": "Order Picker",
     "type": "Intérim",
+    "type_en": "Temporary",
     "entreprise": "Intermarché",
     "ville": "Avion",
     "debut": "09/23",
@@ -12,7 +14,9 @@
   {
     "id": "2",
     "nom": "Vendeur Polyvalent",
-    "type": "Etudiant",
+    "nom_en": "Sales Associate",
+    "type": "Étudiant",
+    "type_en": "Student job",
     "entreprise": "Primark",
     "ville": "Noyelles-Godault",
     "debut": "01/23",
@@ -22,7 +26,9 @@
   {
     "id": "3",
     "nom": "Développeur logiciel",
+    "nom_en": "Software Developer",
     "type": "Alternance",
+    "type_en": "Work-study",
     "entreprise": "Lenrek Informatique",
     "ville": "Eleu-Dit-Leauwette",
     "debut": "01/24",

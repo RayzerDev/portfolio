@@ -1,11 +1,19 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import DataSingleton from "@/utils/dataUtils";
 import {Card, CardContent, CardFooter, CardHeader, CardTitle} from "@/components/ui/card";
-import {Github, ExternalLink} from "lucide-react";
+import {ExternalLink, Github} from "lucide-react";
+import {useEffect, useState} from "react";
+import {useTranslation} from "@/hooks/useTranslation";
 
-export default async function Projects() {
-    const groupedProjects = await DataSingleton.getInstance().groupProjectsByCategory();
+export default function Projects() {
+    const {t, lang} = useTranslation();
+    const [groupedProjects, setGroupedProjects] = useState<Record<string, any[]>>({});
+
+    useEffect(() => {
+        fetch(`/api/projects?lang=${lang}`).then(r => r.json()).then(setGroupedProjects);
+    }, [lang]);
 
     return (
         <div className="container mx-auto py-12 px-4 md:px-6 lg:px-8">
@@ -24,7 +32,8 @@ export default async function Projects() {
                                         </CardHeader>
                                         <CardContent>
                                             <p className="sm:h-[100px]">{projet.shortDescription}</p>
-                                            <div className="mt-2.5 sm:h-[56px]">Techs: {projet.skills.map((skill) => (
+                                            <div
+                                                className="mt-2.5 sm:h-[56px]">Techs: {(projet.skills || []).map((skill: any) => (
                                                 <span key={skill.id}
                                                       className="inline-flex items-center rounded-full bg-primary px-2 py-1 text-sm font-medium text-primary-foreground mr-1">{skill.nom}</span>
                                             ))}</div>
@@ -34,7 +43,7 @@ export default async function Projects() {
                                         <Link href={`/projects/${projet.id}`}
                                               className="text-foreground hover:underline flex items-center">
                                             <ExternalLink className="w-4 h-4 mr-1"/>
-                                            Voir le projet
+                                            {t("projects.seeProject")}
                                         </Link>
                                         {projet.githubLink && (
                                             <Link href={projet.githubLink}

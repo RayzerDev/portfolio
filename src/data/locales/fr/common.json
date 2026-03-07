@@ -1,0 +1,30 @@
+{
+  "nav": {
+    "skills": "Compétences",
+    "projects": "Projets",
+    "contact": "Contact"
+  },
+  "home": {
+    "description": "Étudiant en 1ère année du cycle ingénieur en informatique à l'IMT Nord Europe, en alternance. Découvrez mon parcours, mes compétences ainsi que mes projets.",
+    "workExperiences": "Expériences Professionnelles",
+    "degrees": "Diplômes",
+    "passions": "Passions"
+  },
+  "projects": {
+    "seeProject": "Voir le projet"
+  },
+  "projectDetail": {
+    "notFound": "Projet non trouvé",
+    "description": "Description",
+    "githubRepo": "Dépôt GitHub",
+    "technologies": "Technologies utilisées",
+    "backToProjects": "← Retour aux projets"
+  },
+  "contact": {
+    "title": "Contactez-moi",
+    "subtitle": "N'hésitez pas à me contacter pour toute demande ou collaboration.",
+    "cvTitle": "Télécharger mon CV",
+    "cvSubtitle": "Cliquez sur le bouton ci-dessous pour télécharger mon CV au format PDF.",
+    "cvButton": "Visualiser CV"
+  }
+}

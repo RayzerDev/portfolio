@@ -1,25 +1,35 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import DataSingleton from "@/utils/dataUtils";
 import {GithubIcon} from "lucide-react";
+import {useEffect, useState} from "react";
+import {useTranslation} from "@/hooks/useTranslation";
 
-export async function generateStaticParams() {
-    const dataSingleton = DataSingleton.getInstance();
-    const projects = await dataSingleton.getProjectsData();
+export default function Project({params}: { params: { id: string } }) {
+    const {t, lang} = useTranslation();
+    const [project, setProject] = useState<any>(null);
+    const [notFound, setNotFound] = useState(false);
 
-    return projects.map(project => ({
-        id: project.id
-    }));
-}
+    useEffect(() => {
+        fetch(`/api/projects/${params.id}?lang=${lang}`)
+            .then(r => {
+                if (r.status === 404) {
+                    setNotFound(true);
+                    return null;
+                }
+                return r.json();
+            })
+            .then(data => {
+                if (data) setProject(data);
+            });
+    }, [params.id, lang]);
 
-export default async function Project({params}: { params: { id: string } }) {
-    const dataSingleton = DataSingleton.getInstance();
-    const projects = await dataSingleton.getProjectsData();
-    const project = projects.find(p => p.id === params.id);
-
-    if (!project) {
-        return <h1 className="text-secondary">Projet non trouvé</h1>;
+    if (notFound) {
+        return <h1 className="text-secondary">{t("projectDetail.notFound")}</h1>;
     }
+
+    if (!project) return null;
 
     return (
         <section className="container mx-auto py-12 px-4 md:px-6 lg:px-8">
@@ -33,12 +43,12 @@ export default async function Project({params}: { params: { id: string } }) {
                 </div>
                 <div className="lg:ml-10 flex flex-col gap-6">
                     <div className="flex flex-col gap-2">
-                        <h2 className="text-xl font-bold text-secondary">Description</h2>
+                        <h2 className="text-xl font-bold text-secondary">{t("projectDetail.description")}</h2>
                         <p className="text-muted-foreground">{project.description}</p>
                     </div>
                     {project.githubLink && (
                         <div className="flex flex-col gap-2">
-                            <h2 className="text-xl font-bold text-secondary">Dépôt GitHub</h2>
+                            <h2 className="text-xl font-bold text-secondary">{t("projectDetail.githubRepo")}</h2>
                             <Link href={project.githubLink}
                                   className="flex items-center gap-2 text-foreground break-words" prefetch={false}
                                   target="_blank">
@@ -48,16 +58,16 @@ export default async function Project({params}: { params: { id: string } }) {
                         </div>
                     )}
                     <div className="flex flex-col gap-2">
-                        <h2 className="text-xl font-bold text-secondary">Technologies utilisées</h2>
+                        <h2 className="text-xl font-bold text-secondary">{t("projectDetail.technologies")}</h2>
                         <div className="flex flex-wrap gap-2">
-                            {project.skills.map((skill) => (
+                            {(project.skills || []).map((skill: any) => (
                                 <span key={skill.id}
                                       className="inline-flex items-center rounded-full bg-primary px-2 py-1 text-sm font-medium text-primary-foreground mr-1">{skill.nom}</span>
                             ))}
                         </div>
                     </div>
                     <Link href="/projects" className="mt-4 text-primary-foreground hover:underline">
-                        &larr; Retour aux projets
+                        {t("projectDetail.backToProjects")}
                     </Link>
                 </div>
             </div>

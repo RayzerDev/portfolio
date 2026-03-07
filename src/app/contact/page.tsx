@@ -1,15 +1,19 @@
+"use client";
+
 import Link from "next/link";
 import {LocateIcon, MailIcon} from "lucide-react";
+import {useTranslation} from "@/hooks/useTranslation";
 
 export default function Contact() {
+    const {t} = useTranslation();
     return (
         <section className="w-full py-12 md:py-24 lg:py-32">
             <div className="container grid gap-8 px-4 md:px-6 lg:grid-cols-2 lg:gap-12 mx-auto">
                 <div className="space-y-6">
                     <div className="space-y-2">
-                        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-secondary">Contactez-moi</h2>
+                        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-secondary">{t("contact.title")}</h2>
                         <p className="text-muted-foreground md:text-xl/relaxed">
-                            N&apos;hésitez pas à me contacter pour toute demande ou collaboration.
+                            {t("contact.subtitle")}
                         </p>
                         <div className="flex items-center gap-4">
                             <MailIcon className="w-6 h-6 text-secondary"/>
@@ -27,10 +31,9 @@ export default function Contact() {
                 </div>
                 <div className="space-y-6">
                     <div className="space-y-2">
-                        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-secondary">Télécharger
-                            mon CV</h2>
+                        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-secondary">{t("contact.cvTitle")}</h2>
                         <p className="text-muted-foreground md:text-xl/relaxed">
-                            Cliquez sur le bouton ci-dessous pour télécharger mon CV au format PDF.
+                            {t("contact.cvSubtitle")}
                         </p>
                     </div>
                     <Link
@@ -42,7 +45,7 @@ export default function Contact() {
                 focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
                         prefetch={false}
                     >
-                        Visualiser CV
+                        {t("contact.cvButton")}
                     </Link>
                 </div>
             </div>
