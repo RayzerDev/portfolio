@@ -27,36 +27,38 @@
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
-  }
-  .dark {
-  --background: 234, 18%, 11%;
-  --foreground: 0, 17%, 85%;
-  --card: 235, 17%, 26%;
-  --card-foreground: foreground;
-  --popover: 0 0% 100%;
-  --popover-foreground: 0 0% 3.9%;
-  --primary: 234, 18%, 11%;
-  --secondary: 224, 70%, 54%;
-  --secondary-foreground: 224, 70%, 54%;
-  --muted-foreground: foreground;
-  --border: 235, 17%, 26%;
-  }
+}
+
+.dark {
+    --background: 234, 18%, 11%;
+    --foreground: 0, 17%, 85%;
+    --card: 235, 17%, 26%;
+    --card-foreground: foreground;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 234, 18%, 11%;
+    --secondary: 224, 70%, 54%;
+    --secondary-foreground: 224, 70%, 54%;
+    --muted-foreground: foreground;
+    --border: 235, 17%, 26%;
+}
 
 body {
-  color: hsl(var(--foreground));
+    color: hsl(var(--foreground));
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+    .text-balance {
+        text-wrap: balance;
+    }
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
+    * {
+        @apply border-border;
+    }
+
+    body {
+        @apply bg-background text-foreground;
+    }
 }

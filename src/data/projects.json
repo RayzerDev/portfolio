@@ -4,159 +4,206 @@
     "nom": "Refonte du portfolio",
     "imagePreview": "/images/projects/refonte_portfolio.jpg",
     "category": "Projet Personnel",
-    "description": "J'ai refait mon portfolio pour le rendre plus moderne, plus dynamique et plus eco-responsable. J'ai également ajouté un dark mode pour les utilisateurs qui préfèrent les couleurs sombres.",
-    "shortDescription": "Refonte de mon portfolio pour le rendre plus moderne, plus dynamique et plus eco-responsable.",
+    "category_en": "Personal Project",
+    "description": "J'ai refait mon portfolio pour le rendre plus moderne, plus dynamique et plus éco-responsable. J'ai également ajouté un dark mode pour les utilisateurs qui préfèrent les couleurs sombres.",
+    "description_en": "I rebuilt my portfolio to make it more modern, dynamic and eco-friendly. I also added a dark mode for users who prefer darker colors.",
+    "shortDescription": "Refonte de mon portfolio pour le rendre plus moderne, plus dynamique et plus éco-responsable.",
+    "shortDescription_en": "Rebuilding of my portfolio to make it more modern, dynamic and eco-friendly.",
     "githubLink": "https://www.github.com/RayzerDev/portfolio",
     "competenceIds": [
       "33",
       "17"
-    ]
+    ],
+    "nom_en": "Portfolio Redesign"
   },
   {
     "id": "2",
     "nom": "Portfolio",
     "imagePreview": "/images/projects/20231224123810.jpg",
     "category": "Projet Personnel",
+    "category_en": "Personal Project",
     "description": "C'est un projet personnel que j'ai développé afin de montrer mes compétences, mes projets en tant que développeur.",
+    "description_en": "A personal project I developed to showcase my skills and projects as a developer.",
     "shortDescription": "Site WEB type portfolio pour montrer mes compétences et mes projets.",
+    "shortDescription_en": "Portfolio website to showcase my skills and projects.",
     "githubLink": "https://www.github.com/RayzerDev/PortfolioHTML",
     "competenceIds": [
       "3",
       "4",
       "6",
       "8"
-    ]
+    ],
+    "nom_en": "Portfolio"
   },
   {
     "id": "3",
     "nom": "PurpleOctopus",
     "imagePreview": "/images/projects/20231229104046.png",
     "category": "Projet Personnel",
+    "category_en": "Personal Project",
     "description": "C'est l'un de mes premiers projets personnels. Il gère les membres de mon serveur Discord en y ajoutant des rôles par rapport aux jeux. Il enregistre également dans une BDD l'ID Clash Royale des membres pour visualiser les prochains coffres.",
+    "description_en": "One of my first personal projects. It manages members of my Discord server by assigning roles based on games. It also stores members Clash Royale IDs in a database to display upcoming chests.",
     "shortDescription": "Gestion des membres de mon serveur Discord. Enregistrement de l'ID Clash Royale pour visualiser ses prochains coffres.",
+    "shortDescription_en": "Discord server member management. Stores Clash Royale IDs to display upcoming chests.",
     "githubLink": "https://github.com/RayzerDev/PurpleOctopus",
     "competenceIds": [
       "11",
       "9",
       "19"
-    ]
+    ],
+    "nom_en": "PurpleOctopus"
   },
   {
     "id": "4",
     "nom": "Flatcraft",
     "imagePreview": "/images/projects/20231207221234.jpg",
     "category": "Projet Scolaire",
+    "category_en": "School Project",
     "description": "Flatcraft est un jeu inspiré de Minecraft, mais en 2D. Nous devions rajouter au fur et à mesure des fonctionnalités comme la création du sous-sol, la gestion de plusieurs dimensions en utilisant des patrons de conceptions.",
+    "description_en": "Flatcraft is a Minecraft-inspired 2D game. We had to progressively add features such as underground generation and multi-dimension management using design patterns.",
     "shortDescription": "Jeu inspiré de Minecraft, mais en 2D. Rajout de fonctionnalités au fur et à mesure.",
+    "shortDescription_en": "Minecraft-inspired 2D game with incremental feature additions.",
     "githubLink": "https://github.com/RayzerDev/Flatcraft",
     "competenceIds": [
       "12"
-    ]
+    ],
+    "nom_en": "Flatcraft"
   },
   {
     "id": "5",
     "nom": "RayTracer",
     "imagePreview": "/images/projects/20231229105812.jpg",
     "category": "Projet Scolaire",
+    "category_en": "School Project",
     "description": "C'est un projet réalisé en équipe de 4 sur une semaine. Nous devions, à partir d'un fichier texte retourner une image avec un système de lumière, d'ombrage et de couleur. Le but du projet était d'implémenter des patrons de conception en Java.",
+    "description_en": "A one-week team project (4 people). Given a text file, we had to render an image with a lighting, shading, and color system. The goal was to implement design patterns in Java.",
     "shortDescription": "Projet réalisé en équipe de 4 sur une semaine, sur un RayTracer en Java.",
+    "shortDescription_en": "One-week team project on a Java RayTracer.",
     "githubLink": "https://github.com/RayzerDev/RayTracer",
     "competenceIds": [
       "12"
-    ]
+    ],
+    "nom_en": "RayTracer"
   },
   {
     "id": "6",
     "nom": "ReadMe",
     "imagePreview": "/images/projects/20231224120617.jpg",
     "category": "Projet Scolaire",
-    "description": "ReadMe est un site permettant de lire des histoires dont le contenu dépend du choix du lecteur. A chaque étape, le lecteur a ainsi le choix entre plusieurs possibilités lui donnant accès à diverses suites possibles. Notre équipe “Front_2_Back”, était composée de 4 étudiants informatiques et 5 en multimédia. Nous avions 2 jours.",
+    "category_en": "School Project",
+    "description": "ReadMe est un site permettant de lire des histoires dont le contenu dépend du choix du lecteur. À chaque étape, le lecteur a le choix entre plusieurs possibilités. Notre équipe Front_2_Back était composée de 4 étudiants informatiques et 5 en multimédia. Nous avions 2 jours.",
+    "description_en": "ReadMe is a website for reading stories where content depends on the readers choices. At each step, the reader picks from several options. Our team of 4 CS students and 5 multimedia students had 2 days.",
     "shortDescription": "Site web pour lire des histoires dont le contenu dépend du choix du lecteur.",
+    "shortDescription_en": "Website for reading interactive stories based on reader choices.",
     "githubLink": "https://github.com/RayzerDev/ReadMeWebSite",
     "competenceIds": [
       "7",
       "8"
-    ]
+    ],
+    "nom_en": "ReadMe"
   },
   {
     "id": "7",
     "nom": "RayTracer WebSite",
     "imagePreview": "/images/projects/20231229132951.jpg",
     "category": "Projet Scolaire",
-    "description": "Ce projet vient en complément du RayTracer en Java. Nous devions réaliser un site web pour publier des images de RayTracer, avec la possibilité de commenter ou de noter ces images. Nous avions 2 jours en groupe de 4 pour réaliser ce site.",
+    "category_en": "School Project",
+    "description": "Ce projet vient en complément du RayTracer en Java. Nous devions réaliser un site web pour publier des images de RayTracer, avec la possibilité de commenter ou de noter ces images. Nous avions 2 jours en groupe de 4.",
+    "description_en": "A companion project to the Java RayTracer. We had to build a website to publish RayTracer images with commenting and rating features. 2 days, team of 4.",
     "shortDescription": "Site web pour publier des images de RayTracer, avec la possibilité de commenter ou de noter ces images.",
+    "shortDescription_en": "Website to publish RayTracer images with commenting and rating features.",
     "githubLink": "https://github.com/RayzerDev/RayTracer-WebSite",
     "competenceIds": [
       "7",
       "8"
-    ]
+    ],
+    "nom_en": "RayTracer WebSite"
   },
   {
     "id": "8",
     "nom": "NexTicket",
     "imagePreview": "/images/projects/default.jpg",
     "category": "Projet Personnel",
-    "description": "Nexticket est un projet personnel de type HelpDesk que j'ai développé pour gérer des tickets d'une entreprise, notamment à des fins de maintenance. Il permet de créer des tickets, de les assigner à des membres d'une équipe selon les tags (catégories) et de les résoudre.",
+    "category_en": "Personal Project",
+    "description": "NexTicket est un projet personnel de type HelpDesk pour gérer des tickets d'une entreprise. Il permet de créer des tickets, de les assigner à des membres d'une équipe selon les tags et de les résoudre.",
+    "description_en": "NexTicket is a personal HelpDesk project to manage company tickets. It allows creating tickets, assigning them to team members based on tags, and resolving them.",
     "shortDescription": "Application de type HelpDesk pour gérer des tickets d'une entreprise.",
+    "shortDescription_en": "HelpDesk application to manage company support tickets.",
     "githubLink": "https://github.com/RayzerDev/NexTicket",
     "competenceIds": [
       "17",
       "32",
       "25"
-    ]
+    ],
+    "nom_en": "NexTicket"
   },
   {
     "id": "9",
     "nom": "TicketMain",
     "imagePreview": "/images/projects/ticketmain.png",
     "category": "Projet Scolaire",
-    "description": "TicketMain est un projet scolaire permettant de gérer la billetterie d'événements en ligne. Il permet de créer des événements, de les afficher, de les réserver. Il permet également de gérer les utilisateurs, les rôles et les permissions.",
+    "category_en": "School Project",
+    "description": "TicketMain est un projet scolaire permettant de gérer la billetterie d'événements en ligne. Il permet de créer des événements, de les afficher, de les réserver, et de gérer les utilisateurs, les rôles et les permissions.",
+    "description_en": "TicketMain is a school project for managing online event ticketing. It allows creating, displaying and reserving events, as well as managing users, roles and permissions.",
     "shortDescription": "Gestion de la billetterie d'événements en ligne.",
+    "shortDescription_en": "Online event ticketing management.",
     "githubLink": "https://github.com/RayzerDev/TicketMain-Front",
     "competenceIds": [
       "17",
       "8",
       "7",
       "24"
-    ]
+    ],
+    "nom_en": "TicketMain"
   },
   {
     "id": "10",
     "nom": "TicketMain Mobile",
     "imagePreview": "/images/projects/default.jpg",
     "category": "Projet Scolaire",
-    "description": "Ce projet est en complément du projet TicketMain. C'est une application permettant de gérer les billets achetés par les utilisateurs. L'application permet de générer un QRCode unique pour chaque billet pour le contrôle d'accès. Elle permet également de scanner les QRCode pour vérifier l'authenticité du billet.",
+    "category_en": "School Project",
+    "description": "Ce projet est en complément du projet TicketMain. C'est une application permettant de gérer les billets achetés et de générer un QRCode unique pour le contrôle d'accès.",
+    "description_en": "A companion app to the TicketMain project. It manages purchased tickets, generates a unique QR code per ticket for access control, and allows scanning QR codes to verify ticket authenticity.",
     "shortDescription": "Gestion des billets achetés, et contrôle d'accès avec QRCode.",
+    "shortDescription_en": "Purchased ticket management and QR code access control.",
     "githubLink": "https://github.com/RayzerDev/TicketMainMobile",
     "competenceIds": [
       "17",
       "8",
       "7",
       "34"
-    ]
+    ],
+    "nom_en": "TicketMain Mobile"
   },
   {
     "id": "11",
     "nom": "DriveHub (frontend)",
     "imagePreview": "/images/projects/drivehub.png",
     "category": "Projet Scolaire",
-    "description": "Nous avons fait ce projet en groupe de 5 en suivant la méthode agile (Scrum Master et Product Owner). Le but était de reprendre l'API d'un autre groupe, et que celui-ci nous donne son avis sur l'état d'avancement du projet, et priorise les tickets à réaliser dans les prochains sprints d'une durée d'une heure et demie.",
+    "category_en": "School Project",
+    "description": "Nous avons fait ce projet en groupe de 5 en suivant la méthode agile (Scrum Master et Product Owner). Le but était de reprendre l'API d'un autre groupe et de prioriser les tickets dans les prochains sprints.",
+    "description_en": "We built this project in a team of 5 using the Agile method. The goal was to consume another team API, receive their feedback, and prioritize tasks for upcoming 90-minute sprints.",
     "shortDescription": "Réseau social sur les voitures.",
+    "shortDescription_en": "Car-themed social network.",
     "githubLink": "https://github.com/RayzerDev/DriveHub-Front",
     "competenceIds": [
       "23",
       "25",
       "37",
       "38"
-    ]
+    ],
+    "nom_en": "DriveHub (frontend)"
   },
   {
     "id": "12",
     "nom": "Tripfolio (backend)",
     "imagePreview": "/images/projects/default.jpg",
     "category": "Projet Scolaire",
-    "description": "En groupe de 5, nous avons dû réaliser une API pour un réseau social avec un système de recommandation (posts, utilisateur) et un système de génération d'images IA pour les posts ou avatars en fonction du descriptif ou des caractéristiques. L'objectif était de fournir une API documentée et maintenable pour transmettre à un autre groupe.",
+    "category_en": "School Project",
+    "description": "En groupe de 5, nous avons réalisé une API pour un réseau social avec un système de recommandation et un système de génération d'images IA. L'objectif était de fournir une API documentée et maintenable.",
+    "description_en": "In a team of 5, we built an API for a social network featuring a recommendation system and AI image generation. The goal was to deliver a documented, maintainable API to hand off to another team.",
     "shortDescription": "Réseau social sur les voyages.",
+    "shortDescription_en": "Travel-themed social network.",
     "githubLink": "https://github.com/RayzerDev/Tripfolio-API",
     "competenceIds": [
       "32",
@@ -167,6 +214,7 @@
       "35",
       "36",
       "28"
-    ]
+    ],
+    "nom_en": "Tripfolio (backend)"
   }
 ]

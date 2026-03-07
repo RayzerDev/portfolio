@@ -1,23 +1,39 @@
-import DataSingleton from "@/utils/dataUtils";
-import {Building, CalendarIcon, Code, Dumbbell, Gamepad, Guitar, MapPin, School} from "lucide-react";
-import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
+"use client";
 
-export default async function Home() {
-    const dataSingleton = DataSingleton.getInstance();
-    const workExperiences = await dataSingleton.getWorkExperiencesData();
-    const degrees = await dataSingleton.getDegreesData();
+import {useEffect, useState} from "react";
+import {Building, CalendarIcon, Code, Dumbbell, Gamepad, Guitar, LucideProps, MapPin, School} from "lucide-react";
+import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
+import {useTranslation} from "@/hooks/useTranslation";
+
+const iconMap: Record<string, React.FC<LucideProps>> = {
+    Dumbbell,
+    Guitar,
+    Gamepad,
+    Code,
+};
+
+export default function Home() {
+    const {t, lang} = useTranslation();
+    const [workExperiences, setWorkExperiences] = useState<any[]>([]);
+    const [degrees, setDegrees] = useState<any[]>([]);
+    const [hobbies, setHobbies] = useState<any[]>([]);
+
+    useEffect(() => {
+        fetch(`/api/work-experiences?lang=${lang}`).then(r => r.json()).then(setWorkExperiences);
+        fetch(`/api/degrees?lang=${lang}`).then(r => r.json()).then(setDegrees);
+        fetch(`/api/hobbies?lang=${lang}`).then(r => r.json()).then(setHobbies);
+    }, [lang]);
 
     return (
         <div className="container mx-auto py-12 px-4 md:px-6 lg:px-8">
             <section className="mb-12">
                 <h1 className="text-6xl font-bold tracking-tight text-secondary">Louis Karamucki</h1>
                 <p className="mt-4 max-w-[700px] text-muted-foreground md:text-xl">
-                    Étudiant en 1ère année du cycle ingénieur en informatique à l’IMT Nord Europe, en alternance.
-                    Découvrez mon parcours, mes compétences ainsi que mes projets.
+                    {t("home.description")}
                 </p>
             </section>
             <section className="mb-12">
-                <h2 className="text-3xl font-bold tracking-tight text-secondary">Expériences Professionnelles</h2>
+                <h2 className="text-3xl font-bold tracking-tight text-secondary">{t("home.workExperiences")}</h2>
                 <div className="mt-6 grid gap-6">
                     {workExperiences.map((experience => (
                             <div key={experience.id} className="rounded-md border bg-card p-4 shadow-sm border-border">
@@ -49,7 +65,7 @@ export default async function Home() {
                 </div>
             </section>
             <section className="mb-12">
-                <h2 className="text-3xl font-bold tracking-tight text-secondary">Diplômes</h2>
+                <h2 className="text-3xl font-bold tracking-tight text-secondary">{t("home.degrees")}</h2>
                 <div className="mt-6 grid gap-6">
                     {degrees.map((degree => (
                             <div key={degree.id} className="rounded-md border bg-card p-4 shadow-sm">
@@ -78,46 +94,18 @@ export default async function Home() {
                 </div>
             </section>
             <section className="mb-12">
-                <h2 className="text-3xl font-bold tracking-tight text-secondary">Passions</h2>
+                <h2 className="text-3xl font-bold tracking-tight text-secondary">{t("home.passions")}</h2>
                 <div className="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-4 ">
-                    <Card>
-                        <CardTitle>Sport</CardTitle>
-                        <CardHeader><Dumbbell className="w-12 h-12 m-auto text-secondary"/></CardHeader>
-                        <CardContent>
-                            Je pratique de la musculation et le Jiu-Jitsu.
-                            J&apos;ai déjà réalisé 2 compétitions régionales.
-                            J&apos;aime aussi faire du foot avec mes amis le week-end.
-                        </CardContent>
-                    </Card>
-                    <Card>
-                        <CardTitle>Guitare</CardTitle>
-                        <CardHeader><Guitar className="w-12 h-12 m-auto text-secondary"/></CardHeader>
-                        <CardContent>
-                            Je fais de la guitare depuis mes 4 ans. Les Red Hot Chili Peppers m&apos;ont beaucoup
-                            influencé, notamment John Frusciante. J&apos;ai pu jouer dans 2 concerts. J&apos;ai pour
-                            projet de fonder / trouver un groupe de musique.
-                        </CardContent>
-                    </Card>
-                    <Card>
-                        <CardTitle>Jeux</CardTitle>
-                        <CardHeader>
-                            <Gamepad className="w-12 h-12 m-auto text-secondary"/>
-                        </CardHeader>
-                        <CardContent>
-                            Je joue à des jeux comme Rainbow Six Siege, Ready or Not et FIFA.
-                        </CardContent>
-                    </Card>
-                    <Card>
-                        <CardTitle>Informatique</CardTitle>
-                        <CardHeader>
-                            <Code className="w-12 h-12 m-auto text-secondary"/>
-                        </CardHeader>
-                        <CardContent>
-                            J&apos;ai des projets de développement pendant mon temps libre pour découvrir un peu les
-                            différents langages de programmation, que vous retrouverez sur ce portfolio.
-                            Je touche également au Hardware. J&apos;ai monté mon propre ordinateur.
-                        </CardContent>
-                    </Card>
+                    {hobbies.map((hobby) => {
+                        const Icon = iconMap[hobby.icon] ?? Code;
+                        return (
+                            <Card key={hobby.id}>
+                                <CardTitle>{hobby.nom}</CardTitle>
+                                <CardHeader><Icon className="w-12 h-12 m-auto text-secondary"/></CardHeader>
+                                <CardContent>{hobby.description}</CardContent>
+                            </Card>
+                        );
+                    })}
                 </div>
             </section>
         </div>

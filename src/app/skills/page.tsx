@@ -1,8 +1,17 @@
-import Image from 'next/image';
-import DataSingleton from '@/utils/dataUtils';
+"use client";
 
-export default async function Projects() {
-    const groupedSkills = await DataSingleton.getInstance().groupSkillsByCategory();
+import Image from 'next/image';
+import {useEffect, useState} from 'react';
+import {useTranslation} from '@/hooks/useTranslation';
+
+export default function Skills() {
+    const {lang} = useTranslation();
+    const [groupedSkills, setGroupedSkills] = useState<Record<string, any[]>>({});
+
+    useEffect(() => {
+        fetch(`/api/skills?lang=${lang}`).then(r => r.json()).then(setGroupedSkills);
+    }, [lang]);
+
     return (
         <div className="container mx-auto py-12 px-4 md:px-6 lg:px-8">
             <section className="flex-row mb-12">

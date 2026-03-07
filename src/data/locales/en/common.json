@@ -1,0 +1,30 @@
+﻿{
+  "nav": {
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "home": {
+    "description": "First-year engineering student in computer science at IMT Nord Europe, on a work-study program. Discover my background, skills, and projects.",
+    "workExperiences": "Work Experiences",
+    "degrees": "Degrees",
+    "passions": "Hobbies"
+  },
+  "projects": {
+    "seeProject": "See project"
+  },
+  "projectDetail": {
+    "notFound": "Project not found",
+    "description": "Description",
+    "githubRepo": "GitHub Repository",
+    "technologies": "Technologies used",
+    "backToProjects": "← Back to projects"
+  },
+  "contact": {
+    "title": "Contact me",
+    "subtitle": "Feel free to contact me for any request or collaboration.",
+    "cvTitle": "Download my resume",
+    "cvSubtitle": "Click the button below to download my resume in PDF format.",
+    "cvButton": "View Resume"
+  }
+}

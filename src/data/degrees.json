@@ -1,29 +1,35 @@
 [
-    {
-      "id": "1",
-      "nom": "BUT Informatique",
-      "type": "Etudiant",
-      "ecole": "IUT de Lens",
-      "ville": "Lens",
-      "debut": "09/22",
-      "fin": "07/25"
-    },
-    {
-      "id": "2",
-      "nom": "BAC Général NSI Math",
-      "type": "Lycéen",
-      "ecole": "Lycée Pasteur",
-      "ville": "Hénin-Beaumont",
-      "debut": "09/20",
-      "fin": "07/22"
-    },
-    {
-      "id": "3",
-      "nom": "Diplôme d'ingénieur en informatique",
-      "type": "Etudiant",
-      "ecole": "IMT Nord Europe",
-      "ville": "Villeneuve d'ascq",
-      "debut": "09/25",
-      "fin": "07/28"
-    }
+  {
+    "id": "1",
+    "nom": "BUT Informatique",
+    "nom_en": "Bachelor of Technology in Computer Science",
+    "type": "Étudiant",
+    "type_en": "Student",
+    "ecole": "IUT de Lens",
+    "ville": "Lens",
+    "debut": "09/22",
+    "fin": "07/25"
+  },
+  {
+    "id": "2",
+    "nom": "BAC Général NSI Math",
+    "nom_en": "Scientific Baccalaureate (CS and Math)",
+    "type": "Lycéen",
+    "type_en": "High school student",
+    "ecole": "Lycée Pasteur",
+    "ville": "Hénin-Beaumont",
+    "debut": "09/20",
+    "fin": "07/22"
+  },
+  {
+    "id": "3",
+    "nom": "Diplôme d'ingénieur en informatique",
+    "nom_en": "Master of Engineering in Computer Science",
+    "type": "Étudiant",
+    "type_en": "Student",
+    "ecole": "IMT Nord Europe",
+    "ville": "Villeneuve d'Ascq",
+    "debut": "09/25",
+    "fin": "07/28"
+  }
 ]
