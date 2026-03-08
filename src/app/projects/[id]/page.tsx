@@ -2,9 +2,19 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import {GithubIcon} from "lucide-react";
+import {CalendarIcon, Github} from "lucide-react";
 import {useEffect, useState} from "react";
 import {useTranslation} from "@/hooks/useTranslation";
+
+function formatDate(date: string | undefined, lang: string): string {
+    if (!date) return '';
+    const [month, year] = date.split('/');
+    if (!month || !year) return date;
+    const monthsFr = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
+    const monthsEn = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    const arr = lang === 'en' ? monthsEn : monthsFr;
+    return `${arr[parseInt(month, 10) - 1] ?? month} ${year}`;
+}
 
 export default function Project({params}: { params: { id: string } }) {
     const {t, lang} = useTranslation();
@@ -36,8 +46,16 @@ export default function Project({params}: { params: { id: string } }) {
             <div
                 className="border bg-card text-card-foreground shadow-sm flex flex-col xl:flex-row gap-8 md:gap-12 px-4 md:px-6 pt-5 pb-5">
                 <div className="flex flex-col w-full">
-                    <h2 className="text-3xl font-bold tracking-tighter text-secondary mb-5">{project.nom}</h2>
-                    <Image className="mx-auto cursor-pointertransition-transform"
+                    <div className="flex items-start gap-3 mb-5">
+                        <h2 className="text-3xl font-bold tracking-tighter text-secondary">{project.nom}</h2>
+                        {project.date && (
+                            <span className="flex items-center gap-1 text-xs text-primary-foreground bg-primary rounded-full px-2 py-0.5 whitespace-nowrap my-auto ml-auto">
+                                <CalendarIcon className="w-3.5 h-3.5" />
+                                {formatDate(project.date, lang)}
+                            </span>
+                        )}
+                    </div>
+                    <Image className="mx-auto cursor-pointer transition-transform"
                            src={`${project.imagePreview}`} alt={project.nom} width={500}
                            height={500}/>
                 </div>
@@ -52,7 +70,7 @@ export default function Project({params}: { params: { id: string } }) {
                             <Link href={project.githubLink}
                                   className="flex items-center gap-2 text-foreground break-words" prefetch={false}
                                   target="_blank">
-                                <GithubIcon className="w-5 h-5"/>
+                                <Github className="w-5 h-5"/>
                                 <span className="break-all">{project.githubLink}</span>
                             </Link>
                         </div>
