@@ -14,7 +14,8 @@
       "33",
       "17"
     ],
-    "nom_en": "Portfolio Redesign"
+    "nom_en": "Portfolio Redesign",
+    "date": "09/2024"
   },
   {
     "id": "2",
@@ -33,7 +34,8 @@
       "6",
       "8"
     ],
-    "nom_en": "Portfolio"
+    "nom_en": "Portfolio",
+    "date": "09/2023"
   },
   {
     "id": "3",
@@ -51,7 +53,8 @@
       "9",
       "19"
     ],
-    "nom_en": "PurpleOctopus"
+    "nom_en": "PurpleOctopus",
+    "date": "01/2022"
   },
   {
     "id": "4",
@@ -67,7 +70,8 @@
     "competenceIds": [
       "12"
     ],
-    "nom_en": "Flatcraft"
+    "nom_en": "Flatcraft",
+    "date": "11/2023"
   },
   {
     "id": "5",
@@ -83,7 +87,8 @@
     "competenceIds": [
       "12"
     ],
-    "nom_en": "RayTracer"
+    "nom_en": "RayTracer",
+    "date": "12/2023"
   },
   {
     "id": "6",
@@ -100,7 +105,8 @@
       "7",
       "8"
     ],
-    "nom_en": "ReadMe"
+    "nom_en": "ReadMe",
+    "date": "12/2023"
   },
   {
     "id": "7",
@@ -117,7 +123,8 @@
       "7",
       "8"
     ],
-    "nom_en": "RayTracer WebSite"
+    "nom_en": "RayTracer WebSite",
+    "date": "12/2023"
   },
   {
     "id": "8",
@@ -135,7 +142,8 @@
       "32",
       "25"
     ],
-    "nom_en": "NexTicket"
+    "nom_en": "NexTicket",
+    "date": "05/2024"
   },
   {
     "id": "9",
@@ -154,7 +162,8 @@
       "7",
       "24"
     ],
-    "nom_en": "TicketMain"
+    "nom_en": "TicketMain",
+    "date": "07/2024"
   },
   {
     "id": "10",
@@ -173,7 +182,8 @@
       "7",
       "34"
     ],
-    "nom_en": "TicketMain Mobile"
+    "nom_en": "TicketMain Mobile",
+    "date": "07/2024"
   },
   {
     "id": "11",
@@ -192,7 +202,8 @@
       "37",
       "38"
     ],
-    "nom_en": "DriveHub (frontend)"
+    "nom_en": "DriveHub (frontend)",
+    "date": "05/2025"
   },
   {
     "id": "12",
@@ -215,6 +226,7 @@
       "36",
       "28"
     ],
-    "nom_en": "Tripfolio (backend)"
+    "nom_en": "Tripfolio (backend)",
+    "date": "05/2025"
   }
 ]
