@@ -37,6 +37,8 @@ async function fetchPortraitBase64(): Promise<string | null> {
 export async function GET(request: NextRequest) {
     const {searchParams} = new URL(request.url);
     const lang = (searchParams.get('lang') === 'en' ? 'en' : 'fr') as 'fr' | 'en';
+    const customTitle = searchParams.get('title') ?? undefined;
+    const customDescription = searchParams.get('description') ?? undefined;
 
     const dataService = DataSingleton.getInstance();
 
@@ -66,6 +68,8 @@ export async function GET(request: NextRequest) {
         schoolProjects,
         portraitSrc,
         portfolioUrl: 'rayzerdev.vercel.app',
+        customTitle,
+        customDescription,
     });
 
     const buffer = await renderToBuffer(element);

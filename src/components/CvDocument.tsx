@@ -52,6 +52,8 @@ export interface CvDocumentProps {
     schoolProjects: Project[];
     portraitSrc?: string | null;
     portfolioUrl?: string;
+    customTitle?: string;
+    customDescription?: string;
 }
 
 // ── Palette light mode du portfolio ──────────────────────────────────────────
@@ -189,8 +191,8 @@ const s = StyleSheet.create({
     },
     mainHeader: {marginBottom: 10},
     mainName: {fontSize: 22, fontFamily: 'Helvetica-Bold', color: C.fg, marginBottom: 2},
-    mainJob: {fontSize: 10, color: C.accent, letterSpacing: 0.7, marginBottom: 4},
-    mainTagline: {fontSize: 7.5, color: C.fgMut, lineHeight: 1.45},
+    mainJob: {fontSize: 13, fontFamily: 'Helvetica-Bold', color: C.accent, letterSpacing: 0.5, marginBottom: 5},
+    mainTagline: {fontSize: 9, color: C.fgMut, lineHeight: 1.5},
     headerLine: {borderBottomWidth: 1.5, borderBottomColor: C.border, marginTop: 8},
 
     secBlock: {marginBottom: 9},
@@ -272,6 +274,7 @@ const SKIP_EN = ['Tools', 'OS', 'Application Servers'];
 const CvDocument: React.FC<CvDocumentProps> = ({
                                                    lang, workExperiences, degrees, groupedSkills, hobbies,
                                                    personalProjects, schoolProjects, portraitSrc, portfolioUrl,
+                                                   customTitle, customDescription,
                                                }) => {
     const skip = lang === 'en' ? SKIP_EN : SKIP_FR;
     const skills = Object.entries(groupedSkills).filter(([cat]) => !skip.includes(cat));
@@ -289,6 +292,9 @@ const CvDocument: React.FC<CvDocumentProps> = ({
         proj: 'Projects', perso: 'Personal', school: 'School',
         skills: 'Skills', hobbies: 'Hobbies', lieu: 'Location',
     };
+
+    const displayTagline = customDescription || L.tagline;
+    customTitle = customTitle || L.job;
 
     const siteUrl = portfolioUrl || 'rayzerdev.vercel.app';
 
@@ -389,7 +395,8 @@ const CvDocument: React.FC<CvDocumentProps> = ({
                 {/* ═══════ MAIN ═══════ */}
                 <View style={s.main}>
                     <View style={s.mainHeader}>
-                        <Text style={s.mainTagline}>{L.tagline}</Text>
+                        <Text style={s.mainJob}>{customTitle}</Text>
+                        <Text style={s.mainTagline}>{displayTagline}</Text>
                         <View style={s.headerLine}/>
                     </View>
 
