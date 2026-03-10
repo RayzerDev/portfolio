@@ -92,7 +92,7 @@ function CategorySection({categorie, projets, t, lang, onSelectProject}: {
                         >
                             <ChevronLeft className="w-4 h-4"/>
                         </Button>
-                        <span className="text-sm text-muted-foreground">{page} / {totalPages}</span>
+                        <span className="text-sm text-muted-foreground whitespace-nowrap">{page} / {totalPages}</span>
                         <Button
                             variant="outline"
                             size="icon"
