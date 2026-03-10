@@ -10,8 +10,8 @@ function formatDate(date: string | undefined, lang: string): string {
     if (!date) return '';
     const [month, year] = date.split('/');
     if (!month || !year) return date;
-    const monthsFr = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
-    const monthsEn = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    const monthsFr = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
+    const monthsEn = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     const arr = lang === 'en' ? monthsEn : monthsFr;
     return `${arr[parseInt(month, 10) - 1] ?? month} ${year}`;
 }
@@ -49,8 +49,9 @@ export default function Project({params}: { params: { id: string } }) {
                     <div className="flex items-start gap-3 mb-5">
                         <h2 className="text-3xl font-bold tracking-tighter text-secondary">{project.nom}</h2>
                         {project.date && (
-                            <span className="flex items-center gap-1 text-xs text-primary-foreground bg-primary rounded-full px-2 py-0.5 whitespace-nowrap my-auto ml-auto">
-                                <CalendarIcon className="w-3.5 h-3.5" />
+                            <span
+                                className="flex items-center gap-1 text-xs text-primary-foreground bg-primary rounded-full px-2 py-0.5 whitespace-nowrap my-auto ml-auto">
+                                <CalendarIcon className="w-3.5 h-3.5"/>
                                 {formatDate(project.date, lang)}
                             </span>
                         )}

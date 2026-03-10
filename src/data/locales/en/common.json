@@ -6,9 +6,10 @@
   },
   "home": {
     "description": "First-year engineering student in computer science at IMT Nord Europe, on a work-study program. Discover my background, skills, and projects.",
-    "workExperiences": "Work Experiences",
-    "degrees": "Degrees",
-    "passions": "Hobbies"
+    "workExperiences": "Experience",
+    "degrees": "Education",
+    "passions": "Hobbies",
+    "present": "In progress"
   },
   "projects": {
     "seeProject": "See project"

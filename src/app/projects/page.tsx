@@ -32,7 +32,7 @@ function ProjectImage({src, alt}: { src: string; alt: string }) {
                 alt={alt}
                 width={500}
                 height={500}
-                className={`w-full h-full object-cover transition-opacity duration-300 ${loaded ? "opacity-100" : "opacity-0"}`}
+                className={`w-full h-full object-cover transition-all duration-300 group-hover:scale-105 ${loaded ? "opacity-100" : "opacity-0"}`}
                 onLoad={() => setLoaded(true)}
             />
         </div>
@@ -106,12 +106,14 @@ function CategorySection({categorie, projets, t, lang, onSelectProject}: {
             </div>
             <div className="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {paginated.map((projet) => (
-                    <Card key={projet.id} className="flex flex-col">
+                    <Card key={projet.id}
+                          className="flex flex-col group hover:-translate-y-1 hover:shadow-md transition-all duration-200">
                         <button className="flex-1 text-left" onClick={() => onSelectProject(projet.id)}>
                             <div className="flex items-start justify-between">
                                 <CardTitle className="text-secondary">{projet.nom}</CardTitle>
                                 {projet.date && (
-                                    <span className="flex items-center gap-1 text-xs text-primary-foreground bg-primary rounded-full px-2 py-0.5 whitespace-nowrap m-5">
+                                    <span
+                                        className="flex items-center gap-1 text-xs text-primary-foreground bg-primary rounded-full px-2 py-0.5 whitespace-nowrap m-5">
                                         <CalendarIcon className="w-3 h-3"/>
                                         {formatDate(projet.date, lang)}
                                     </span>
@@ -121,14 +123,14 @@ function CategorySection({categorie, projets, t, lang, onSelectProject}: {
                                 <ProjectImage src={projet.imagePreview} alt={projet.nom}/>
                             </CardHeader>
                             <CardContent>
-                                <p className="sm:h-[100px]">{projet.shortDescription}</p>
-                                <div className="mt-2.5 sm:h-[56px]">
-                                    Techs: {(projet.skills || []).map((skill: any) => (
-                                    <span key={skill.id}
-                                          className="inline-flex items-center rounded-full bg-primary px-2 py-1 text-sm font-medium text-primary-foreground mr-1">
-                                        {skill.nom}
-                                    </span>
-                                ))}
+                                <p className="line-clamp-3 text-sm text-muted-foreground">{projet.shortDescription}</p>
+                                <div className="mt-3 flex flex-wrap gap-1.5">
+                                    {(projet.skills || []).map((skill: any) => (
+                                        <span key={skill.id}
+                                              className="inline-flex items-center rounded-full bg-primary px-2 py-0.5 text-xs font-medium text-primary-foreground">
+                                            {skill.nom}
+                                        </span>
+                                    ))}
                                 </div>
                             </CardContent>
                         </button>

@@ -6,9 +6,10 @@
   },
   "home": {
     "description": "Étudiant en 1ère année du cycle ingénieur en informatique à l'IMT Nord Europe, en alternance. Découvrez mon parcours, mes compétences ainsi que mes projets.",
-    "workExperiences": "Expériences Professionnelles",
+    "workExperiences": "Expériences",
     "degrees": "Diplômes",
-    "passions": "Passions"
+    "passions": "Passions",
+    "present": "En cours"
   },
   "projects": {
     "seeProject": "Voir le projet"

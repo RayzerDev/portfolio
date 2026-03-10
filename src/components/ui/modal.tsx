@@ -15,7 +15,9 @@ interface ModalProps {
 export function Modal({open, onClose, children, className}: ModalProps) {
     useEffect(() => {
         if (!open) return;
-        const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
+        const onKey = (e: KeyboardEvent) => {
+            if (e.key === "Escape") onClose();
+        };
         document.addEventListener("keydown", onKey);
         document.body.style.overflow = "hidden";
         return () => {
@@ -28,7 +30,7 @@ export function Modal({open, onClose, children, className}: ModalProps) {
 
     return createPortal(
         <div
-            className="fixed inset-0 z-50 flex items-center justify-center p-4"
+            className="fixed inset-0 z-[20000] flex items-center justify-center p-4"
             aria-modal="true"
             role="dialog"
         >

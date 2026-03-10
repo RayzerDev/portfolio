@@ -70,7 +70,8 @@ export function ProjectModal({projectId, onClose, lang, t}: ProjectModalProps) {
                             <div className="flex items-start gap-3 mb-5">
                                 <h2 className="text-3xl font-bold tracking-tighter text-secondary">{project.nom}</h2>
                                 {project.date && (
-                                    <span className="flex items-center gap-1 text-xs text-primary-foreground bg-primary rounded-full px-2 py-0.5 whitespace-nowrap my-auto ml-auto">
+                                    <span
+                                        className="flex items-center gap-1 text-xs text-primary-foreground bg-primary rounded-full px-2 py-0.5 whitespace-nowrap my-auto ml-auto">
                                         <CalendarIcon className="w-3.5 h-3.5"/>
                                         {formatDate(project.date, lang)}
                                     </span>

@@ -13,8 +13,8 @@ const SKILLS_PER_PAGE = 6;
 function SkillSkeleton() {
     return (
         <Card className="flex flex-col items-center p-4">
-            <Skeleton className="h-[80px] w-[80px] rounded-md mb-2" />
-            <Skeleton className="h-4 w-20" />
+            <Skeleton className="h-[80px] w-[80px] rounded-md mb-2"/>
+            <Skeleton className="h-4 w-20"/>
         </Card>
     );
 }
@@ -52,7 +52,8 @@ function CategorySection({category, skills}: { category: string; skills: any[] }
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
                 {paginated.map((skill: any) => (
-                    <Card key={skill.id} className="hover:shadow-md transition-shadow">
+                    <Card key={skill.id}
+                          className="hover:shadow-md hover:scale-105 hover:border-primary transition-all duration-200 cursor-default">
                         <CardContent className="flex flex-col items-center justify-center p-6 text-center h-full">
                             <div className="relative w-16 h-16 mb-3">
                                 <Image
@@ -92,9 +93,9 @@ export default function Skills() {
                 <section className="flex-col">
                     {[1, 2, 3].map((cat) => (
                         <div key={cat} className="mb-12">
-                            <Skeleton className="h-9 w-48 mb-6" />
+                            <Skeleton className="h-9 w-48 mb-6"/>
                             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-                                {[1, 2, 3, 4, 5, 6].map((i) => <SkillSkeleton key={i} />)}
+                                {[1, 2, 3, 4, 5, 6].map((i) => <SkillSkeleton key={i}/>)}
                             </div>
                         </div>
                     ))}
@@ -107,7 +108,7 @@ export default function Skills() {
         <div className="container mx-auto py-12 px-4 md:px-6 lg:px-8">
             <section>
                 {Object.entries(groupedSkills).map(([category, skills]) => (
-                    <CategorySection key={category} category={category} skills={skills} />
+                    <CategorySection key={category} category={category} skills={skills}/>
                 ))}
             </section>
         </div>

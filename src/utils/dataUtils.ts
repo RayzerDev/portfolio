@@ -6,6 +6,7 @@ type Lang = 'fr' | 'en';
 interface Projet {
     id: string;
     nom: string;
+    nom_en?: string;
     imagePreview: string;
     category: string;
     category_en: string;
@@ -15,6 +16,7 @@ interface Projet {
     shortDescription_en: string;
     competenceIds: string[];
     githubLink?: string;
+    date?: string;
     skills: Competence[];
 }
 
@@ -27,8 +29,8 @@ interface Competence {
     image: string;
 }
 
-interface Data {
-    projects: Projet[];
+interface RawData {
+    projects: any[];
     skills: Competence[];
     workExperiences: any[];
     degrees: any[];
@@ -37,13 +39,15 @@ interface Data {
 
 class DataSingleton {
     private static instance: DataSingleton;
-    private data: Data = {
-        projects: [],
-        skills: [],
-        workExperiences: [],
-        degrees: [],
-        hobbies: []
-    };
+
+    private raw: RawData = {projects: [], skills: [], workExperiences: [], degrees: [], hobbies: []};
+
+    // One promise per file — prevents duplicate concurrent reads
+    private loaders = new Map<keyof RawData, Promise<void>>();
+
+    // Projects require a join with skills; resolved and sorted once
+    private resolvedProjects: Projet[] | null = null;
+    private resolveProjectsPromise: Promise<void> | null = null;
 
     public static getInstance(): DataSingleton {
         if (!DataSingleton.instance) {
@@ -52,132 +56,126 @@ class DataSingleton {
         return DataSingleton.instance;
     }
 
-    private async loadData(fileName: string, key: keyof Data) {
-        try {
-            const filePath = path.join(process.cwd(), 'src', 'data', fileName);
-            const fileContent = await fs.readFile(filePath, 'utf8');
-            this.data[key] = JSON.parse(fileContent);
-        } catch (error) {
-            console.error(`Erreur de lecture du fichier JSON: ${fileName}`, error);
-            this.data[key] = [];
+    private load(fileName: string, key: keyof RawData): Promise<void> {
+        if (!this.loaders.has(key)) {
+            const p = fs
+                .readFile(path.join(process.cwd(), 'src', 'data', fileName), 'utf8')
+                .then(content => {
+                    this.raw[key] = JSON.parse(content);
+                })
+                .catch(err => {
+                    console.error(`Error reading ${fileName}:`, err);
+                    this.raw[key] = [];
+                });
+            this.loaders.set(key, p);
         }
+        return this.loaders.get(key)!;
     }
 
-    public async getProjectsData(lang: Lang = 'fr') {
-        if (this.data.projects.length === 0) {
-            await this.loadData('projects.json', 'projects');
+    private parseDate(dateStr: string | undefined): Date {
+        if (!dateStr) return new Date(0);
+        const [month, year] = dateStr.split('/').map(Number);
+        if (!month || !year || isNaN(month) || isNaN(year)) return new Date(0);
+        return new Date(year, month - 1);
+    }
+
+    // Loads projects + skills in parallel, joins via Map (O(1)), sorts by date desc — runs once
+    private async ensureProjects(): Promise<Projet[]> {
+        if (this.resolvedProjects) return this.resolvedProjects;
+
+        if (!this.resolveProjectsPromise) {
+            this.resolveProjectsPromise = Promise.all([
+                this.load('projects.json', 'projects'),
+                this.load('skills.json', 'skills'),
+            ]).then(() => {
+                const skillMap = new Map(this.raw.skills.map(s => [s.id, s]));
+                this.resolvedProjects = this.raw.projects
+                    .map(p => ({
+                        ...p,
+                        skills: ((p.competenceIds as string[]) || [])
+                            .map(id => skillMap.get(id))
+                            .filter((s): s is Competence => s !== undefined),
+                    }))
+                    .sort((a, b) => this.parseDate(b.date).getTime() - this.parseDate(a.date).getTime());
+            });
         }
-        for (const project of this.data.projects) {
-            project.skills = await this.getSkillsByProjectId(project.competenceIds);
-            if (!project.skills) project.skills = [];
-        }
+
+        await this.resolveProjectsPromise;
+        return this.resolvedProjects!;
+    }
+
+    public async getProjectsData(lang: Lang = 'fr'): Promise<Projet[]> {
+        const projects = await this.ensureProjects();
         if (lang === 'en') {
-            return this.data.projects.map(p => ({
+            return projects.map(p => ({
                 ...p,
-                skills: p.skills || [],
-                nom: (p as any).nom_en || p.nom,
+                nom: p.nom_en || p.nom,
                 category: p.category_en || p.category,
                 description: p.description_en || p.description,
                 shortDescription: p.shortDescription_en || p.shortDescription,
             }));
         }
-        return this.data.projects;
+        return projects;
     }
 
-    public async getSkillsData() {
-        if (this.data.skills.length === 0) {
-            await this.loadData('skills.json', 'skills');
-        }
-        return this.data.skills;
+    public async getSkillsData(): Promise<Competence[]> {
+        await this.load('skills.json', 'skills');
+        return this.raw.skills;
     }
 
-    public async groupProjectsByCategory(lang: Lang = 'fr') {
-        const groupedProjects: { [category: string]: Projet[] } = {};
-
-        (await this.getProjectsData(lang)).forEach(project => {
-            const category = lang === 'en' ? (project.category_en || project.category) : project.category;
-
-            if (!groupedProjects[category]) {
-                groupedProjects[category] = [];
-            }
-
-            groupedProjects[category].push(project);
-        });
-
-        return groupedProjects;
+    public async groupProjectsByCategory(lang: Lang = 'fr'): Promise<Record<string, Projet[]>> {
+        const projects = await this.getProjectsData(lang);
+        return projects.reduce<Record<string, Projet[]>>((acc, project) => {
+            (acc[project.category] ??= []).push(project);
+            return acc;
+        }, {});
     }
 
-    public async groupSkillsByCategory(lang: Lang = 'fr') {
-        const groupedSkills: { [categorie: string]: { id: string, nom: string, image: string }[] } = {};
-
-        (await this.getSkillsData()).forEach(skill => {
-            const {id, nom, image} = skill;
-            const categorie = lang === 'en' ? (skill.categorie_en || skill.categorie) : skill.categorie;
-
-            if (!groupedSkills[categorie]) {
-                groupedSkills[categorie] = [];
-            }
-
-            groupedSkills[categorie].push({id, nom, image});
-        });
-
-        return groupedSkills;
+    public async groupSkillsByCategory(lang: Lang = 'fr'): Promise<Record<string, {
+        id: string;
+        nom: string;
+        image: string
+    }[]>> {
+        await this.load('skills.json', 'skills');
+        return this.raw.skills.reduce<Record<string, { id: string; nom: string; image: string }[]>>((acc, skill) => {
+            const cat = lang === 'en' ? (skill.categorie_en || skill.categorie) : skill.categorie;
+            (acc[cat] ??= []).push({id: skill.id, nom: skill.nom, image: skill.image});
+            return acc;
+        }, {});
     }
 
-    public async getWorkExperiencesData(lang: Lang = 'fr') {
-        if (this.data.workExperiences.length === 0) {
-            await this.loadData('work_experiences.json', 'workExperiences');
-        }
-        const sorted = this.data.workExperiences.sort((a, b) => this.parseDate(b.fin).getTime() - this.parseDate(a.fin).getTime());
+    public async getWorkExperiencesData(lang: Lang = 'fr'): Promise<any[]> {
+        await this.load('work_experiences.json', 'workExperiences');
+        const sorted = [...this.raw.workExperiences].sort(
+            (a, b) => this.parseDate(b.fin).getTime() - this.parseDate(a.fin).getTime()
+        );
         if (lang === 'en') {
-            return sorted.map((e: any) => ({
-                ...e,
-                nom: e.nom_en || e.nom,
-                type: e.type_en || e.type,
-            }));
+            return sorted.map(e => ({...e, nom: e.nom_en || e.nom, type: e.type_en || e.type}));
         }
         return sorted;
     }
 
-    public async getDegreesData(lang: Lang = 'fr') {
-        if (this.data.degrees.length === 0) {
-            await this.loadData('degrees.json', 'degrees');
-        }
-        const sorted = this.data.degrees.sort((a, b) => this.parseDate(b.fin).getTime() - this.parseDate(a.fin).getTime());
+    public async getDegreesData(lang: Lang = 'fr'): Promise<any[]> {
+        await this.load('degrees.json', 'degrees');
+        const sorted = [...this.raw.degrees].sort(
+            (a, b) => this.parseDate(b.fin).getTime() - this.parseDate(a.fin).getTime()
+        );
         if (lang === 'en') {
-            return sorted.map((d: any) => ({
-                ...d,
-                nom: d.nom_en || d.nom,
-                type: d.type_en || d.type,
-            }));
+            return sorted.map(d => ({...d, nom: d.nom_en || d.nom, type: d.type_en || d.type}));
         }
         return sorted;
     }
 
-    public async getHobbiesData(lang: Lang = 'fr') {
-        if (this.data.hobbies.length === 0) {
-            await this.loadData('hobbies.json', 'hobbies');
-        }
+    public async getHobbiesData(lang: Lang = 'fr'): Promise<any[]> {
+        await this.load('hobbies.json', 'hobbies');
         if (lang === 'en') {
-            return this.data.hobbies.map((h: any) => ({
+            return this.raw.hobbies.map(h => ({
                 ...h,
                 nom: h.nom_en || h.nom,
                 description: h.description_en || h.description,
             }));
         }
-        return this.data.hobbies;
-    }
-
-    private async getSkillsByProjectId(skillIds: string[]) {
-        if (this.data.skills.length === 0) {
-            await this.getSkillsData();
-        }
-        return this.data.skills?.filter(c => skillIds?.includes(c.id)) || [];
-    }
-
-    private parseDate(dateStr: string): Date {
-        const [month, year] = dateStr.split('/').map(Number);
-        return new Date(year, month - 1);
+        return this.raw.hobbies;
     }
 }
 
