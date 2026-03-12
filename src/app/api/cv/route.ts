@@ -101,12 +101,14 @@ export async function GET(request: NextRequest) {
 
     const filename = `cv-louis-karamucki-${lang}.pdf`;
 
+    const isCustom = !!(customTitle || customDescription);
+
     return new NextResponse(buffer, {
         status: 200,
         headers: {
             'Content-Type': 'application/pdf',
             'Content-Disposition': `inline; filename="${filename}"`,
-            'Cache-Control': 'public, max-age=3600',
+            'Cache-Control': isCustom ? 'private, no-store' : 'public, max-age=3600',
             'X-Cache': 'MISS',
         },
     });
