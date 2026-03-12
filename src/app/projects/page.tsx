@@ -14,7 +14,7 @@ function formatDate(date: string | undefined, lang: string): string {
     if (!date) return '';
     const [month, year] = date.split('/');
     if (!month || !year) return date;
-    const monthsFr = ['Jan', 'FÃ©v', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil', 'AoÃ»t', 'Sep', 'Oct', 'Nov', 'DÃ©c'];
+    const monthsFr = ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil', 'Août', 'Sep', 'Oct', 'Nov', 'Déc'];
     const monthsEn = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     const arr = lang === 'en' ? monthsEn : monthsFr;
     return `${arr[parseInt(month, 10) - 1] ?? month} ${year}`;
