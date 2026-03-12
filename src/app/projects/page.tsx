@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Image from "next/image";
 import {Skeleton} from "@/components/ui/skeleton";
@@ -14,7 +14,7 @@ function formatDate(date: string | undefined, lang: string): string {
     if (!date) return '';
     const [month, year] = date.split('/');
     if (!month || !year) return date;
-    const monthsFr = ['Jan', 'FÃ©v', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil', 'AoÃ»t', 'Sep', 'Oct', 'Nov', 'DÃ©c'];
+    const monthsFr = ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil', 'Août', 'Sep', 'Oct', 'Nov', 'Déc'];
     const monthsEn = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     const arr = lang === 'en' ? monthsEn : monthsFr;
     return `${arr[parseInt(month, 10) - 1] ?? month} ${year}`;
@@ -198,7 +198,7 @@ export default function Projects() {
     return (
         <>
             <div className="w-full">
-                {/* -- Hero -- */}
+                {/* ── Hero ── */}
                 <section className="pt-8 pb-8 md:pt-16 md:pb-12">
                     <div className="container mx-auto px-4 md:px-6 text-center max-w-2xl">
                         <h1 className="text-3xl font-bold tracking-tight sm:text-5xl md:text-6xl text-secondary">
@@ -210,7 +210,7 @@ export default function Projects() {
                     </div>
                 </section>
 
-                {/* -- Grid -- */}
+                {/* ── Grid ── */}
                 <section className="pb-16 md:pb-28">
                     <div className="container mx-auto px-4 md:px-6">
                         {loading ? (
