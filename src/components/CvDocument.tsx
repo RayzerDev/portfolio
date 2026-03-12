@@ -214,8 +214,8 @@ const s = StyleSheet.create({
     },
     cardSub: {fontSize: 7.5, color: C.fgMut, marginBottom: 2},
     badge: {
-        backgroundColor: C.bg, paddingVertical: 2, paddingHorizontal: 6,
-        borderRadius: 10, alignSelf: 'flex-start', borderWidth: 1, borderColor: C.accent,
+        backgroundColor: C.card, paddingVertical: 2.5, paddingHorizontal: 6,
+        borderRadius: 10, alignSelf: 'flex-start', borderWidth: 1, borderColor: C.border,
     },
     badgeText: {fontSize: 6.5, color: C.accentL, fontFamily: 'Helvetica-Bold'},
 
@@ -238,10 +238,10 @@ const s = StyleSheet.create({
     projectDesc: {fontSize: 6.5, color: C.fgMut, lineHeight: 1.35},
     projectSkillsRow: {flexDirection: 'row', flexWrap: 'wrap', gap: 2, marginTop: 4},
     projectSkillTag: {
-        backgroundColor: C.card, paddingVertical: 1.5, paddingHorizontal: 4,
-        borderRadius: 10, borderWidth: 1, borderColor: C.accent,
+        backgroundColor: C.card, paddingVertical: 2.5, paddingHorizontal: 6,
+        borderRadius: 10, borderWidth: 1, borderColor: C.border,
     },
-    projectSkillTagText: {fontSize: 5.5, color: C.accentL, fontFamily: 'Helvetica-Bold'},
+    projectSkillTagText: {fontSize: 6.5, color: C.accentL, fontFamily: 'Helvetica-Bold'},
     projLabel: {
         fontSize: 7.5, fontFamily: 'Helvetica-Bold', color: C.fgMut,
         textTransform: 'uppercase', letterSpacing: 0.7, marginBottom: 4,

@@ -1,38 +1,48 @@
 "use client"
 
-import * as React from "react"
-import {useTheme} from "next-themes"
+import {useEffect, useState} from "react";
+import {useTheme} from "next-themes";
+import {Monitor, Moon, Sun} from "lucide-react";
 
-import {Button} from "@/components/ui/button"
-import {MoonIcon, SunIcon} from "lucide-react";
-import {DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger} from "@/components/ui/dropdown-menu";
-
+const THEMES = ["light", "dark", "system"] as const;
+type Theme = typeof THEMES[number];
+const ICONS: Record<Theme, React.ElementType> = {light: Sun, dark: Moon, system: Monitor};
+const LABELS: Record<Theme, string> = {light: "Light", dark: "Dark", system: "System"};
 
 export function ModeToggle() {
-    const {setTheme} = useTheme()
+    const {theme, setTheme} = useTheme();
+    const [mounted, setMounted] = useState(false);
+    useEffect(() => setMounted(true), []);
+
+    if (!mounted) return <div className="w-8 h-8"/>;
+
+    const current: Theme = THEMES.includes(theme as Theme) ? (theme as Theme) : "system";
+    const Icon = ICONS[current];
+    const next = THEMES[(THEMES.indexOf(current) + 1) % THEMES.length];
+
+    const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+        const x = e.clientX;
+        const y = e.clientY;
+        const doc = document.documentElement;
+        doc.style.setProperty("--vt-x", `${x}px`);
+        doc.style.setProperty("--vt-y", `${y}px`);
+
+        if (!("startViewTransition" in document)) {
+            setTheme(next);
+            return;
+        }
+        (document as Document & { startViewTransition: (cb: () => void) => void })
+            .startViewTransition(() => setTheme(next));
+    };
 
     return (
-        <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-                <Button variant="outline" size="icon">
-                    <SunIcon
-                        className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"/>
-                    <MoonIcon
-                        className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100"/>
-                    <span className="sr-only">Toggle theme</span>
-                </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-                <DropdownMenuItem onClick={() => setTheme("light")}>
-                    Light
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setTheme("dark")}>
-                    Dark
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setTheme("system")}>
-                    System
-                </DropdownMenuItem>
-            </DropdownMenuContent>
-        </DropdownMenu>
-    )
+        <button
+            onClick={handleClick}
+            aria-label={`Switch to ${LABELS[next]} theme`}
+            title={`Switch to ${LABELS[next]}`}
+            className="flex items-center justify-center w-8 h-8 rounded-full text-muted-foreground hover:text-foreground hover:bg-muted transition-all"
+        >
+            <Icon size={15}/>
+        </button>
+    );
 }

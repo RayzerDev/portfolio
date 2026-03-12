@@ -2,26 +2,30 @@
 
 import {useLanguage} from "@/context/LanguageContext";
 
+const LANGS = [
+    {code: "fr" as const, label: "FR", aria: "Français"},
+    {code: "en" as const, label: "EN", aria: "English"},
+];
+
 export function LanguageSwitcher() {
     const {lang, setLang} = useLanguage();
 
     return (
-        <div className="flex items-center gap-1 text-sm font-medium">
-            <button
-                onClick={() => setLang("fr")}
-                className={`px-2 py-1 rounded transition hover:scale-110 ${lang === "fr" ? "font-bold underline" : "opacity-60"}`}
-                aria-label="Français"
-            >
-                FR
-            </button>
-            <span className="opacity-40">|</span>
-            <button
-                onClick={() => setLang("en")}
-                className={`px-2 py-1 rounded transition hover:scale-110 ${lang === "en" ? "font-bold underline" : "opacity-60"}`}
-                aria-label="English"
-            >
-                EN
-            </button>
+        <div className="flex items-center gap-0.5 bg-muted rounded-full p-0.5">
+            {LANGS.map(({code, label, aria}) => (
+                <button
+                    key={code}
+                    onClick={() => setLang(code)}
+                    aria-label={aria}
+                    className={`px-2.5 py-1 rounded-full text-xs font-semibold tracking-wide transition-all duration-200 ${
+                        lang === code
+                            ? "bg-background text-foreground shadow-sm"
+                            : "text-muted-foreground hover:text-foreground"
+                    }`}
+                >
+                    {label}
+                </button>
+            ))}
         </div>
     );
 }
