@@ -69,10 +69,10 @@ export default function Project({params}: { params: { id: string } }) {
                         <div className="flex flex-col gap-2">
                             <h2 className="text-xl font-bold text-secondary">{t("projectDetail.githubRepo")}</h2>
                             <Link href={project.githubLink}
-                                  className="flex items-center gap-2 text-foreground break-words" prefetch={false}
+                                  className="flex items-center gap-2 text-foreground" prefetch={false}
                                   target="_blank">
                                 <Github className="w-5 h-5"/>
-                                <span className="break-all">{project.githubLink}</span>
+                                {project.githubLink}
                             </Link>
                         </div>
                     )}

@@ -120,10 +120,10 @@ export function ProjectModal({projectId, onClose, lang, t}: ProjectModalProps) {
                                 href={project.githubLink}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2.5 self-start rounded-lg border border-border/70 bg-muted/60 hover:bg-muted px-4 py-2.5 text-sm font-medium text-foreground hover:text-primary transition-colors"
+                                className="flex items-center gap-2.5 w-full rounded-lg border border-border/70 bg-muted/60 hover:bg-muted px-4 py-2.5 text-sm font-medium text-foreground hover:text-primary transition-colors"
                             >
                                 <Github className="w-4 h-4 shrink-0"/>
-                                <span className="truncate max-w-[220px]">{project.githubLink.replace('https://', '')}</span>
+                                <span className="flex-1 truncate">{project.githubLink.replace('https://', '')}</span>
                                 <ExternalLink className="w-3.5 h-3.5 shrink-0 text-muted-foreground"/>
                             </a>
                         )}
