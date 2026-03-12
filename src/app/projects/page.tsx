@@ -198,7 +198,7 @@ export default function Projects() {
     return (
         <>
             <div className="w-full">
-                {/* â”€â”€ Hero â”€â”€ */}
+                {/* -- Hero -- */}
                 <section className="pt-8 pb-8 md:pt-16 md:pb-12">
                     <div className="container mx-auto px-4 md:px-6 text-center max-w-2xl">
                         <h1 className="text-3xl font-bold tracking-tight sm:text-5xl md:text-6xl text-secondary">
@@ -210,7 +210,7 @@ export default function Projects() {
                     </div>
                 </section>
 
-                {/* â”€â”€ Grid â”€â”€ */}
+                {/* -- Grid -- */}
                 <section className="pb-16 md:pb-28">
                     <div className="container mx-auto px-4 md:px-6">
                         {loading ? (
