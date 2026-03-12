@@ -27,12 +27,11 @@ export default function RootLayout({
             attribute="class"
             defaultTheme="system"
             enableSystem
-            disableTransitionOnChange
         >
             <LanguageProvider>
                 <div className="flex flex-col min-h-[100dvh]">
                     <Header/>
-                    <main className={inter.className}>{children}</main>
+                    <main className={`${inter.className} pt-24`}>{children}</main>
                 </div>
             </LanguageProvider>
         </ThemeProvider>

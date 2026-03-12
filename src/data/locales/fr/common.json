@@ -1,5 +1,6 @@
 {
   "nav": {
+    "home": "Accueil",
     "skills": "Compétences",
     "projects": "Projets",
     "contact": "Contact"
@@ -24,8 +25,13 @@
   "contact": {
     "title": "Contactez-moi",
     "subtitle": "N'hésitez pas à me contacter pour toute demande ou collaboration.",
+    "emailLabel": "Email",
+    "linkedinLabel": "LinkedIn",
+    "githubLabel": "GitHub",
+    "locationLabel": "Localisation",
     "cvTitle": "Télécharger mon CV",
     "cvSubtitle": "Cliquez sur le bouton ci-dessous pour télécharger mon CV au format PDF.",
-    "cvButton": "Visualiser CV"
+    "cvButton": "Télécharger le CV",
+    "cvGenerating": "Génération en cours…"
   }
 }

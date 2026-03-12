@@ -7,6 +7,9 @@ import CvDocument from '@/components/CvDocument';
 
 export const dynamic = 'force-dynamic';
 
+const CV_CACHE_TTL_MS = 60 * 60 * 1000; // 1h
+const cvCache = new Map<string, { buffer: Buffer; ts: number }>();
+
 // Helper pour créer l'élément sans conflit de types
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function createCvElement(props: Record<string, unknown>): React.ReactElement<DocumentProps> {
@@ -39,6 +42,23 @@ export async function GET(request: NextRequest) {
     const lang = (searchParams.get('lang') === 'en' ? 'en' : 'fr') as 'fr' | 'en';
     const customTitle = searchParams.get('title') ?? undefined;
     const customDescription = searchParams.get('description') ?? undefined;
+
+    // Serve from cache when no custom params are involved
+    const cacheKey = lang;
+    if (!customTitle && !customDescription) {
+        const entry = cvCache.get(cacheKey);
+        if (entry && Date.now() - entry.ts < CV_CACHE_TTL_MS) {
+            return new NextResponse(entry.buffer, {
+                status: 200,
+                headers: {
+                    'Content-Type': 'application/pdf',
+                    'Content-Disposition': `inline; filename="cv-louis-karamucki-${lang}.pdf"`,
+                    'Cache-Control': 'public, max-age=3600',
+                    'X-Cache': 'HIT',
+                },
+            });
+        }
+    }
 
     const dataService = DataSingleton.getInstance();
 
@@ -74,6 +94,11 @@ export async function GET(request: NextRequest) {
 
     const buffer = await renderToBuffer(element);
 
+    // Populate cache for standard (no custom params) requests
+    if (!customTitle && !customDescription) {
+        cvCache.set(cacheKey, {buffer, ts: Date.now()});
+    }
+
     const filename = `cv-louis-karamucki-${lang}.pdf`;
 
     return new NextResponse(buffer, {
@@ -81,7 +106,8 @@ export async function GET(request: NextRequest) {
         headers: {
             'Content-Type': 'application/pdf',
             'Content-Disposition': `inline; filename="${filename}"`,
-            'Cache-Control': 'no-store',
+            'Cache-Control': 'public, max-age=3600',
+            'X-Cache': 'MISS',
         },
     });
 }

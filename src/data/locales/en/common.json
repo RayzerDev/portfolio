@@ -1,5 +1,6 @@
 ﻿{
   "nav": {
+    "home": "Home",
     "skills": "Skills",
     "projects": "Projects",
     "contact": "Contact"
@@ -23,9 +24,14 @@
   },
   "contact": {
     "title": "Contact me",
-    "subtitle": "Feel free to contact me for any request or collaboration.",
+    "subtitle": "Feel free to reach out for any request or collaboration.",
+    "emailLabel": "Email",
+    "linkedinLabel": "LinkedIn",
+    "githubLabel": "GitHub",
+    "locationLabel": "Location",
     "cvTitle": "Download my resume",
     "cvSubtitle": "Click the button below to download my resume in PDF format.",
-    "cvButton": "View Resume"
+    "cvButton": "Download Resume",
+    "cvGenerating": "Generating…"
   }
 }

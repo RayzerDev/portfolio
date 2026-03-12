@@ -47,7 +47,7 @@ function TimelineCard({entry, lang, presentLabel}: { entry: TimelineEntry; lang:
     const dateRange = `${formatDate(entry.debut, lang)} → ${ongoing ? presentLabel : formatDate(entry.fin, lang)}`;
 
     return (
-        <div className="rounded-md border bg-card p-4 shadow-sm hover:shadow-md transition-shadow">
+        <div className="rounded-xl border border-border/60 bg-card/80 backdrop-blur-sm p-4 shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200">
             <div className="flex items-start justify-between gap-2">
                 <h3 className="font-semibold text-foreground leading-tight">{entry.nom}</h3>
                 {ongoing && (
@@ -64,7 +64,7 @@ function TimelineCard({entry, lang, presentLabel}: { entry: TimelineEntry; lang:
                 <MapPin className="w-3.5 h-3.5 shrink-0"/>
                 {entry.location}
             </p>
-            <div className="flex items-center justify-between mt-3 pt-3 border-t border-border">
+            <div className="flex items-center justify-between mt-3 pt-3 border-t border-border/60">
                 <span className="text-xs text-muted-foreground flex items-center gap-1">
                     <CalendarIcon className="w-3 h-3 shrink-0"/>
                     {dateRange}
@@ -83,7 +83,7 @@ function DegreeCard({entry, lang, presentLabel}: { entry: TimelineEntry; lang: s
     const dateRange = `${formatDate(entry.debut, lang)} → ${ongoing ? presentLabel : formatDate(entry.fin, lang)}`;
 
     return (
-        <div className="rounded-md border bg-card p-4 shadow-sm hover:shadow-md transition-shadow">
+        <div className="rounded-xl border border-border/60 bg-card/80 backdrop-blur-sm p-4 shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200">
             <div className="flex items-start justify-between gap-2">
                 <h3 className="font-semibold text-foreground leading-tight">{entry.nom}</h3>
                 {ongoing && (
@@ -100,7 +100,7 @@ function DegreeCard({entry, lang, presentLabel}: { entry: TimelineEntry; lang: s
                 <MapPin className="w-3.5 h-3.5 shrink-0"/>
                 {entry.location}
             </p>
-            <div className="flex items-center justify-between mt-3 pt-3 border-t border-border">
+            <div className="flex items-center justify-between mt-3 pt-3 border-t border-border/60">
                 <span className="text-xs text-muted-foreground flex items-center gap-1">
                     <CalendarIcon className="w-3 h-3 shrink-0"/>
                     {dateRange}
@@ -164,11 +164,12 @@ function ProfilePhoto() {
     const [error, setError] = useState(false);
     if (error) return null;
     return (
-        <div className="shrink-0 flex justify-center md:justify-end">
+        <div className="shrink-0 flex justify-center md:justify-end relative">
+            <div className="absolute inset-0 rounded-full bg-primary/20 blur-2xl scale-110 pointer-events-none"/>
             <img
                 src="/api/linkedin-photo"
                 alt="Louis Karamucki"
-                className="w-36 h-36 md:w-48 md:h-48 rounded-full object-cover border-4 border-primary shadow-lg"
+                className="relative w-36 h-36 md:w-48 md:h-48 rounded-full object-cover border-4 border-primary/80 shadow-2xl shadow-primary/30"
                 onError={() => setError(true)}
             />
         </div>
@@ -232,17 +233,20 @@ export default function Home() {
 
     return (
         <div className="container mx-auto py-12 px-4 md:px-6 lg:px-8">
-            <section className="mb-16 flex flex-col md:flex-row md:items-center gap-8">
-                <div className="flex-1">
-                    <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-secondary">
-                        Louis Karamucki
-                        <span className="block h-1 mt-3 w-20 bg-primary rounded-full"/>
-                    </h1>
-                    <p className="mt-4 max-w-[600px] text-muted-foreground md:text-xl">
-                        {t("home.description")}
-                    </p>
+            <section className="mb-16">
+                <div className="relative overflow-hidden rounded-3xl border border-border/50 bg-card/60 backdrop-blur-sm p-8 md:p-12 flex flex-col md:flex-row md:items-center gap-8 shadow-2xl">
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent pointer-events-none"/>
+                    <div className="flex-1 relative">
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-secondary">
+                            Louis Karamucki
+                            <span className="block h-1 mt-3 w-20 bg-primary rounded-full"/>
+                        </h1>
+                        <p className="mt-4 max-w-[600px] text-muted-foreground md:text-xl">
+                            {t("home.description")}
+                        </p>
+                    </div>
+                    <ProfilePhoto/>
                 </div>
-                <ProfilePhoto/>
             </section>
 
             <section className="mb-12">

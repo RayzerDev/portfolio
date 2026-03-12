@@ -30,24 +30,31 @@ export function Modal({open, onClose, children, className}: ModalProps) {
 
     return createPortal(
         <div
-            className="fixed inset-0 z-[20000] flex items-center justify-center p-4"
+            className="fixed inset-0 z-[20000] flex items-end sm:items-center justify-center sm:p-4"
             aria-modal="true"
             role="dialog"
         >
+            {/* Backdrop */}
             <div
-                className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+                className="absolute inset-0 bg-black/60 backdrop-blur-md animate-in fade-in duration-200"
                 onClick={onClose}
             />
+            {/* Panel */}
             <div className={cn(
-                "relative z-10 w-[75vw] max-h-[75vh] overflow-y-auto rounded-lg border bg-card shadow-xl",
+                "relative z-10 w-full sm:max-w-4xl max-h-[92dvh] sm:max-h-[85vh] overflow-y-auto",
+                "rounded-t-2xl sm:rounded-2xl",
+                "bg-card/95 backdrop-blur-xl",
+                "border border-border/60",
+                "shadow-[0_24px_64px_rgba(0,0,0,0.35)]",
+                "animate-in fade-in slide-in-from-bottom-4 sm:zoom-in-95 sm:slide-in-from-bottom-0 duration-300",
                 className
             )}>
                 <button
                     onClick={onClose}
-                    className="absolute right-4 top-4 rounded-sm opacity-70 hover:opacity-100 transition-opacity"
+                    className="absolute right-3 top-3 z-10 flex items-center justify-center w-8 h-8 rounded-full bg-muted/80 hover:bg-muted text-muted-foreground hover:text-foreground transition-all"
                     aria-label="Fermer"
                 >
-                    <X className="w-5 h-5"/>
+                    <X className="w-4 h-4"/>
                 </button>
                 {children}
             </div>
