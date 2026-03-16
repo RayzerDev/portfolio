@@ -12,7 +12,13 @@
     "passions": "Passions",
     "present": "En cours"
   },
+  "skills": {
+    "title": "Compétences",
+    "subtitle": "Les technologies et outils que j'utilise au quotidien."
+  },
   "projects": {
+    "title": "Mes Projets",
+    "subtitle": "Une sélection de projets personnels et académiques.",
     "seeProject": "Voir le projet"
   },
   "projectDetail": {
