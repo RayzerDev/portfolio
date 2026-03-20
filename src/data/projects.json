@@ -228,5 +228,62 @@
     ],
     "nom_en": "Tripfolio (backend)",
     "date": "05/2025"
+  },
+  {
+    "id": "13",
+    "nom": "Gatcha",
+    "imagePreview": "/images/projects/default.jpg",
+    "category": "Projet Scolaire",
+    "category_en": "School Project",
+    "description": "Gatcha est un projet de jeu de cartes à collectionner. Les joueurs peuvent collectionner des cartes, les échanger et les utiliser pour combattre avec d'autres monstres. Le projet a été réalisé en groupe de 2.",
+    "description_en": "Gatcha is a collectible card game project. Players can collect cards, trade them, and use them to battle other monsters. The project was completed in a team of 2.",
+    "shortDescription": "Jeu de cartes à collectionner.",
+    "shortDescription_en": "Collectible card game.",
+    "githubLink": "https://github.com/RayzerDev/Gatcha",
+    "competenceIds": [
+      "12",
+      "25",
+      "32",
+      "37",
+      "28",
+      "35",
+      "33"
+    ],
+    "nom_en": "Gatcha",
+    "date": "01/2026"
+  },
+  {
+    "id": "14",
+    "nom": "RayTracer V2",
+    "imagePreview": "/images/projects/20231229105812.jpg",
+    "category": "Projet Scolaire",
+    "category_en": "School Project",
+    "description": "C'est un projet réalisé seul. Nous devions, à partir d'un fichier texte retourner une image avec un système de lumière, d'ombrage et de couleur. Le but du projet était d'implémenter des patrons de conception en Java.",
+    "description_en": "A solo project. Given a text file, we had to render an image with a lighting, shading, and color system. The goal was to implement design patterns in Java.",
+    "shortDescription": "Projet réalisé seul, sur un RayTracer en Java.",
+    "shortDescription_en": "Solo project on a Java RayTracer.",
+    "githubLink": "https://github.com/RayzerDev/RayTracer2.0",
+    "competenceIds": [
+      "12"
+    ],
+    "nom_en": "RayTracer V2",
+    "date": "11/2025"
+  },{
+    "id":"15",
+    "nom": "BlockChain - Transport sanitaire",
+    "imagePreview": "/images/projects/default.jpg",
+    "category": "Projet Scolaire",
+    "category_en": "School Project",
+    "description": "Ce projet a été réalisé seul dans le cadre d'un cours sur la blockchain. L'objectif était de développer une application de suivi de transport sanitaire utilisant la technologie smart contract pour garantir la traçabilité et la sécurité des données.",
+    "description_en": "This project was completed solo as part of a blockchain course. The goal was to develop a healthcare transport tracking application using blockchain technology to ensure data traceability and security.",
+    "shortDescription": "Application de suivi de transport sanitaire utilisant la blockchain.",
+    "shortDescription_en": "Healthcare transport tracking application using blockchain.",
+    "githubLink": "https://github.com/RayzerDev/Projet-BlockChain",
+    "competenceIds": [
+      "39",
+      "33"
+    ],
+    "nom_en": "Blockchain - Healthcare Transport",
+    "date": "03/2026"
   }
 ]

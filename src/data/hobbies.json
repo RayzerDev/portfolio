@@ -4,8 +4,8 @@
     "nom": "Sport",
     "nom_en": "Sport",
     "icon": "Dumbbell",
-    "description": "Je pratique de la musculation et le Jiu-Jitsu. J'ai déjà réalisé 2 compétitions régionales. J'aime aussi faire du foot avec mes amis le week-end.",
-    "description_en": "I practice weightlifting and Jiu-Jitsu. I have already competed in 2 regional competitions. I also enjoy playing football with friends on weekends."
+    "description": "Je pratique de la musculation, course à pied et le Jiu-Jitsu. J'ai déjà réalisé 2 compétitions régionales. J'aime aussi faire du foot avec mes amis le week-end.",
+    "description_en": "I practice weightlifting, running, and Jiu-Jitsu. I have already competed in 2 regional competitions. I also enjoy playing football with friends on weekends."
   },
   {
     "id": "2",
@@ -28,7 +28,14 @@
     "nom": "Informatique",
     "nom_en": "Tech",
     "icon": "Code",
-    "description": "J'ai des projets de développement pendant mon temps libre pour découvrir différents langages de programmation. Je touche également au Hardware : j'ai monté mon propre ordinateur.",
-    "description_en": "I work on development projects in my free time to explore different programming languages. I also dabble in hardware — I built my own PC."
+    "description": "J'ai des projets de développement pendant mon temps libre pour découvrir différents langages de programmation. Je m'intéresse également au Hardware : je monte mes propres ordinateurs.",
+    "description_en": "I work on development projects in my free time to explore different programming languages. I also dabble in hardware — I built my own PCs."
+  },{
+    "id": "5",
+    "nom": "Airsoft",
+    "nom_en": "Airsoft",
+    "icon": "Target",
+    "description": "Je joue à l'Airsoft depuis quelques années. C'est un sport de tir en plein air qui me permet de m'entraîner et de rencontrer d'autres joueurs.",
+    "description_en": "I have been playing Airsoft for several years. It's an outdoor shooting sport that allows me to train and meet other players."
   }
 ]
