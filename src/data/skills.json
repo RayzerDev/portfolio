@@ -236,5 +236,12 @@
     "categorie": "DevOps",
     "categorie_en": "DevOps",
     "image": "images/skills/nomad.png"
+  },
+  {
+    "id": "39",
+    "nom": "Solidity",
+    "categorie": "Langages",
+    "categorie_en": "Languages",
+    "image": "images/skills/solidity.svg"
   }
 ]
