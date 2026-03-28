@@ -17,14 +17,12 @@ function createCvElement(props: Record<string, unknown>): React.ReactElement<Doc
     return React.createElement(CvDocument as any, props) as React.ReactElement<DocumentProps>;
 }
 
-async function fetchPortraitBase64(): Promise<string | null> {
+async function fetchPortraitBase64(request: NextRequest): Promise<string | null> {
     try {
-        const LINKEDIN_PHOTO_URL = 'https://media.licdn.com/dms/image/v2/D4E03AQFc4FwVacSiGQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1697200255783?e=1774483200&v=beta&t=7d3ERn7AZeix0QMsFWQRdWPIZaTuPtoeTnBIx4VwQB0';
-        const res = await fetch(LINKEDIN_PHOTO_URL, {
+        const photoUrl = new URL('/api/linkedin-photo', request.nextUrl.origin);
+        const res = await fetch(photoUrl.toString(), {
             headers: {
-                'User-Agent':
-                    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-                Referer: 'https://www.linkedin.com/',
+                Accept: 'image/*',
             },
         });
         if (!res.ok) return null;
@@ -68,7 +66,7 @@ export async function GET(request: NextRequest) {
         dataService.groupSkillsByCategory(lang),
         dataService.getHobbiesData(lang),
         dataService.getProjectsData(lang),
-        fetchPortraitBase64(),
+        fetchPortraitBase64(request),
     ]);
 
     const personalCat = lang === 'en' ? 'Personal Project' : 'Projet Personnel';
