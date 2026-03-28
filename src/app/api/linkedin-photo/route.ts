@@ -5,7 +5,7 @@ export const dynamic = 'force-dynamic';
 // URL publique de la photo de profil LinkedIn (scraping non possible, on utilise une URL publique connue)
 // Pour une photo dynamique, on redirige vers l'URL publique LinkedIn.
 // Si LinkedIn bloque, le CV tombera sur le fallback initiales.
-const LINKEDIN_PHOTO_URL = 'https://media.licdn.com/dms/image/v2/D4E03AQFc4FwVacSiGQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1697200255783?e=1774483200&v=beta&t=7d3ERn7AZeix0QMsFWQRdWPIZaTuPtoeTnBIx4VwQB0';
+const LINKEDIN_PHOTO_URL = 'https://media.licdn.com/dms/image/v2/D4E03AQFc4FwVacSiGQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1697200255783?e=1776297600&v=beta&t=-zvBCvwDg9e1eBV2s3QARv23Xslj_ou2D5ciGeSC7P4';
 
 export async function GET() {
     try {
