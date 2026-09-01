@@ -21,8 +21,23 @@ function SkillSkeleton() {
 
 function CategorySection({category, skills}: { category: string; skills: any[] }) {
     const [page, setPage] = useState(1);
+    const [direction, setDirection] = useState<'right' | 'left'>('right');
     const totalPages = Math.ceil(skills.length / SKILLS_PER_PAGE);
     const paginated = skills.slice((page - 1) * SKILLS_PER_PAGE, page * SKILLS_PER_PAGE);
+
+    const handlePrev = () => {
+        if (page > 1) {
+            setDirection('left');
+            setPage(p => p - 1);
+        }
+    };
+
+    const handleNext = () => {
+        if (page < totalPages) {
+            setDirection('right');
+            setPage(p => p + 1);
+        }
+    };
 
     return (
         <div className="mb-12">
@@ -33,40 +48,49 @@ function CategorySection({category, skills}: { category: string; skills: any[] }
                         <Button
                             variant="outline"
                             size="icon"
-                            onClick={() => setPage(p => p - 1)}
+                            onClick={handlePrev}
                             disabled={page === 1}
+                            aria-label="Previous page"
                         >
                             <ChevronLeft className="w-4 h-4"/>
                         </Button>
-                        <span className="text-sm text-muted-foreground whitespace-nowrap">{page} / {totalPages}</span>
+                        <span className="text-sm font-medium text-muted-foreground whitespace-nowrap">{page} / {totalPages}</span>
                         <Button
                             variant="outline"
                             size="icon"
-                            onClick={() => setPage(p => p + 1)}
+                            onClick={handleNext}
                             disabled={page === totalPages}
+                            aria-label="Next page"
                         >
                             <ChevronRight className="w-4 h-4"/>
                         </Button>
                     </div>
                 )}
             </div>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-                {paginated.map((skill: any) => (
-                    <Card key={skill.id}
-                          className="hover:shadow-md hover:scale-105 hover:border-primary transition-all duration-200 cursor-default">
-                        <CardContent className="flex flex-col items-center justify-center p-6 text-center h-full">
-                            <div className="relative w-16 h-16 mb-3">
-                                <Image
-                                    src={`/${skill.image}`}
-                                    alt={skill.nom}
-                                    fill
-                                    className="object-contain"
-                                />
-                            </div>
-                            <p className="font-medium text-sm">{skill.nom}</p>
-                        </CardContent>
-                    </Card>
-                ))}
+            <div className="overflow-hidden">
+                <div
+                    key={`${category}-page-${page}`}
+                    className={`grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 ${
+                        direction === 'right' ? 'animate-skill-slide-right' : 'animate-skill-slide-left'
+                    }`}
+                >
+                    {paginated.map((skill: any) => (
+                        <Card key={skill.id}
+                              className="hover:shadow-md hover:scale-105 hover:border-primary transition-all duration-200 cursor-default">
+                            <CardContent className="flex flex-col items-center justify-center p-6 text-center h-full">
+                                <div className="relative w-16 h-16 mb-3">
+                                    <Image
+                                        src={`/${skill.image}`}
+                                        alt={skill.nom}
+                                        fill
+                                        className="object-contain"
+                                    />
+                                </div>
+                                <p className="font-medium text-sm">{skill.nom}</p>
+                            </CardContent>
+                        </Card>
+                    ))}
+                </div>
             </div>
         </div>
     );

@@ -5,6 +5,7 @@ import {CalendarIcon, ExternalLink, Github, Tag} from "lucide-react";
 import {useEffect, useState} from "react";
 import {Skeleton} from "@/components/ui/skeleton";
 import {Modal} from "@/components/ui/modal";
+import {ImageLightbox, ZoomableImage} from "@/components/ui/ImageLightbox";
 
 function formatDate(date: string | undefined, lang: string): string {
     if (!date) return '';
@@ -50,16 +51,17 @@ function ModalSkeleton() {
 export function ProjectModal({projectId, onClose, lang, t}: ProjectModalProps) {
     const [project, setProject] = useState<any>(null);
     const [loading, setLoading] = useState(false);
-    const [imgLoaded, setImgLoaded] = useState(false);
+    const [lightboxOpen, setLightboxOpen] = useState(false);
 
     useEffect(() => {
         if (!projectId) {
             setProject(null);
+            setLightboxOpen(false);
             return;
         }
         setLoading(true);
         setProject(null);
-        setImgLoaded(false);
+        setLightboxOpen(false);
         fetch(`/api/projects/${projectId}?lang=${lang}`)
             .then(r => r.ok ? r.json() : null)
             .then(data => {
@@ -69,22 +71,22 @@ export function ProjectModal({projectId, onClose, lang, t}: ProjectModalProps) {
     }, [projectId, lang]);
 
     return (
-        <Modal open={!!projectId} onClose={onClose}>
-            {loading || !project ? (
-                <ModalSkeleton/>
-            ) : (
-                <div className="flex flex-col sm:flex-row">
-                    {/* Image */}
-                    <div className="relative w-full sm:w-[45%] shrink-0 aspect-video sm:aspect-auto sm:min-h-[320px] bg-muted overflow-hidden rounded-t-2xl sm:rounded-tl-2xl sm:rounded-bl-2xl sm:rounded-tr-none">
-                        {!imgLoaded && <Skeleton className="absolute inset-0 w-full h-full rounded-none"/>}
-                        <Image
-                            src={project.imagePreview}
-                            alt={project.nom}
-                            fill
-                            className={`object-cover transition-opacity duration-300 ${imgLoaded ? "opacity-100" : "opacity-0"}`}
-                            onLoad={() => setImgLoaded(true)}
-                        />
-                    </div>
+        <>
+            <Modal open={!!projectId} onClose={onClose}>
+                {loading || !project ? (
+                    <ModalSkeleton/>
+                ) : (
+                    <div className="flex flex-col sm:flex-row">
+                        {/* Image */}
+                        <div className="relative w-full sm:w-[45%] shrink-0 aspect-video sm:aspect-auto sm:min-h-[320px] bg-muted overflow-hidden rounded-t-2xl sm:rounded-tl-2xl sm:rounded-bl-2xl sm:rounded-tr-none">
+                            <ZoomableImage
+                                src={project.imagePreview}
+                                alt={project.nom}
+                                fill
+                                className="object-cover"
+                                onClick={() => setLightboxOpen(true)}
+                            />
+                        </div>
 
                     {/* Content */}
                     <div className="flex flex-col gap-5 p-6 sm:p-7 flex-1 min-w-0">
@@ -150,5 +152,14 @@ export function ProjectModal({projectId, onClose, lang, t}: ProjectModalProps) {
                 </div>
             )}
         </Modal>
+
+        {lightboxOpen && project?.imagePreview && (
+            <ImageLightbox
+                src={project.imagePreview}
+                alt={project.nom}
+                onClose={() => setLightboxOpen(false)}
+            />
+        )}
+    </>
     );
 }

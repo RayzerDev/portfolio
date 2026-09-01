@@ -34,11 +34,14 @@ const CONTACT_LINKS = [
 export default function Contact() {
     const {t, lang} = useTranslation();
     const [cvLoading, setCvLoading] = useState(false);
+    const [withPhoto, setWithPhoto] = useState(true);
 
     const handleCvDownload = async () => {
         setCvLoading(true);
         try {
-            const res = await fetch(`/api/cv?lang=${lang}`);
+            const res = await fetch(`/api/cv?lang=${lang}&photo=${withPhoto}&_t=${Date.now()}`, {
+                cache: 'no-store',
+            });
             const blob = await res.blob();
             const url = URL.createObjectURL(blob);
             window.open(url, '_blank');
@@ -112,18 +115,29 @@ export default function Contact() {
                                 {t("contact.cvSubtitle")}
                             </p>
                         </div>
-                        <button
-                            onClick={handleCvDownload}
-                            disabled={cvLoading}
-                            className="inline-flex h-11 items-center gap-2 justify-center rounded-lg bg-primary px-7 text-sm font-semibold
-                            text-primary-foreground shadow hover:bg-primary/90 transition-colors focus-visible:outline-none
-                            focus-visible:ring-2 focus-visible:ring-ring shrink-0 disabled:opacity-70 disabled:cursor-not-allowed"
-                        >
-                            {cvLoading
-                                ? <Loader2 className="h-4 w-4 animate-spin"/>
-                                : <FileText className="h-4 w-4"/>}
-                            {cvLoading ? t("contact.cvGenerating") : t("contact.cvButton")}
-                        </button>
+                        <div className="flex flex-col items-center md:items-end gap-3 shrink-0">
+                            <button
+                                onClick={handleCvDownload}
+                                disabled={cvLoading}
+                                className="inline-flex h-11 items-center gap-2 justify-center rounded-lg bg-primary px-7 text-sm font-semibold
+                                text-primary-foreground shadow hover:bg-primary/90 transition-colors focus-visible:outline-none
+                                focus-visible:ring-2 focus-visible:ring-ring shrink-0 disabled:opacity-70 disabled:cursor-not-allowed cursor-pointer"
+                            >
+                                {cvLoading
+                                    ? <Loader2 className="h-4 w-4 animate-spin"/>
+                                    : <FileText className="h-4 w-4"/>}
+                                {cvLoading ? t("contact.cvGenerating") : t("contact.cvButton")}
+                            </button>
+                            <label className="flex items-center gap-2 text-xs text-muted-foreground cursor-pointer select-none">
+                                <input
+                                    type="checkbox"
+                                    checked={withPhoto}
+                                    onChange={(e) => setWithPhoto(e.target.checked)}
+                                    className="rounded border-border text-primary focus:ring-primary h-3.5 w-3.5 cursor-pointer accent-primary"
+                                />
+                                <span>{t("contact.cvWithPhoto")}</span>
+                            </label>
+                        </div>
                     </div>
                 </div>
             </section>
