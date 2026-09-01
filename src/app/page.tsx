@@ -1,7 +1,8 @@
 "use client";
 
 import React, {useEffect, useState} from "react";
-import {Building, CalendarIcon, Code, Dumbbell, Gamepad, Guitar, LucideProps, MapPin, School} from "lucide-react";
+import Image from "next/image";
+import {Building, CalendarIcon, Code, Dumbbell, Gamepad, Globe, Guitar, LucideProps, MapPin, School, Target} from "lucide-react";
 import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
 import {Skeleton} from "@/components/ui/skeleton";
 import {useTranslation} from "@/hooks/useTranslation";
@@ -11,6 +12,7 @@ const iconMap: Record<string, React.FC<LucideProps>> = {
     Guitar,
     Gamepad,
     Code,
+    Target,
 };
 
 // Handles both MM/YY (experiences) and MM/YYYY (projects) formats
@@ -40,6 +42,7 @@ interface TimelineEntry {
     fin: string;
     subtitle: string;
     location: string;
+    description?: string;
 }
 
 function TimelineCard({entry, lang, presentLabel}: { entry: TimelineEntry; lang: string; presentLabel: string }) {
@@ -47,23 +50,30 @@ function TimelineCard({entry, lang, presentLabel}: { entry: TimelineEntry; lang:
     const dateRange = `${formatDate(entry.debut, lang)} → ${ongoing ? presentLabel : formatDate(entry.fin, lang)}`;
 
     return (
-        <div className="rounded-xl border border-border/60 bg-card/80 backdrop-blur-sm p-4 shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200">
-            <div className="flex items-start justify-between gap-2">
-                <h3 className="font-semibold text-foreground leading-tight">{entry.nom}</h3>
-                {ongoing && (
-                    <span
-                        className="shrink-0 inline-flex items-center rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 px-2 py-0.5 text-xs font-medium">
-                        {presentLabel}
-                    </span>
+        <div className="rounded-xl border border-border/60 bg-card/80 backdrop-blur-sm p-4 shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 flex flex-col justify-between h-full">
+            <div>
+                <div className="flex items-start justify-between gap-2">
+                    <h3 className="font-semibold text-foreground leading-tight">{entry.nom}</h3>
+                    {ongoing && (
+                        <span
+                            className="shrink-0 inline-flex items-center rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 px-2 py-0.5 text-xs font-medium">
+                            {presentLabel}
+                        </span>
+                    )}
+                </div>
+                <p className="text-sm text-muted-foreground mt-1 flex items-center gap-1">
+                    <Building className="w-3.5 h-3.5 shrink-0"/>
+                    {entry.subtitle}
+                    <span className="text-border mx-0.5">·</span>
+                    <MapPin className="w-3.5 h-3.5 shrink-0"/>
+                    {entry.location}
+                </p>
+                {entry.description && (
+                    <p className="text-xs text-muted-foreground mt-2.5 leading-relaxed">
+                        {entry.description}
+                    </p>
                 )}
             </div>
-            <p className="text-sm text-muted-foreground mt-1 flex items-center gap-1">
-                <Building className="w-3.5 h-3.5 shrink-0"/>
-                {entry.subtitle}
-                <span className="text-border mx-0.5">·</span>
-                <MapPin className="w-3.5 h-3.5 shrink-0"/>
-                {entry.location}
-            </p>
             <div className="flex items-center justify-between mt-3 pt-3 border-t border-border/60">
                 <span className="text-xs text-muted-foreground flex items-center gap-1">
                     <CalendarIcon className="w-3 h-3 shrink-0"/>
@@ -83,23 +93,30 @@ function DegreeCard({entry, lang, presentLabel}: { entry: TimelineEntry; lang: s
     const dateRange = `${formatDate(entry.debut, lang)} → ${ongoing ? presentLabel : formatDate(entry.fin, lang)}`;
 
     return (
-        <div className="rounded-xl border border-border/60 bg-card/80 backdrop-blur-sm p-4 shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200">
-            <div className="flex items-start justify-between gap-2">
-                <h3 className="font-semibold text-foreground leading-tight">{entry.nom}</h3>
-                {ongoing && (
-                    <span
-                        className="shrink-0 inline-flex items-center rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 px-2 py-0.5 text-xs font-medium">
-                        {presentLabel}
-                    </span>
+        <div className="rounded-xl border border-border/60 bg-card/80 backdrop-blur-sm p-4 shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 flex flex-col justify-between h-full">
+            <div>
+                <div className="flex items-start justify-between gap-2">
+                    <h3 className="font-semibold text-foreground leading-tight">{entry.nom}</h3>
+                    {ongoing && (
+                        <span
+                            className="shrink-0 inline-flex items-center rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 px-2 py-0.5 text-xs font-medium">
+                            {presentLabel}
+                        </span>
+                    )}
+                </div>
+                <p className="text-sm text-muted-foreground mt-1 flex items-center gap-1">
+                    <School className="w-3.5 h-3.5 shrink-0"/>
+                    {entry.subtitle}
+                    <span className="text-border mx-0.5">·</span>
+                    <MapPin className="w-3.5 h-3.5 shrink-0"/>
+                    {entry.location}
+                </p>
+                {entry.description && (
+                    <p className="text-xs text-muted-foreground mt-2.5 leading-relaxed">
+                        {entry.description}
+                    </p>
                 )}
             </div>
-            <p className="text-sm text-muted-foreground mt-1 flex items-center gap-1">
-                <School className="w-3.5 h-3.5 shrink-0"/>
-                {entry.subtitle}
-                <span className="text-border mx-0.5">·</span>
-                <MapPin className="w-3.5 h-3.5 shrink-0"/>
-                {entry.location}
-            </p>
             <div className="flex items-center justify-between mt-3 pt-3 border-t border-border/60">
                 <span className="text-xs text-muted-foreground flex items-center gap-1">
                     <CalendarIcon className="w-3 h-3 shrink-0"/>
@@ -117,16 +134,16 @@ function DegreeCard({entry, lang, presentLabel}: { entry: TimelineEntry; lang: s
 function TimelineList({children}: { children: React.ReactNode }) {
     const items = React.Children.toArray(children);
     return (
-        <div>
+        <div className="flex flex-col h-full">
             {items.map((child, i) => (
-                <div key={i} className="flex gap-3">
+                <div key={i} className="flex gap-3 flex-1">
                     <div className="flex flex-col items-center">
                         <div className="w-3 h-3 rounded-full bg-primary ring-2 ring-background mt-[18px] shrink-0"/>
                         {i < items.length - 1 && (
                             <div className="w-0.5 flex-1 bg-border mt-1"/>
                         )}
                     </div>
-                    <div className="flex-1 pb-3">{child}</div>
+                    <div className="flex-1 pb-4 flex flex-col">{child}</div>
                 </div>
             ))}
         </div>
@@ -219,6 +236,7 @@ export default function Home() {
         fin: e.fin,
         subtitle: e.entreprise,
         location: e.ville,
+        description: e.description,
     }));
 
     const degreeEntries: TimelineEntry[] = degrees.map(d => ({
@@ -229,6 +247,7 @@ export default function Home() {
         fin: d.fin,
         subtitle: d.ecole,
         location: d.ville,
+        description: d.description,
     }));
 
     return (
@@ -250,8 +269,8 @@ export default function Home() {
             </section>
 
             <section className="mb-12">
-                <div className="grid md:grid-cols-2 gap-x-12 gap-y-10">
-                    <div>
+                <div className="grid md:grid-cols-2 gap-x-12 gap-y-10 items-stretch">
+                    <div className="flex flex-col h-full">
                         <h2 className="text-2xl font-bold tracking-tight text-secondary mb-5">
                             {t("home.workExperiences")}
                         </h2>
@@ -264,7 +283,7 @@ export default function Home() {
                             </TimelineList>
                         }
                     </div>
-                    <div>
+                    <div className="flex flex-col h-full">
                         <h2 className="text-2xl font-bold tracking-tight text-secondary mb-5">
                             {t("home.degrees")}
                         </h2>
@@ -276,6 +295,53 @@ export default function Home() {
                                 ))}
                             </TimelineList>
                         }
+                    </div>
+                </div>
+            </section>
+
+            {/* ── Langues ── */}
+            <section className="mb-12">
+                <h2 className="text-2xl font-bold tracking-tight text-secondary mb-5 flex items-center gap-2">
+                    <Globe className="w-6 h-6 text-primary"/>
+                    {t("home.languages")}
+                </h2>
+                <div className="grid sm:grid-cols-2 gap-4">
+                    <div className="rounded-xl border border-border/60 bg-card/80 backdrop-blur-sm p-5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 flex items-center gap-4">
+                        <div className="relative w-12 h-12 shrink-0 rounded-full overflow-hidden shadow-sm border border-border/60">
+                            <Image src="/images/skills/fr.svg" alt="Français" fill className="object-cover"/>
+                        </div>
+                        <div className="flex-1 min-w-0">
+                            <div className="flex items-center justify-between gap-2">
+                                <h3 className="font-semibold text-foreground text-base">
+                                    {lang === 'fr' ? 'Français' : 'French'}
+                                </h3>
+                                <span className="inline-flex items-center rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 px-2.5 py-0.5 text-xs font-medium">
+                                    {lang === 'fr' ? 'Maternelle' : 'Native'}
+                                </span>
+                            </div>
+                            <p className="text-sm text-muted-foreground mt-0.5">
+                                {lang === 'fr' ? 'Langue maternelle' : 'Native speaker'}
+                            </p>
+                        </div>
+                    </div>
+
+                    <div className="rounded-xl border border-border/60 bg-card/80 backdrop-blur-sm p-5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 flex items-center gap-4">
+                        <div className="relative w-12 h-12 shrink-0 rounded-full overflow-hidden shadow-sm border border-border/60">
+                            <Image src="/images/skills/gb.svg" alt="Anglais" fill className="object-cover"/>
+                        </div>
+                        <div className="flex-1 min-w-0">
+                            <div className="flex items-center justify-between gap-2">
+                                <h3 className="font-semibold text-foreground text-base">
+                                    {lang === 'fr' ? 'Anglais' : 'English'}
+                                </h3>
+                                <span className="inline-flex items-center rounded-full bg-primary/10 text-primary px-2.5 py-0.5 text-xs font-medium">
+                                    TOEIC 710 · B2
+                                </span>
+                            </div>
+                            <p className="text-sm text-muted-foreground mt-0.5">
+                                {lang === 'fr' ? 'Score TOEIC : 710 points (Niveau B2 opérationnel)' : 'TOEIC score: 710 points (Working proficiency B2)'}
+                            </p>
+                        </div>
                     </div>
                 </div>
             </section>
