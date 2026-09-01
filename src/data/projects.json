@@ -268,8 +268,9 @@
     ],
     "nom_en": "RayTracer V2",
     "date": "11/2025"
-  },{
-    "id":"15",
+  },
+  {
+    "id": "15",
     "nom": "BlockChain - Transport sanitaire",
     "imagePreview": "/images/projects/default.jpg",
     "category": "Projet Scolaire",
@@ -285,5 +286,86 @@
     ],
     "nom_en": "Blockchain - Healthcare Transport",
     "date": "03/2026"
+  },
+  {
+    "id": "16",
+    "nom": "Location de Photobooth",
+    "imagePreview": "/images/projects/default.jpg",
+    "category": "Projet Personnel",
+    "category_en": "Personal Project",
+    "description": "Projet complet de location de borne photo événementielle : sélection et achat optimisé de l'équipement, fabrication sur-mesure de la boîte en bois, et développement du site web vitrine avec système de réservation en ligne et tableau de bord d'administration.",
+    "description_en": "End-to-end event photobooth rental project: smart hardware and component sourcing, custom wooden enclosure crafting, and showcase website development with an online booking engine and administration dashboard.",
+    "shortDescription": "Conception d'un photobooth (hardware et boîte en bois), site vitrine, réservation et administration.",
+    "shortDescription_en": "Photobooth hardware & wooden box crafting, showcase website, online reservation and admin panel.",
+    "competenceIds": [
+      "33",
+      "23",
+      "25",
+      "11",
+      "17"
+    ],
+    "nom_en": "Photobooth Rental Platform",
+    "date": "06/2026"
+  },
+  {
+    "id": "17",
+    "nom": "Airsoft Matcher & Scraper",
+    "imagePreview": "/images/projects/default.jpg",
+    "category": "Projet Personnel",
+    "category_en": "Personal Project",
+    "description": "Plateforme web communautaire pour l'airsoft : scraper automatisé de boutiques en ligne pour indexer et comparer les prix des répliques et pièces détachées, combiné à un système de vérification de compatibilité et un espace communautaire (avis, fiches et retours d'expérience).",
+    "description_en": "Community web platform for airsoft enthusiasts: automated e-commerce web scrapers to index and compare replica and part prices, combined with a compatibility verification system and collaborative community features.",
+    "shortDescription": "Comparateur et vérificateur de compatibilité de pièces d'airsoft avec scraper e-commerce et plateforme communautaire.",
+    "shortDescription_en": "Airsoft parts compatibility checker and comparison platform with e-commerce scraper and community features.",
+    "competenceIds": [
+      "13",
+      "33",
+      "23",
+      "35",
+      "10",
+      "17"
+    ],
+    "nom_en": "Airsoft Compatibility & Price Matcher",
+    "date": "09/2026"
+  },
+  {
+    "id": "18",
+    "nom": "Serveur Nomade & Tunnel Cloud",
+    "imagePreview": "/images/projects/default.jpg",
+    "category": "Projet Personnel",
+    "category_en": "Personal Project",
+    "description": "Reconditionnement d'un ancien PC portable en serveur personnel nomade orchestré sous Nomad et Docker. Hébergement de Jellyfin (médias), Immich (photos) et bot Discord. Mise en place d'un tunnel sécurisé reliant le serveur local à une instance Oracle Cloud pour une exposition externe sans ouverture de ports locaux.",
+    "description_en": "Repurposing of an old laptop into a portable home server orchestrated with Nomad and Docker. Self-hosted Jellyfin (media), Immich (photos), and Discord bot. Configured a secure network tunnel connecting the local machine to an Oracle Cloud VM for safe external access without local open ports.",
+    "shortDescription": "Serveur nomade auto-hébergé (Nomad, Jellyfin, Immich, Bot Discord) avec tunnel sécurisé vers Oracle Cloud.",
+    "shortDescription_en": "Self-hosted home server (Nomad, Jellyfin, Immich, Discord bot) linked via secure tunnel to Oracle Cloud VM.",
+    "competenceIds": [
+      "38",
+      "37",
+      "19",
+      "11",
+      "17"
+    ],
+    "nom_en": "Nomad Home Server & Cloud Tunnel",
+    "date": "08/2026"
+  },
+  {
+    "id": "19",
+    "nom": "Ch'ti Face Bouc",
+    "imagePreview": "/images/projects/ChtiFaceBouc.png",
+    "category": "Projet Scolaire",
+    "category_en": "School Project",
+    "description": "Ch'ti Face Bouc est une application mobile sociale développée avec Flutter et Firebase. Elle permet de créer, consulter, liker et commenter des publications avec photos, et intègre la gestion de profil utilisateur (biographie, photo de profil) ainsi qu'une authentification complète (compte Google, SMS/téléphone et email).",
+    "description_en": "Ch'ti Face Bouc is a social mobile app built with Flutter and Firebase. It allows users to post, browse, like, and comment on image posts, alongside full profile customization (bio, avatar) and multi-provider authentication (Google, phone number/SMS, and email).",
+    "shortDescription": "Application mobile sociale (Flutter / Firebase) : posts avec photos, likes, commentaires et auth multi-méthodes.",
+    "shortDescription_en": "Social mobile app (Flutter / Firebase): photo posts, likes, comments, and multi-method authentication.",
+    "githubLink": "https://github.com/RayzerDev/ChtiFaceBouc",
+    "competenceIds": [
+      "40",
+      "41",
+      "42",
+      "17"
+    ],
+    "nom_en": "Ch'ti Face Bouc",
+    "date": "04/2026"
   }
 ]

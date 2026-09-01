@@ -8,7 +8,9 @@
     "ecole": "IUT de Lens",
     "ville": "Lens",
     "debut": "09/22",
-    "fin": "07/25"
+    "fin": "07/25",
+    "description": "Parcours Réalisation d'applications : conception logicielle, programmation orientée objet, bases de données, architectures web et gestion de projet agile.",
+    "description_en": "Application Development track: software design, object-oriented programming, databases, web architectures, and agile project management."
   },
   {
     "id": "2",
@@ -19,7 +21,9 @@
     "ecole": "Lycée Pasteur",
     "ville": "Hénin-Beaumont",
     "debut": "09/20",
-    "fin": "07/22"
+    "fin": "07/22",
+    "description": "Spécialités Numérique et Sciences Informatiques (NSI) et Mathématiques. Mention Très Bien. Fondations solides en algorithmique, logique et programmation.",
+    "description_en": "Specialization in Computer Science (NSI) and Mathematics. Graduated with highest honors. Strong foundations in algorithms, logic, and programming."
   },
   {
     "id": "3",
@@ -30,6 +34,8 @@
     "ecole": "IMT Nord Europe",
     "ville": "Villeneuve d'Ascq",
     "debut": "09/25",
-    "fin": "07/28"
+    "fin": "07/28",
+    "description": "Formation d'ingénieur en informatique par alternance : génie logiciel avancé, architecture des systèmes distribués, sécurité et management de projet.",
+    "description_en": "Computer Science Engineering degree via work-study: advanced software engineering, distributed systems architecture, security, and project management."
   }
 ]

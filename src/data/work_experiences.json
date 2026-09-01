@@ -9,6 +9,8 @@
     "ville": "Avion",
     "debut": "09/23",
     "fin": "01/24",
+    "description": "Préparation et rassemblement des commandes, emballage, palettisation et contrôle qualité des marchandises destinées à l'approvisionnement des points de vente.",
+    "description_en": "Order picking and assembly, packing, palletizing, and quality control of goods destined for retail store distribution.",
     "competences": []
   },
   {
@@ -21,6 +23,8 @@
     "ville": "Noyelles-Godault",
     "debut": "01/23",
     "fin": "06/23",
+    "description": "Tenue de caisse et encaissement, réassort des produits en réserve et mise en rayon, facing et organisation de l'espace de vente.",
+    "description_en": "Checkout and cash handling, inventory restocking, merchandise display, and maintenance of sales floor organization.",
     "competences": []
   },
   {
@@ -33,6 +37,8 @@
     "ville": "Eleu-Dit-Leauwette",
     "debut": "01/24",
     "fin": "09/28",
+    "description": "Développement, maintenance corrective et évolutive, et migration d'applications d'entreprise (Java, Jakarta, Hibernate, Vaadin, WildFly, PostgreSQL, Windows Server). Intégration de protocoles XMPP (Smack), cartographie (Leaflet GeoJSON), moteur de règles métier (Drools) et développement mobile Android. Réalisation de projets en autonomie ou en binôme, et support technique utilisateur (mail et téléphone).",
+    "description_en": "Development, bug fixing, maintenance, and migration of enterprise software (Java, Jakarta, Hibernate, Vaadin, WildFly, PostgreSQL, Windows Server). Integration of XMPP messaging (Smack), mapping features (Leaflet GeoJSON), business rules engine (Drools), and Android mobile development. Conducting projects independently or in pairs, alongside user technical support (email and phone).",
     "competences": []
   }
 ]

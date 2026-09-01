@@ -23,6 +23,7 @@ interface Projet {
 interface Competence {
     id: string;
     nom: string;
+    nom_en?: string;
     niveau: string;
     categorie: string;
     categorie_en: string;
@@ -57,6 +58,18 @@ class DataSingleton {
     }
 
     private load(fileName: string, key: keyof RawData): Promise<void> {
+        const isDev = process.env.NODE_ENV !== 'production';
+        if (isDev) {
+            return fs
+                .readFile(path.join(process.cwd(), 'src', 'data', fileName), 'utf8')
+                .then(content => {
+                    this.raw[key] = JSON.parse(content);
+                })
+                .catch(err => {
+                    console.error(`Error reading ${fileName}:`, err);
+                    this.raw[key] = [];
+                });
+        }
         if (!this.loaders.has(key)) {
             const p = fs
                 .readFile(path.join(process.cwd(), 'src', 'data', fileName), 'utf8')
@@ -81,26 +94,29 @@ class DataSingleton {
 
     // Loads projects + skills in parallel, joins via Map (O(1)), sorts by date desc — runs once
     private async ensureProjects(): Promise<Projet[]> {
-        if (this.resolvedProjects) return this.resolvedProjects;
+        const isDev = process.env.NODE_ENV !== 'production';
+        if (!isDev && this.resolvedProjects) return this.resolvedProjects;
 
-        if (!this.resolveProjectsPromise) {
-            this.resolveProjectsPromise = Promise.all([
-                this.load('projects.json', 'projects'),
-                this.load('skills.json', 'skills'),
-            ]).then(() => {
-                const skillMap = new Map(this.raw.skills.map(s => [s.id, s]));
-                this.resolvedProjects = this.raw.projects
-                    .map(p => ({
-                        ...p,
-                        skills: ((p.competenceIds as string[]) || [])
-                            .map(id => skillMap.get(id))
-                            .filter((s): s is Competence => s !== undefined),
-                    }))
-                    .sort((a, b) => this.parseDate(b.date).getTime() - this.parseDate(a.date).getTime());
-            });
+        const loadPromise = Promise.all([
+            this.load('projects.json', 'projects'),
+            this.load('skills.json', 'skills'),
+        ]).then(() => {
+            const skillMap = new Map(this.raw.skills.map(s => [s.id, s]));
+            this.resolvedProjects = this.raw.projects
+                .map(p => ({
+                    ...p,
+                    skills: ((p.competenceIds as string[]) || [])
+                        .map(id => skillMap.get(id))
+                        .filter((s): s is Competence => s !== undefined),
+                }))
+                .sort((a, b) => this.parseDate(b.date).getTime() - this.parseDate(a.date).getTime());
+        });
+
+        if (!isDev) {
+            this.resolveProjectsPromise = loadPromise;
         }
 
-        await this.resolveProjectsPromise;
+        await loadPromise;
         return this.resolvedProjects!;
     }
 
@@ -139,7 +155,8 @@ class DataSingleton {
         await this.load('skills.json', 'skills');
         return this.raw.skills.reduce<Record<string, { id: string; nom: string; image: string }[]>>((acc, skill) => {
             const cat = lang === 'en' ? (skill.categorie_en || skill.categorie) : skill.categorie;
-            (acc[cat] ??= []).push({id: skill.id, nom: skill.nom, image: skill.image});
+            const nom = lang === 'en' ? (skill.nom_en || skill.nom) : skill.nom;
+            (acc[cat] ??= []).push({id: skill.id, nom, image: skill.image});
             return acc;
         }, {});
     }
@@ -150,7 +167,12 @@ class DataSingleton {
             (a, b) => this.parseDate(b.fin).getTime() - this.parseDate(a.fin).getTime()
         );
         if (lang === 'en') {
-            return sorted.map(e => ({...e, nom: e.nom_en || e.nom, type: e.type_en || e.type}));
+            return sorted.map(e => ({
+                ...e,
+                nom: e.nom_en || e.nom,
+                type: e.type_en || e.type,
+                description: e.description_en || e.description,
+            }));
         }
         return sorted;
     }
@@ -161,7 +183,12 @@ class DataSingleton {
             (a, b) => this.parseDate(b.fin).getTime() - this.parseDate(a.fin).getTime()
         );
         if (lang === 'en') {
-            return sorted.map(d => ({...d, nom: d.nom_en || d.nom, type: d.type_en || d.type}));
+            return sorted.map(d => ({
+                ...d,
+                nom: d.nom_en || d.nom,
+                type: d.type_en || d.type,
+                description: d.description_en || d.description,
+            }));
         }
         return sorted;
     }
