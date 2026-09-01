@@ -10,6 +10,7 @@ interface WorkExperience {
     ville: string;
     debut: string;
     fin: string;
+    description?: string;
 }
 
 interface Degree {
@@ -20,6 +21,7 @@ interface Degree {
     ville: string;
     debut: string;
     fin: string;
+    description?: string;
 }
 
 interface Hobby {
@@ -76,7 +78,6 @@ const C = {
 };
 
 // ── Icônes SVG Lucide ────────────────────────────────────────────────────────
-;
 const IconMail = ({color = '#fff', size = 11}) => (
     <Svg width={size} height={size} viewBox="0 0 24 24">
         <Rect x="2" y="4" width="20" height="16" rx="2" stroke={color} strokeWidth="2" fill="none"/>
@@ -119,136 +120,137 @@ const s = StyleSheet.create({
     page: {flexDirection: 'row', backgroundColor: C.bg, fontFamily: 'Helvetica'},
 
     // ── Sidebar ───────────────────────────────────────────────────────────
-    sidebar: {width: '32%', backgroundColor: C.cardDark, paddingBottom: 16, minHeight: '100%'},
+    sidebar: {width: '33.5%', backgroundColor: C.cardDark, paddingBottom: 10, minHeight: '100%'},
     sideHeader: {
         backgroundColor: C.accent,
-        paddingTop: 20, paddingBottom: 15, paddingHorizontal: 16,
-        alignItems: 'center', marginBottom: 12,
+        paddingTop: 20, paddingBottom: 14, paddingHorizontal: 14,
+        alignItems: 'center', marginBottom: 10.5,
     },
-    avatar: {width: 80, height: 80, borderRadius: 40, marginBottom: 10, borderWidth: 2, borderColor: C.white},
+    avatar: {width: 80, height: 80, borderRadius: 40, marginBottom: 7, borderWidth: 2.2, borderColor: C.white},
     avatarPlaceholder: {
         width: 80, height: 80, borderRadius: 40, backgroundColor: C.card,
-        alignItems: 'center', justifyContent: 'center', marginBottom: 10,
-        borderWidth: 2, borderColor: C.white,
+        alignItems: 'center', justifyContent: 'center', marginBottom: 7,
+        borderWidth: 2.2, borderColor: C.white,
     },
-    avatarInitials: {fontSize: 24, fontFamily: 'Helvetica-Bold', color: C.accentXL},
-    name: {fontSize: 14, fontFamily: 'Helvetica-Bold', color: C.white, textAlign: 'center', marginBottom: 3},
-    jobTitle: {fontSize: 7.5, color: C.accentXL, textAlign: 'center', letterSpacing: 1, textTransform: 'uppercase'},
+    avatarInitials: {fontSize: 25, fontFamily: 'Helvetica-Bold', color: C.accentXL},
+    name: {fontSize: 16.5, fontFamily: 'Helvetica-Bold', color: C.white, textAlign: 'center', marginBottom: 2.5},
+    jobTitle: {fontSize: 9.2, color: C.accentXL, textAlign: 'center', letterSpacing: 0.8, textTransform: 'uppercase'},
 
-    sidePad: {paddingHorizontal: 14},
+    sidePad: {paddingHorizontal: 13},
     sSection: {marginBottom: 10},
-    sTitleRow: {flexDirection: 'row', alignItems: 'center', marginBottom: 6},
-    sTitleBar: {width: 2.5, height: 11, backgroundColor: C.accent, borderRadius: 1.5, marginRight: 6},
+    sTitleRow: {flexDirection: 'row', alignItems: 'center', marginBottom: 4.5},
+    sTitleBar: {width: 3, height: 11.5, backgroundColor: C.accent, borderRadius: 1.5, marginRight: 5.5},
     sTitle: {
-        fontSize: 7.5,
+        fontSize: 9.6,
         fontFamily: 'Helvetica-Bold',
         color: C.accentL,
         textTransform: 'uppercase',
-        letterSpacing: 1.2
+        letterSpacing: 0.9
     },
     divider: {borderBottomWidth: 1, borderBottomColor: C.border, marginBottom: 10},
 
     // Contact
-    contactRow: {flexDirection: 'row', marginBottom: 6, alignItems: 'center'},
+    contactRow: {flexDirection: 'row', marginBottom: 4.2, alignItems: 'center'},
     contactIcon: {
-        width: 20, height: 20, borderRadius: 5, backgroundColor: C.accent,
-        alignItems: 'center', justifyContent: 'center', marginRight: 8,
+        width: 18, height: 18, borderRadius: 4.5, backgroundColor: C.accent,
+        alignItems: 'center', justifyContent: 'center', marginRight: 7,
     },
     contactInfo: {flex: 1},
-    contactLabel: {fontSize: 6, color: C.fgMut, textTransform: 'uppercase', letterSpacing: 0.4, marginBottom: 1},
-    contactVal: {fontSize: 7.5, color: C.fg},
-    contactLink: {fontSize: 7.5, color: C.accentL, textDecoration: 'underline'},
+    contactLabel: {fontSize: 6.6, color: C.fgMut, textTransform: 'uppercase', letterSpacing: 0.4, marginBottom: 0.5},
+    contactVal: {fontSize: 8.4, color: C.fg},
+    contactLink: {fontSize: 8.4, color: C.accentL, textDecoration: 'underline'},
 
     // Compétences
-    catBlock: {marginBottom: 7},
+    catBlock: {marginBottom: 5.2},
     catLabel: {
-        fontSize: 6.5, fontFamily: 'Helvetica-Bold', color: C.accentL,
-        textTransform: 'uppercase', letterSpacing: 0.7, marginBottom: 3,
-        borderLeftWidth: 2, borderLeftColor: C.accent, paddingLeft: 4,
+        fontSize: 8.2, fontFamily: 'Helvetica-Bold', color: C.accentL,
+        textTransform: 'uppercase', letterSpacing: 0.5, marginBottom: 2.4,
+        borderLeftWidth: 2.2, borderLeftColor: C.accent, paddingLeft: 3.5,
     },
-    tagsRow: {flexDirection: 'row', flexWrap: 'wrap', gap: 3},
+    tagsRow: {flexDirection: 'row', flexWrap: 'wrap', gap: 2.6},
     tag: {
         backgroundColor: C.card,
-        paddingVertical: 2.5,
-        paddingHorizontal: 6,
-        borderRadius: 10,
+        paddingVertical: 1.8,
+        paddingHorizontal: 5.5,
+        borderRadius: 5,
         borderWidth: 1,
         borderColor: C.border
     },
-    tagText: {fontSize: 6.5, color: C.accentL, fontFamily: 'Helvetica-Bold'},
+    tagText: {fontSize: 7.6, color: C.accentL, fontFamily: 'Helvetica-Bold'},
 
-    // Hobbies
-    hobbyItem: {marginBottom: 5},
-    hobbyRow: {flexDirection: 'row', alignItems: 'center', marginBottom: 1.5},
-    hobbyDot: {width: 3.5, height: 3.5, borderRadius: 2, backgroundColor: C.accent, marginRight: 5},
-    hobbyName: {fontSize: 7.5, fontFamily: 'Helvetica-Bold', color: C.fg},
-    hobbyDesc: {fontSize: 6.5, color: C.fgMut, lineHeight: 1.4},
+    // Hobbies & Langues
+    hobbyItem: {marginBottom: 4.2},
+    hobbyRow: {flexDirection: 'row', alignItems: 'center', marginBottom: 0.6},
+    hobbyDot: {width: 3.2, height: 3.2, borderRadius: 1.6, backgroundColor: C.accent, marginRight: 4.5},
+    hobbyName: {fontSize: 8.6, fontFamily: 'Helvetica-Bold', color: C.fg},
+    hobbyDesc: {fontSize: 7.5, color: C.fgMut, lineHeight: 1.25},
 
     // ── Main ──────────────────────────────────────────────────────────────
     main: {
-        width: '68%', paddingTop: 18, paddingBottom: 14, paddingHorizontal: 16,
+        width: '66.5%', paddingTop: 16, paddingBottom: 10, paddingHorizontal: 15,
         backgroundColor: C.bg, minHeight: '100%',
     },
-    mainHeader: {marginBottom: 10},
-    mainName: {fontSize: 22, fontFamily: 'Helvetica-Bold', color: C.fg, marginBottom: 2},
-    mainJob: {fontSize: 13, fontFamily: 'Helvetica-Bold', color: C.accent, letterSpacing: 0.5, marginBottom: 5},
-    mainTagline: {fontSize: 9, color: C.fgMut, lineHeight: 1.5},
-    headerLine: {borderBottomWidth: 1.5, borderBottomColor: C.border, marginTop: 8},
+    mainHeader: {marginBottom: 7},
+    mainName: {fontSize: 23.5, fontFamily: 'Helvetica-Bold', color: C.fg, marginBottom: 2},
+    mainJob: {fontSize: 15, fontFamily: 'Helvetica-Bold', color: C.accent, letterSpacing: 0.5, marginBottom: 3.5},
+    mainTagline: {fontSize: 9.2, color: C.fgMut, lineHeight: 1.42},
+    headerLine: {borderBottomWidth: 1.5, borderBottomColor: C.border, marginTop: 6, marginBottom: 2},
 
-    secBlock: {marginBottom: 9},
+    secBlock: {marginBottom: 11.5},
     secTitleRow: {flexDirection: 'row', alignItems: 'center', marginBottom: 5},
-    secTitleAccent: {width: 3.5, height: 14, backgroundColor: C.accent, borderRadius: 2, marginRight: 7},
-    secTitle: {fontSize: 10, fontFamily: 'Helvetica-Bold', color: C.fg},
+    secTitleAccent: {width: 3.5, height: 13.5, backgroundColor: C.accent, borderRadius: 1.5, marginRight: 6.5},
+    secTitle: {fontSize: 10.8, fontFamily: 'Helvetica-Bold', color: C.fg},
 
     // Cards expé / diplôme
-    card: {marginBottom: 5},
+    card: {marginBottom: 3.8},
     cardInner: {
-        backgroundColor: C.card, borderRadius: 4, padding: 6,
-        borderLeftWidth: 3, borderLeftColor: C.accent,
+        backgroundColor: C.card, borderRadius: 4.5, padding: 5.2,
+        borderLeftWidth: 2.8, borderLeftColor: C.accent,
     },
-    cardHeader: {flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 2},
-    cardTitle: {fontSize: 8.5, fontFamily: 'Helvetica-Bold', color: C.fg, flex: 1, paddingRight: 6},
+    cardHeader: {flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 1.5},
+    cardTitle: {fontSize: 9.4, fontFamily: 'Helvetica-Bold', color: C.fg, flex: 1, paddingRight: 5},
     cardDate: {
-        fontSize: 7, color: C.white, fontFamily: 'Helvetica-Bold',
-        backgroundColor: C.accent, paddingVertical: 2, paddingHorizontal: 5, borderRadius: 3,
+        fontSize: 7.4, color: C.white, fontFamily: 'Helvetica-Bold',
+        backgroundColor: C.accent, paddingVertical: 1.6, paddingHorizontal: 5, borderRadius: 2.5,
     },
-    cardSub: {fontSize: 7.5, color: C.fgMut, marginBottom: 2},
+    cardSub: {fontSize: 8.2, color: C.fgMut, marginBottom: 1.5},
+    cardDesc: {fontSize: 7.2, color: C.fgMut, marginTop: 1, marginBottom: 2.2, lineHeight: 1.3},
     badge: {
-        backgroundColor: C.card, paddingVertical: 2.5, paddingHorizontal: 6,
-        borderRadius: 10, alignSelf: 'flex-start', borderWidth: 1, borderColor: C.border,
+        backgroundColor: C.card, paddingVertical: 1.8, paddingHorizontal: 5.5,
+        borderRadius: 8, alignSelf: 'flex-start', borderWidth: 1, borderColor: C.border,
     },
-    badgeText: {fontSize: 6.5, color: C.accentL, fontFamily: 'Helvetica-Bold'},
+    badgeText: {fontSize: 6.8, color: C.accentL, fontFamily: 'Helvetica-Bold'},
 
     // Grille projets
-    projectsGrid: {flexDirection: 'row', flexWrap: 'wrap', gap: 5},
+    projectsGrid: {flexDirection: 'row', flexWrap: 'wrap', gap: 4.5},
     projectCard: {
-        width: '49%', borderWidth: 1, borderColor: C.border, borderRadius: 4,
-        padding: 6, backgroundColor: C.card, borderTopWidth: 2.5, borderTopColor: C.accent,
+        width: '49%', borderWidth: 1, borderColor: C.border, borderRadius: 4.5,
+        padding: 5.2, backgroundColor: C.card, borderTopWidth: 2.2, borderTopColor: C.accent,
     },
     projectCardSch: {
-        width: '49%', borderWidth: 1, borderColor: C.border, borderRadius: 4,
-        padding: 6, backgroundColor: C.card, borderTopWidth: 2.5, borderTopColor: C.accentL,
+        width: '49%', borderWidth: 1, borderColor: C.border, borderRadius: 4.5,
+        padding: 5.2, backgroundColor: C.card, borderTopWidth: 2.2, borderTopColor: C.accentL,
     },
-    projectHeader: {flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 2},
-    projectName: {fontSize: 8, fontFamily: 'Helvetica-Bold', color: C.fg, flex: 1, paddingRight: 4},
+    projectHeader: {flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 1.5},
+    projectName: {fontSize: 8.8, fontFamily: 'Helvetica-Bold', color: C.fg, flex: 1, paddingRight: 3},
     projectDate: {
-        fontSize: 6, color: C.accentL, backgroundColor: C.cardDark,
-        paddingVertical: 1.5, paddingHorizontal: 3.5, borderRadius: 2,
+        fontSize: 6.6, color: C.accentL, backgroundColor: C.cardDark,
+        paddingVertical: 1, paddingHorizontal: 3.5, borderRadius: 2,
     },
-    projectDesc: {fontSize: 6.5, color: C.fgMut, lineHeight: 1.35},
-    projectSkillsRow: {flexDirection: 'row', flexWrap: 'wrap', gap: 2, marginTop: 4},
+    projectDesc: {fontSize: 7.2, color: C.fgMut, lineHeight: 1.28},
+    projectSkillsRow: {flexDirection: 'row', flexWrap: 'wrap', gap: 1.8, marginTop: 2.5},
     projectSkillTag: {
-        backgroundColor: C.card, paddingVertical: 2.5, paddingHorizontal: 6,
-        borderRadius: 10, borderWidth: 1, borderColor: C.border,
+        backgroundColor: C.card, paddingVertical: 1.6, paddingHorizontal: 4.8,
+        borderRadius: 6, borderWidth: 1, borderColor: C.border,
     },
-    projectSkillTagText: {fontSize: 6.5, color: C.accentL, fontFamily: 'Helvetica-Bold'},
+    projectSkillTagText: {fontSize: 6.3, color: C.accentL, fontFamily: 'Helvetica-Bold'},
     projLabel: {
-        fontSize: 7.5, fontFamily: 'Helvetica-Bold', color: C.fgMut,
-        textTransform: 'uppercase', letterSpacing: 0.7, marginBottom: 4,
+        fontSize: 8.4, fontFamily: 'Helvetica-Bold', color: C.fgMut,
+        textTransform: 'uppercase', letterSpacing: 0.6, marginBottom: 3,
     },
     projLabelSch: {
-        fontSize: 7.5, fontFamily: 'Helvetica-Bold', color: C.accentL,
-        textTransform: 'uppercase', letterSpacing: 0.7, marginBottom: 4, marginTop: 8,
+        fontSize: 8.4, fontFamily: 'Helvetica-Bold', color: C.accentL,
+        textTransform: 'uppercase', letterSpacing: 0.6, marginBottom: 3, marginTop: 5,
     },
 });
 
@@ -267,8 +269,8 @@ function fmtDate(d: string, lang: 'fr' | 'en') {
     return d;
 }
 
-const SKIP_FR = ['Outils', 'OS', 'Serveur applications'];
-const SKIP_EN = ['Tools', 'OS', 'Application Servers'];
+const SKIP_FR = ['Outils', 'OS', 'Serveur applications', 'Langues'];
+const SKIP_EN = ['Tools', 'OS', 'Application Servers', 'Languages'];
 
 // ── Composant principal ───────────────────────────────────────────────────────
 const CvDocument: React.FC<CvDocumentProps> = ({
@@ -285,12 +287,14 @@ const CvDocument: React.FC<CvDocumentProps> = ({
         exp: 'Expériences Professionnelles', edu: 'Formation',
         proj: 'Projets', perso: 'Personnels', school: 'Scolaires',
         skills: 'Compétences', hobbies: "Centres d'Intérêt", lieu: 'Lieu',
+        langues: 'Langues',
     } : {
         job: 'Software Developer',
         tagline: 'Engineering student in computer science at IMT Nord Europe, on a work-study at Lenrek Informatique.',
         exp: 'Work Experiences', edu: 'Education',
         proj: 'Projects', perso: 'Personal', school: 'School',
         skills: 'Skills', hobbies: 'Hobbies', lieu: 'Location',
+        langues: 'Languages',
     };
 
     const displayTagline = customDescription || L.tagline;
@@ -336,7 +340,7 @@ const CvDocument: React.FC<CvDocumentProps> = ({
                             {contactRows.map(({IconComp, label, val, link}) => (
                                 <View key={label} style={s.contactRow}>
                                     <View style={s.contactIcon}>
-                                        <IconComp color={C.white} size={10}/>
+                                        <IconComp color={C.white} size={9}/>
                                     </View>
                                     <View style={s.contactInfo}>
                                         <Text style={s.contactLabel}>{label}</Text>
@@ -369,6 +373,30 @@ const CvDocument: React.FC<CvDocumentProps> = ({
                                     </View>
                                 </View>
                             ))}
+                        </View>
+
+                        <View style={s.divider}/>
+
+                        {/* Langues */}
+                        <View style={s.sSection}>
+                            <View style={s.sTitleRow}>
+                                <View style={s.sTitleBar}/>
+                                <Text style={s.sTitle}>{L.langues}</Text>
+                            </View>
+                            <View style={s.hobbyItem}>
+                                <View style={s.hobbyRow}>
+                                    <View style={s.hobbyDot}/>
+                                    <Text style={s.hobbyName}>{lang === 'fr' ? 'Français' : 'French'}</Text>
+                                </View>
+                                <Text style={s.hobbyDesc}>{lang === 'fr' ? 'Langue maternelle' : 'Native speaker'}</Text>
+                            </View>
+                            <View style={s.hobbyItem}>
+                                <View style={s.hobbyRow}>
+                                    <View style={s.hobbyDot}/>
+                                    <Text style={s.hobbyName}>{lang === 'fr' ? 'Anglais' : 'English'}</Text>
+                                </View>
+                                <Text style={s.hobbyDesc}>TOEIC 710 (B2)</Text>
+                            </View>
                         </View>
 
                         <View style={s.divider}/>
@@ -415,6 +443,9 @@ const CvDocument: React.FC<CvDocumentProps> = ({
                                             style={s.cardDate}>{fmtDate(e.debut, lang)} – {fmtDate(e.fin, lang)}</Text>
                                     </View>
                                     <Text style={s.cardSub}>{e.entreprise} · {e.ville}</Text>
+                                    {e.description && (
+                                        <Text style={s.cardDesc}>{e.description}</Text>
+                                    )}
                                     <View style={s.badge}><Text style={s.badgeText}>{e.type}</Text></View>
                                 </View>
                             </View>
@@ -436,6 +467,9 @@ const CvDocument: React.FC<CvDocumentProps> = ({
                                             style={s.cardDate}>{fmtDate(d.debut, lang)} – {fmtDate(d.fin, lang)}</Text>
                                     </View>
                                     <Text style={s.cardSub}>{d.ecole} · {d.ville}</Text>
+                                    {d.description && (
+                                        <Text style={s.cardDesc}>{d.description}</Text>
+                                    )}
                                     <View style={s.badge}><Text style={s.badgeText}>{d.type}</Text></View>
                                 </View>
                             </View>
