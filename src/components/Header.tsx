@@ -153,12 +153,14 @@ export function Header() {
 
             {/* ── Desktop : controls pill droite ── */}
             <div className={`pointer-events-auto hidden md:flex absolute right-4 top-0 items-center gap-0.5 rounded-full px-2 py-1.5 ${glassClass}`}>
-                <Link href="https://github.com/RayzerDev" target="_blank" prefetch={false}
-                      className="flex items-center justify-center w-8 h-8 rounded-full text-muted-foreground hover:text-foreground hover:bg-white/15 transition-all">
+                <Link href="https://github.com/RayzerDev" target="_blank" rel="noopener noreferrer" prefetch={false}
+                      className="flex items-center justify-center w-8 h-8 rounded-full text-muted-foreground hover:text-foreground hover:bg-white/15 transition-all"
+                      aria-label="GitHub">
                     <Github size={15}/>
                 </Link>
-                <Link href="https://www.linkedin.com/in/louiskrmk/" target="_blank" prefetch={false}
-                      className="flex items-center justify-center w-8 h-8 rounded-full text-muted-foreground hover:text-foreground hover:bg-white/15 transition-all">
+                <Link href="https://www.linkedin.com/in/louiskrmk/" target="_blank" rel="noopener noreferrer" prefetch={false}
+                      className="flex items-center justify-center w-8 h-8 rounded-full text-muted-foreground hover:text-foreground hover:bg-white/15 transition-all"
+                      aria-label="LinkedIn">
                     <LinkedinIcon size={15}/>
                 </Link>
                 <Sep/>

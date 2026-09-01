@@ -9,6 +9,7 @@
     "description": "Étudiant en 1ère année du cycle ingénieur en informatique à l'IMT Nord Europe, en alternance. Découvrez mon parcours, mes compétences ainsi que mes projets.",
     "workExperiences": "Expériences",
     "degrees": "Diplômes",
+    "languages": "Langues",
     "passions": "Passions",
     "present": "En cours"
   },
@@ -38,6 +39,7 @@
     "cvTitle": "Télécharger mon CV",
     "cvSubtitle": "Cliquez sur le bouton ci-dessous pour télécharger mon CV au format PDF.",
     "cvButton": "Télécharger le CV",
-    "cvGenerating": "Génération en cours…"
+    "cvGenerating": "Génération en cours…",
+    "cvWithPhoto": "Inclure la photo de profil"
   }
 }

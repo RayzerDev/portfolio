@@ -96,6 +96,36 @@ body {
     to { clip-path: circle(200vmax at var(--vt-x, 50%) var(--vt-y, 50%)); }
 }
 
+@keyframes skillSlideRight {
+    0% {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes skillSlideLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.animate-skill-slide-right {
+    animation: skillSlideRight 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-skill-slide-left {
+    animation: skillSlideLeft 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
 @layer utilities {
     .text-balance {
         text-wrap: balance;

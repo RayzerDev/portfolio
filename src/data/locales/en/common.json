@@ -1,4 +1,4 @@
-﻿{
+{
   "nav": {
     "home": "Home",
     "skills": "Skills",
@@ -9,6 +9,7 @@
     "description": "First-year engineering student in computer science at IMT Nord Europe, on a work-study program. Discover my background, skills, and projects.",
     "workExperiences": "Experience",
     "degrees": "Education",
+    "languages": "Languages",
     "passions": "Hobbies",
     "present": "In progress"
   },
@@ -38,6 +39,7 @@
     "cvTitle": "Download my resume",
     "cvSubtitle": "Click the button below to download my resume in PDF format.",
     "cvButton": "Download Resume",
-    "cvGenerating": "Generating…"
+    "cvGenerating": "Generating…",
+    "cvWithPhoto": "Include profile photo"
   }
 }
