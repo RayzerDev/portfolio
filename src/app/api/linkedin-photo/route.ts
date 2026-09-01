@@ -8,7 +8,7 @@ export async function GET() {
     try {
         const localPath = path.join(process.cwd(), 'public', 'images', 'profile.jpg');
         const buffer = await fs.readFile(localPath);
-        return new NextResponse(buffer, {
+        return new NextResponse(new Uint8Array(buffer), {
             status: 200,
             headers: {
                 'Content-Type': 'image/jpeg',

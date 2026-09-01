@@ -77,43 +77,50 @@ const C = {
     white: '#ffffff',
 };
 
-// ── Icônes SVG Lucide ────────────────────────────────────────────────────────
-const IconMail = ({color = '#fff', size = 11}) => (
-    <Svg width={size} height={size} viewBox="0 0 24 24">
-        <Rect x="2" y="4" width="20" height="16" rx="2" stroke={color} strokeWidth="2" fill="none"/>
-        <Path d="M2 7l10 7 10-7" stroke={color} strokeWidth="2" fill="none"/>
-    </Svg>
-);
-const IconMapPin = ({color = '#fff', size = 11}) => (
-    <Svg width={size} height={size} viewBox="0 0 24 24">
-        <Path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke={color} strokeWidth="2"
-              fill="none"/>
-        <Circle cx="12" cy="9" r="2.5" stroke={color} strokeWidth="2" fill="none"/>
-    </Svg>
-);
-const IconGlobe = ({color = '#fff', size = 11}) => (
-    <Svg width={size} height={size} viewBox="0 0 24 24">
-        <Circle cx="12" cy="12" r="10" stroke={color} strokeWidth="2" fill="none"/>
-        <Path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10A15.3 15.3 0 0 1 12 2z"
-              stroke={color} strokeWidth="2" fill="none"/>
-    </Svg>
-);
-const IconGithub = ({color = '#fff', size = 11}) => (
-    <Svg width={size} height={size} viewBox="0 0 24 24">
-        <Path
-            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
-            stroke={color} strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
-    </Svg>
-);
-const IconLinkedIn = ({color = '#fff', size = 11}) => (
-    <Svg width={size} height={size} viewBox="0 0 24 24">
-        <Rect x="2" y="2" width="20" height="20" rx="3" stroke={color} strokeWidth="2" fill="none"/>
-        <Line x1="8" y1="11" x2="8" y2="17" stroke={color} strokeWidth="2" strokeLinecap="round"/>
-        <Line x1="8" y1="8" x2="8" y2="8.5" stroke={color} strokeWidth="2.5" strokeLinecap="round"/>
-        <Path d="M12 17v-4a2 2 0 0 1 4 0v4" stroke={color} strokeWidth="2" fill="none" strokeLinecap="round"/>
-        <Line x1="12" y1="11" x2="12" y2="17" stroke={color} strokeWidth="2" strokeLinecap="round"/>
-    </Svg>
-);
+// ── Icônes SVG Lucide directes ────────────────────────────────────────────────
+function renderIcon(type: string, color = '#fff', size = 9) {
+    switch (type) {
+        case 'mail':
+            return (
+                <Svg width={size} height={size} viewBox="0 0 24 24">
+                    <Rect x="2" y="4" width="20" height="16" rx="2" stroke={color} strokeWidth="2" fill="none"/>
+                    <Path d="M2 7l10 7 10-7" stroke={color} strokeWidth="2" fill="none"/>
+                </Svg>
+            );
+        case 'map-pin':
+            return (
+                <Svg width={size} height={size} viewBox="0 0 24 24">
+                    <Path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke={color} strokeWidth="2" fill="none"/>
+                    <Circle cx="12" cy="9" r="2.5" stroke={color} strokeWidth="2" fill="none"/>
+                </Svg>
+            );
+        case 'globe':
+            return (
+                <Svg width={size} height={size} viewBox="0 0 24 24">
+                    <Circle cx="12" cy="12" r="10" stroke={color} strokeWidth="2" fill="none"/>
+                    <Path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10A15.3 15.3 0 0 1 12 2z" stroke={color} strokeWidth="2" fill="none"/>
+                </Svg>
+            );
+        case 'github':
+            return (
+                <Svg width={size} height={size} viewBox="0 0 24 24">
+                    <Path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" stroke={color} strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+                </Svg>
+            );
+        case 'linkedin':
+            return (
+                <Svg width={size} height={size} viewBox="0 0 24 24">
+                    <Rect x="2" y="2" width="20" height="20" rx="3" stroke={color} strokeWidth="2" fill="none"/>
+                    <Line x1="8" y1="11" x2="8" y2="17" stroke={color} strokeWidth="2" strokeLinecap="round"/>
+                    <Line x1="8" y1="8" x2="8" y2="8.5" stroke={color} strokeWidth="2.5" strokeLinecap="round"/>
+                    <Path d="M12 17v-4a2 2 0 0 1 4 0v4" stroke={color} strokeWidth="2" fill="none" strokeLinecap="round"/>
+                    <Line x1="12" y1="11" x2="12" y2="17" stroke={color} strokeWidth="2" strokeLinecap="round"/>
+                </Svg>
+            );
+        default:
+            return null;
+    }
+}
 
 // ── Styles ───────────────────────────────────────────────────────────────────
 const s = StyleSheet.create({
@@ -302,13 +309,13 @@ const CvDocument: React.FC<CvDocumentProps> = ({
 
     const siteUrl = portfolioUrl || 'rayzerdev.vercel.app';
 
-    const contactRows: { IconComp: React.FC<any>; label: string; val: string; link: string | null }[] = [
-        {IconComp: IconMail, label: 'Email', val: 'louis.karamucki@outlook.fr', link: null},
-        {IconComp: IconMapPin, label: L.lieu, val: 'Nord-Pas-De-Calais, France', link: null},
-        {IconComp: IconGlobe, label: 'Portfolio', val: siteUrl, link: siteUrl},
-        {IconComp: IconGithub, label: 'GitHub', val: 'github.com/RayzerDev', link: 'https://github.com/RayzerDev'},
+    const contactRows: { icon: string; label: string; val: string; link: string | null }[] = [
+        {icon: 'mail', label: 'Email', val: 'louis.karamucki@outlook.fr', link: null},
+        {icon: 'map-pin', label: L.lieu, val: 'Nord-Pas-De-Calais, France', link: null},
+        {icon: 'globe', label: 'Portfolio', val: siteUrl, link: siteUrl},
+        {icon: 'github', label: 'GitHub', val: 'github.com/RayzerDev', link: 'https://github.com/RayzerDev'},
         {
-            IconComp: IconLinkedIn,
+            icon: 'linkedin',
             label: 'LinkedIn',
             val: 'linkedin.com/in/louiskrmk',
             link: 'https://www.linkedin.com/in/louiskrmk/'
@@ -337,10 +344,10 @@ const CvDocument: React.FC<CvDocumentProps> = ({
                                 <View style={s.sTitleBar}/>
                                 <Text style={s.sTitle}>Contact</Text>
                             </View>
-                            {contactRows.map(({IconComp, label, val, link}) => (
+                            {contactRows.map(({icon, label, val, link}) => (
                                 <View key={label} style={s.contactRow}>
                                     <View style={s.contactIcon}>
-                                        <IconComp color={C.white} size={9}/>
+                                        {renderIcon(icon, C.white, 9)}
                                     </View>
                                     <View style={s.contactInfo}>
                                         <Text style={s.contactLabel}>{label}</Text>

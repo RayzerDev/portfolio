@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Image from "next/image";
 import {Skeleton} from "@/components/ui/skeleton";
@@ -14,8 +14,8 @@ function formatDate(date: string | undefined, lang: string): string {
     if (!date) return '';
     const [month, year] = date.split('/');
     if (!month || !year) return date;
-    const monthsFr = ['Jan', 'FÃ©v', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil', 'AoÃ»t', 'Sep', 'Oct', 'Nov', 'DÃ©c'];
-    const monthsEn = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const monthsFr = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
+    const monthsEn = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     const arr = lang === 'en' ? monthsEn : monthsFr;
     return `${arr[parseInt(month, 10) - 1] ?? month} ${year}`;
 }

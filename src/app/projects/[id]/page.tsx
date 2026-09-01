@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import {useParams} from "next/navigation";
 import {CalendarIcon, Github} from "lucide-react";
 import {useEffect, useState} from "react";
 import {useTranslation} from "@/hooks/useTranslation";
@@ -16,14 +17,17 @@ function formatDate(date: string | undefined, lang: string): string {
     return `${arr[parseInt(month, 10) - 1] ?? month} ${year}`;
 }
 
-export default function Project({params}: { params: { id: string } }) {
+export default function Project() {
+    const routeParams = useParams();
+    const projectId = typeof routeParams?.id === "string" ? routeParams.id : "";
     const {t, lang} = useTranslation();
     const [project, setProject] = useState<any>(null);
     const [notFound, setNotFound] = useState(false);
     const [lightboxOpen, setLightboxOpen] = useState(false);
 
     useEffect(() => {
-        fetch(`/api/projects/${params.id}?lang=${lang}`)
+        if (!projectId) return;
+        fetch(`/api/projects/${projectId}?lang=${lang}`)
             .then(r => {
                 if (r.status === 404) {
                     setNotFound(true);
@@ -34,7 +38,7 @@ export default function Project({params}: { params: { id: string } }) {
             .then(data => {
                 if (data) setProject(data);
             });
-    }, [params.id, lang]);
+    }, [projectId, lang]);
 
     if (notFound) {
         return <h1 className="text-secondary">{t("projectDetail.notFound")}</h1>;

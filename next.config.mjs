@@ -28,6 +28,10 @@ const securityHeaders = [
 ];
 
 const nextConfig = {
+    serverExternalPackages: ['@react-pdf/renderer'],
+    turbopack: {
+        root: process.cwd(),
+    },
     async headers() {
         return [
             {

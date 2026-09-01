@@ -17,7 +17,7 @@ import {promises as fs} from 'fs';
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function createCvElement(props: Record<string, unknown>): React.ReactElement<DocumentProps> {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    return React.createElement(CvDocument as any, props) as React.ReactElement<DocumentProps>;
+    return (CvDocument as any)(props) as React.ReactElement<DocumentProps>;
 }
 
 async function fetchPortraitBase64(): Promise<string | null> {
@@ -77,20 +77,25 @@ export async function GET(request: NextRequest) {
         customDescription,
     });
 
-    const buffer = await renderToBuffer(element);
+    try {
+        const buffer = await renderToBuffer(element);
 
-    const filename = `cv-louis-karamucki-${lang}.pdf`;
+        const filename = `cv-louis-karamucki-${lang}.pdf`;
 
-    return new NextResponse(buffer, {
-        status: 200,
-        headers: {
-            'Content-Type': 'application/pdf',
-            'Content-Disposition': `inline; filename="${filename}"`,
-            'Cache-Control': isDev
-                ? 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0'
-                : 'public, s-maxage=3600, stale-while-revalidate=86400',
-            'Pragma': isDev ? 'no-cache' : 'public',
-            'X-Content-Type-Options': 'nosniff',
-        },
-    });
+        return new NextResponse(new Uint8Array(buffer), {
+            status: 200,
+            headers: {
+                'Content-Type': 'application/pdf',
+                'Content-Disposition': `inline; filename="${filename}"`,
+                'Cache-Control': isDev
+                    ? 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0'
+                    : 'public, s-maxage=3600, stale-while-revalidate=86400',
+                'Pragma': isDev ? 'no-cache' : 'public',
+                'X-Content-Type-Options': 'nosniff',
+            },
+        });
+    } catch (err) {
+        console.error('CV render error:', err);
+        return new NextResponse(String(err), {status: 500});
+    }
 }
