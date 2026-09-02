@@ -264,5 +264,19 @@
     "categorie": "SGBD",
     "categorie_en": "Databases",
     "image": "images/skills/firebase.svg"
+  },
+  {
+    "id": "43",
+    "nom": "OptaPlanner",
+    "categorie": "Frameworks",
+    "categorie_en": "Frameworks",
+    "image": "images/skills/optaplanner.svg"
+  },
+  {
+    "id": "44",
+    "nom": "Drools",
+    "categorie": "Frameworks",
+    "categorie_en": "Frameworks",
+    "image": "images/skills/drools.svg"
   }
 ]

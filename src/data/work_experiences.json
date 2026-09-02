@@ -37,14 +37,17 @@
     "ville": "Eleu-Dit-Leauwette",
     "debut": "01/24",
     "fin": "09/28",
-    "description": "Développement, maintenance corrective et évolutive, et migration d'applications d'entreprise (Java, Jakarta, Hibernate, Vaadin, WildFly, PostgreSQL, Windows Server). Intégration de protocoles XMPP (Smack), cartographie (Leaflet GeoJSON), moteur de règles métier (Drools) et développement mobile Android. Réalisation de projets en autonomie ou en binôme, et support technique utilisateur (mail et téléphone).",
-    "description_en": "Developed and maintained robust enterprise software applications utilizing Java, Jakarta, Hibernate, Vaadin, and PostgreSQL on Windows Server environments. Integrated complex features including XMPP messaging (Smack), interactive mapping (Leaflet GeoJSON), and a business rules engine (Drools). Built and deployed Android mobile applications, working both independently and in Agile pairs to meet project milestones. Provided direct technical support to end-users via phone and email, ensuring rapid bug resolution and customer satisfaction.",
+    "description": "Développement, maintenance corrective et évolutive, et migration d'applications d'entreprise (Java, Jakarta, Hibernate, Vaadin, WildFly, PostgreSQL, Windows Server). Intégration de protocoles XMPP (Smack), cartographie (Leaflet GeoJSON), moteur de règles métier et d'optimisation (OptaPlanner / Drools) et développement mobile Android. Réalisation de projets en autonomie ou en binôme, et support technique utilisateur (mail et téléphone).",
+    "description_en": "Developed and maintained robust enterprise software applications utilizing Java, Jakarta, Hibernate, Vaadin, and PostgreSQL on Windows Server environments. Integrated complex features including XMPP messaging (Smack), interactive mapping (Leaflet GeoJSON), and business rules & constraint optimization engines (Drools, OptaPlanner). Built and deployed Android mobile applications, working both independently and in Agile pairs to meet project milestones. Provided direct technical support to end-users via phone and email, ensuring rapid bug resolution and customer satisfaction.",
     "bullets_en": [
       "Developed and maintained robust enterprise software applications utilizing Java, Jakarta, Hibernate, Vaadin, and PostgreSQL on Windows Server environments.",
-      "Integrated complex features including XMPP messaging (Smack), interactive mapping (Leaflet GeoJSON), and a business rules engine (Drools).",
+      "Integrated complex features including XMPP messaging (Smack), interactive mapping (Leaflet GeoJSON), and business rules & constraint optimization engines (Drools, OptaPlanner).",
       "Built and deployed Android mobile applications, working both independently and in Agile pairs to meet project milestones.",
       "Provided direct technical support to end-users via phone and email, ensuring rapid bug resolution and customer satisfaction."
     ],
-    "competences": []
+    "competences": [
+      "43",
+      "44"
+    ]
   }
 ]
