@@ -69,7 +69,7 @@ function CategorySection({category, skills}: { category: string; skills: any[] }
                     </div>
                 )}
             </div>
-            <div className="overflow-hidden">
+            <div className="overflow-hidden p-1.5 -m-1.5">
                 <div
                     key={`${category}-page-${page}`}
                     className={`grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 ${
@@ -78,9 +78,9 @@ function CategorySection({category, skills}: { category: string; skills: any[] }
                 >
                     {paginated.map((skill: any) => (
                         <Card key={skill.id}
-                              className="hover:shadow-md hover:scale-105 hover:border-primary transition-all duration-200 cursor-default">
-                            <CardContent className="flex flex-col items-center justify-center p-6 text-center h-full">
-                                <div className="relative w-16 h-16 mb-3">
+                              className="group rounded-xl border border-border/70 bg-card/80 backdrop-blur-sm hover:border-primary hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-1 transition-all duration-200 cursor-default">
+                            <CardContent className="flex flex-col items-center justify-center p-5 text-center h-full">
+                                <div className="relative w-14 h-14 mb-3 transition-transform duration-200 group-hover:scale-110">
                                     <Image
                                         src={`/${skill.image}`}
                                         alt={skill.nom}
@@ -88,7 +88,7 @@ function CategorySection({category, skills}: { category: string; skills: any[] }
                                         className="object-contain"
                                     />
                                 </div>
-                                <p className="font-medium text-sm">{skill.nom}</p>
+                                <p className="font-medium text-sm text-foreground group-hover:text-primary transition-colors">{skill.nom}</p>
                             </CardContent>
                         </Card>
                     ))}
@@ -104,13 +104,22 @@ export function SkillsSection() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+        let active = true;
         setLoading(true);
         fetch(`/api/skills?lang=${lang}`)
             .then(r => r.json())
             .then(data => {
-                setGroupedSkills(data);
-                setLoading(false);
+                if (active) {
+                    setGroupedSkills(data);
+                    setLoading(false);
+                }
+            })
+            .catch(() => {
+                if (active) setLoading(false);
             });
+        return () => {
+            active = false;
+        };
     }, [lang]);
 
     return (

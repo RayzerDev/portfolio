@@ -15,6 +15,17 @@ function detectSystemLanguage(): Lang {
     return navLang.startsWith("fr") ? "fr" : "en";
 }
 
+function getInitialLanguage(): Lang {
+    if (typeof window === "undefined") return "fr";
+    try {
+        const stored = localStorage.getItem("lang") as Lang | null;
+        if (stored === "fr" || stored === "en") return stored;
+        return detectSystemLanguage();
+    } catch {
+        return "fr";
+    }
+}
+
 const LanguageContext = createContext<LanguageContextType>({
     lang: "fr",
     setLang: () => {
@@ -22,19 +33,17 @@ const LanguageContext = createContext<LanguageContextType>({
 });
 
 export function LanguageProvider({children}: { children: React.ReactNode }) {
-    const [lang, setLangState] = useState<Lang>("fr");
+    const [lang, setLangState] = useState<Lang>(getInitialLanguage);
 
     useEffect(() => {
-        const stored = localStorage.getItem("lang") as Lang | null;
-        if (stored === "fr" || stored === "en") {
-            setLangState(stored);
-            document.documentElement.lang = stored;
-        } else {
-            const detected = detectSystemLanguage();
-            setLangState(detected);
-            document.documentElement.lang = detected;
+        const current = getInitialLanguage();
+        if (current !== lang) {
+            setLangState(current);
         }
-    }, []);
+        if (typeof document !== "undefined") {
+            document.documentElement.lang = current;
+        }
+    }, [lang]);
 
     const setLang = (newLang: Lang) => {
         setLangState(newLang);

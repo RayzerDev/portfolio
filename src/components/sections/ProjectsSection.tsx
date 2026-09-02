@@ -199,7 +199,7 @@ function CategorySection({categorie, projets, t, lang, onSelectProject}: {
                     </div>
                 )}
             </div>
-            <div className="overflow-hidden">
+            <div className="overflow-hidden p-1 -m-1">
                 <div
                     key={`${categorie}-page-${page}`}
                     className={`grid sm:grid-cols-2 lg:grid-cols-3 gap-6 ${
@@ -222,13 +222,22 @@ export function ProjectsSection() {
     const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
 
     useEffect(() => {
+        let active = true;
         setLoading(true);
         fetch(`/api/projects?lang=${lang}`)
             .then(r => r.json())
             .then(data => {
-                setGroupedProjects(data);
-                setLoading(false);
+                if (active) {
+                    setGroupedProjects(data);
+                    setLoading(false);
+                }
+            })
+            .catch(() => {
+                if (active) setLoading(false);
             });
+        return () => {
+            active = false;
+        };
     }, [lang]);
 
     return (

@@ -216,17 +216,25 @@ export default function Home() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+        let active = true;
         setLoading(true);
         Promise.all([
             fetch(`/api/work-experiences?lang=${lang}`).then(r => r.json()),
             fetch(`/api/degrees?lang=${lang}`).then(r => r.json()),
             fetch(`/api/hobbies?lang=${lang}`).then(r => r.json()),
         ]).then(([experiences, degs, hobs]) => {
-            setWorkExperiences(experiences);
-            setDegrees(degs);
-            setHobbies(hobs);
-            setLoading(false);
+            if (active) {
+                setWorkExperiences(experiences);
+                setDegrees(degs);
+                setHobbies(hobs);
+                setLoading(false);
+            }
+        }).catch(() => {
+            if (active) setLoading(false);
         });
+        return () => {
+            active = false;
+        };
     }, [lang]);
 
     const presentLabel = t("home.present");

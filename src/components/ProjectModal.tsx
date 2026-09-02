@@ -59,15 +59,24 @@ export function ProjectModal({projectId, onClose, lang, t}: ProjectModalProps) {
             setLightboxOpen(false);
             return;
         }
+        let active = true;
         setLoading(true);
         setProject(null);
         setLightboxOpen(false);
         fetch(`/api/projects/${projectId}?lang=${lang}`)
             .then(r => r.ok ? r.json() : null)
             .then(data => {
-                setProject(data);
-                setLoading(false);
+                if (active) {
+                    setProject(data);
+                    setLoading(false);
+                }
+            })
+            .catch(() => {
+                if (active) setLoading(false);
             });
+        return () => {
+            active = false;
+        };
     }, [projectId, lang]);
 
     return (
