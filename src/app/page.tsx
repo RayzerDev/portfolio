@@ -2,10 +2,13 @@
 
 import React, {useEffect, useState} from "react";
 import Image from "next/image";
-import {Building, CalendarIcon, Code, Dumbbell, Gamepad, Globe, Guitar, LucideProps, MapPin, School, Target} from "lucide-react";
+import {Building, CalendarIcon, Code, Dumbbell, Gamepad, Globe, Guitar, Heart, LucideProps, MapPin, School, Target} from "lucide-react";
 import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
 import {Skeleton} from "@/components/ui/skeleton";
 import {useTranslation} from "@/hooks/useTranslation";
+import {SkillsSection} from "@/components/sections/SkillsSection";
+import {ProjectsSection} from "@/components/sections/ProjectsSection";
+import {ContactSection} from "@/components/sections/ContactSection";
 
 const iconMap: Record<string, React.FC<LucideProps>> = {
     Dumbbell,
@@ -251,123 +254,149 @@ export default function Home() {
     }));
 
     return (
-        <div className="container mx-auto py-12 px-4 md:px-6 lg:px-8">
-            <section className="mb-16">
-                <div className="relative overflow-hidden rounded-3xl border border-border/50 bg-card/60 backdrop-blur-sm p-8 md:p-12 flex flex-col md:flex-row md:items-center gap-8 shadow-2xl">
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent pointer-events-none"/>
-                    <div className="flex-1 relative">
-                        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-secondary">
-                            Louis Karamucki
-                            <span className="block h-1 mt-3 w-20 bg-primary rounded-full"/>
-                        </h1>
-                        <p className="mt-4 max-w-[600px] text-muted-foreground md:text-xl">
-                            {t("home.description")}
-                        </p>
-                    </div>
-                    <ProfilePhoto/>
-                </div>
-            </section>
-
-            <section className="mb-12">
-                <div className="grid md:grid-cols-2 gap-x-12 gap-y-10 items-stretch">
-                    <div className="flex flex-col h-full">
-                        <h2 className="text-2xl font-bold tracking-tight text-secondary mb-5">
-                            {t("home.workExperiences")}
-                        </h2>
-                        {loading
-                            ? <TimelineSkeleton count={3}/>
-                            : <TimelineList>
-                                {workEntries.map(entry => (
-                                    <TimelineCard key={entry.id} entry={entry} lang={lang} presentLabel={presentLabel}/>
-                                ))}
-                            </TimelineList>
-                        }
-                    </div>
-                    <div className="flex flex-col h-full">
-                        <h2 className="text-2xl font-bold tracking-tight text-secondary mb-5">
-                            {t("home.degrees")}
-                        </h2>
-                        {loading
-                            ? <TimelineSkeleton count={3}/>
-                            : <TimelineList>
-                                {degreeEntries.map(entry => (
-                                    <DegreeCard key={entry.id} entry={entry} lang={lang} presentLabel={presentLabel}/>
-                                ))}
-                            </TimelineList>
-                        }
-                    </div>
-                </div>
-            </section>
-
-            {/* ── Langues ── */}
-            <section className="mb-12">
-                <h2 className="text-2xl font-bold tracking-tight text-secondary mb-5 flex items-center gap-2">
-                    <Globe className="w-6 h-6 text-primary"/>
-                    {t("home.languages")}
-                </h2>
-                <div className="grid sm:grid-cols-2 gap-4">
-                    <div className="rounded-xl border border-border/60 bg-card/80 backdrop-blur-sm p-5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 flex items-center gap-4">
-                        <div className="relative w-12 h-12 shrink-0 rounded-full overflow-hidden shadow-sm border border-border/60">
-                            <Image src="/images/skills/fr.svg" alt="Français" fill className="object-cover"/>
-                        </div>
-                        <div className="flex-1 min-w-0">
-                            <div className="flex items-center justify-between gap-2">
-                                <h3 className="font-semibold text-foreground text-base">
-                                    {lang === 'fr' ? 'Français' : 'French'}
-                                </h3>
-                                <span className="inline-flex items-center rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 px-2.5 py-0.5 text-xs font-medium">
-                                    {lang === 'fr' ? 'Maternelle' : 'Native'}
-                                </span>
-                            </div>
-                            <p className="text-sm text-muted-foreground mt-0.5">
-                                {lang === 'fr' ? 'Langue maternelle' : 'Native speaker'}
+        <div className="container mx-auto py-8 px-4 md:px-6 lg:px-8 max-w-6xl">
+            {/* ══════════════ SECTION: ACCUEIL / PROFIL ══════════════ */}
+            <div id="home" className="scroll-mt-24">
+                <section className="mb-16">
+                    <div className="relative overflow-hidden rounded-3xl border border-border/50 bg-card/60 backdrop-blur-sm p-8 md:p-12 flex flex-col md:flex-row md:items-center gap-8 shadow-2xl">
+                        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent pointer-events-none"/>
+                        <div className="flex-1 relative">
+                            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-secondary">
+                                Louis Karamucki
+                                <span className="block h-1 mt-3 w-20 bg-primary rounded-full"/>
+                            </h1>
+                            <p className="mt-4 max-w-[600px] text-muted-foreground md:text-xl leading-relaxed">
+                                {t("home.description")}
                             </p>
                         </div>
+                        <ProfilePhoto/>
                     </div>
+                </section>
 
-                    <div className="rounded-xl border border-border/60 bg-card/80 backdrop-blur-sm p-5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 flex items-center gap-4">
-                        <div className="relative w-12 h-12 shrink-0 rounded-full overflow-hidden shadow-sm border border-border/60">
-                            <Image src="/images/skills/gb.svg" alt="Anglais" fill className="object-cover"/>
+                {/* ── Expériences & Formations ── */}
+                <section className="mb-14">
+                    <div className="grid md:grid-cols-2 gap-x-12 gap-y-10 items-stretch">
+                        <div className="flex flex-col h-full">
+                            <h2 className="text-2xl font-bold tracking-tight text-secondary mb-5">
+                                {t("home.workExperiences")}
+                            </h2>
+                            {loading
+                                ? <TimelineSkeleton count={3}/>
+                                : <TimelineList>
+                                    {workEntries.map(entry => (
+                                        <TimelineCard key={entry.id} entry={entry} lang={lang} presentLabel={presentLabel}/>
+                                    ))}
+                                </TimelineList>
+                            }
                         </div>
-                        <div className="flex-1 min-w-0">
-                            <div className="flex items-center justify-between gap-2">
-                                <h3 className="font-semibold text-foreground text-base">
-                                    {lang === 'fr' ? 'Anglais' : 'English'}
-                                </h3>
-                                <span className="inline-flex items-center rounded-full bg-primary/10 text-primary px-2.5 py-0.5 text-xs font-medium">
-                                    TOEIC 710 · B2
-                                </span>
+                        <div className="flex flex-col h-full">
+                            <h2 className="text-2xl font-bold tracking-tight text-secondary mb-5">
+                                {t("home.degrees")}
+                            </h2>
+                            {loading
+                                ? <TimelineSkeleton count={3}/>
+                                : <TimelineList>
+                                    {degreeEntries.map(entry => (
+                                        <DegreeCard key={entry.id} entry={entry} lang={lang} presentLabel={presentLabel}/>
+                                    ))}
+                                </TimelineList>
+                            }
+                        </div>
+                    </div>
+                </section>
+
+                {/* ── Langues ── */}
+                <section className="mb-14">
+                    <h2 className="text-2xl font-bold tracking-tight text-secondary mb-5 flex items-center gap-2">
+                        <Globe className="w-6 h-6 text-primary"/>
+                        {t("home.languages")}
+                    </h2>
+                    <div className="grid sm:grid-cols-2 gap-4">
+                        <div className="rounded-xl border border-border/60 bg-card/80 backdrop-blur-sm p-5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 flex items-center gap-4">
+                            <div className="relative w-12 h-12 shrink-0 rounded-full overflow-hidden shadow-sm border border-border/60">
+                                <Image src="/images/skills/fr.svg" alt="Français" fill className="object-cover"/>
                             </div>
-                            <p className="text-sm text-muted-foreground mt-0.5">
-                                {lang === 'fr' ? 'Score TOEIC : 710 points (Niveau B2 opérationnel)' : 'TOEIC score: 710 points (Working proficiency B2)'}
-                            </p>
+                            <div className="flex-1 min-w-0">
+                                <div className="flex items-center justify-between gap-2">
+                                    <h3 className="font-semibold text-foreground text-base">
+                                        {lang === 'fr' ? 'Français' : 'French'}
+                                    </h3>
+                                    <span className="inline-flex items-center rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 px-2.5 py-0.5 text-xs font-medium">
+                                        {lang === 'fr' ? 'Maternelle' : 'Native'}
+                                    </span>
+                                </div>
+                                <p className="text-sm text-muted-foreground mt-0.5">
+                                    {lang === 'fr' ? 'Langue maternelle' : 'Native speaker'}
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className="rounded-xl border border-border/60 bg-card/80 backdrop-blur-sm p-5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 flex items-center gap-4">
+                            <div className="relative w-12 h-12 shrink-0 rounded-full overflow-hidden shadow-sm border border-border/60">
+                                <Image src="/images/skills/gb.svg" alt="Anglais" fill className="object-cover"/>
+                            </div>
+                            <div className="flex-1 min-w-0">
+                                <div className="flex items-center justify-between gap-2">
+                                    <h3 className="font-semibold text-foreground text-base">
+                                        {lang === 'fr' ? 'Anglais' : 'English'}
+                                    </h3>
+                                    <span className="inline-flex items-center rounded-full bg-primary/10 text-primary px-2.5 py-0.5 text-xs font-medium">
+                                        TOEIC 710 · B2
+                                    </span>
+                                </div>
+                                <p className="text-sm text-muted-foreground mt-0.5">
+                                    {lang === 'fr' ? 'Score TOEIC : 710 points (Niveau B2 opérationnel)' : 'TOEIC score: 710 points (Working proficiency B2)'}
+                                </p>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            <section className="mb-12">
-                <h2 className="text-2xl font-bold tracking-tight text-secondary mb-5">{t("home.passions")}</h2>
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {loading
-                        ? [1, 2, 3].map(i => <HobbySkeleton key={i}/>)
-                        : hobbies.map((hobby) => {
-                            const Icon = iconMap[hobby.icon] ?? Code;
-                            return (
-                                <Card key={hobby.id} className="flex flex-col">
-                                    <CardHeader className="items-center text-center pb-2">
-                                        <Icon className="w-12 h-12 text-primary mb-1"/>
-                                        <CardTitle className="text-xl m-0 mt-1">{hobby.nom}</CardTitle>
-                                    </CardHeader>
-                                    <CardContent className="text-center text-muted-foreground text-sm">
-                                        {hobby.description}
-                                    </CardContent>
-                                </Card>
-                            );
-                        })
-                    }
-                </div>
-            </section>
+                {/* ── Passions ── */}
+                <section className="mb-16">
+                    <h2 className="text-2xl font-bold tracking-tight text-secondary mb-5 flex items-center gap-2">
+                        <Heart className="w-6 h-6 text-primary"/>
+                        {t("home.passions")}
+                    </h2>
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                        {loading
+                            ? [1, 2, 3].map(i => <HobbySkeleton key={i}/>)
+                            : hobbies.map((hobby) => {
+                                const Icon = iconMap[hobby.icon] ?? Code;
+                                return (
+                                    <Card key={hobby.id} className="flex flex-col hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
+                                        <CardHeader className="items-center text-center pb-2">
+                                            <Icon className="w-12 h-12 text-primary mb-1"/>
+                                            <CardTitle className="text-xl m-0 mt-1">{hobby.nom}</CardTitle>
+                                        </CardHeader>
+                                        <CardContent className="text-center text-muted-foreground text-sm">
+                                            {hobby.description}
+                                        </CardContent>
+                                    </Card>
+                                );
+                            })
+                        }
+                    </div>
+                </section>
+            </div>
+
+            {/* ── Divider ── */}
+            <hr className="border-border/60 my-12"/>
+
+            {/* ══════════════ SECTION: COMPÉTENCES ══════════════ */}
+            <SkillsSection/>
+
+            {/* ── Divider ── */}
+            <hr className="border-border/60 my-12"/>
+
+            {/* ══════════════ SECTION: PROJETS ══════════════ */}
+            <ProjectsSection/>
+
+            {/* ── Divider ── */}
+            <hr className="border-border/60 my-12"/>
+
+            {/* ══════════════ SECTION: CONTACT ══════════════ */}
+            <ContactSection/>
         </div>
     );
 }

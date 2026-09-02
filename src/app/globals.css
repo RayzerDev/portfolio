@@ -52,6 +52,10 @@
     --ring: 224 70% 54%;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     color: hsl(var(--foreground));
     -webkit-font-smoothing: antialiased;

@@ -10,10 +10,10 @@ import {useTranslation} from "@/hooks/useTranslation";
 import {useLanguage} from "@/context/LanguageContext";
 
 const NAV_ITEMS = [
-    {href: "/",         tKey: "nav.home",     Icon: Home},
-    {href: "/skills",   tKey: "nav.skills",   Icon: Wrench},
-    {href: "/projects", tKey: "nav.projects", Icon: Briefcase},
-    {href: "/contact",  tKey: "nav.contact",  Icon: Mail},
+    {id: "home",     href: "/#home",     tKey: "nav.home",     Icon: Home},
+    {id: "skills",   href: "/#skills",   tKey: "nav.skills",   Icon: Wrench},
+    {id: "projects", href: "/#projects", tKey: "nav.projects", Icon: Briefcase},
+    {id: "contact",  href: "/#contact",  tKey: "nav.contact",  Icon: Mail},
 ] as const;
 
 const glassClass = [
@@ -31,6 +31,8 @@ export function Header() {
     const {lang} = useLanguage();
     const pathname = usePathname();
 
+    const [activeSection, setActiveSection] = useState<string>("home");
+
     const navRef = useRef<HTMLDivElement>(null);
     const itemRefs = useRef<(HTMLAnchorElement | null)[]>([]);
     const [pill, setPill] = useState<{left: number; width: number} | null>(null);
@@ -39,9 +41,48 @@ export function Header() {
     const mobileItemRefs = useRef<(HTMLAnchorElement | null)[]>([]);
     const [mobilePill, setMobilePill] = useState<{left: number; width: number} | null>(null);
 
-    const activeIndex = NAV_ITEMS.findIndex(({href}) =>
-        href === "/" ? pathname === "/" : pathname.startsWith(href)
-    );
+    // ScrollSpy for one-page sections
+    useEffect(() => {
+        if (pathname !== "/") return;
+
+        const sectionIds = NAV_ITEMS.map(i => i.id);
+
+        const handleScroll = () => {
+            const scrollPosition = window.scrollY + 200;
+            // Check from bottom to top
+            for (let i = sectionIds.length - 1; i >= 0; i--) {
+                const el = document.getElementById(sectionIds[i]);
+                if (el && el.offsetTop <= scrollPosition) {
+                    setActiveSection(sectionIds[i]);
+                    return;
+                }
+            }
+            setActiveSection("home");
+        };
+
+        window.addEventListener("scroll", handleScroll, { passive: true });
+        handleScroll();
+
+        // Handle initial hash in URL if present
+        if (window.location.hash) {
+            const targetId = window.location.hash.replace("#", "");
+            if (sectionIds.includes(targetId as any)) {
+                setTimeout(() => {
+                    const el = document.getElementById(targetId);
+                    if (el) {
+                        el.scrollIntoView({ behavior: "smooth" });
+                        setActiveSection(targetId);
+                    }
+                }, 100);
+            }
+        }
+
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, [pathname]);
+
+    const activeIndex = pathname === "/"
+        ? Math.max(0, NAV_ITEMS.findIndex(item => item.id === activeSection))
+        : Math.max(0, NAV_ITEMS.findIndex(item => pathname.startsWith(`/${item.id}`)));
 
     const measurePill = useCallback(() => {
         const nav = navRef.current;
@@ -62,9 +103,12 @@ export function Header() {
     }, [activeIndex]);
 
     useEffect(() => {
-        const raf = requestAnimationFrame(() => { measurePill(); measureMobilePill(); });
+        const raf = requestAnimationFrame(() => {
+            measurePill();
+            measureMobilePill();
+        });
         return () => cancelAnimationFrame(raf);
-    }, [measurePill, measureMobilePill, lang]);
+    }, [measurePill, measureMobilePill, lang, activeIndex]);
 
     useEffect(() => {
         window.addEventListener("resize", measurePill);
@@ -74,6 +118,18 @@ export function Header() {
             window.removeEventListener("resize", measureMobilePill);
         };
     }, [measurePill, measureMobilePill]);
+
+    const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+        if (pathname === "/") {
+            e.preventDefault();
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: "smooth" });
+                window.history.replaceState(null, "", `#${id}`);
+                setActiveSection(id);
+            }
+        }
+    };
 
     return (
         <header className="fixed top-4 left-0 right-0 z-[10000] px-4 flex items-start justify-center pointer-events-none">
@@ -96,6 +152,7 @@ export function Header() {
                         <Link
                             key={item.href}
                             href={item.href}
+                            onClick={(e) => handleNavClick(e, item.id)}
                             ref={el => { mobileItemRefs.current[i] = el; }}
                             prefetch={false}
                             className={`group relative z-10 flex flex-col items-center justify-center gap-0.5 px-2.5 py-1.5 rounded-full transition-colors ${
@@ -134,6 +191,7 @@ export function Header() {
                         <Link
                             key={item.href}
                             href={item.href}
+                            onClick={(e) => handleNavClick(e, item.id)}
                             ref={el => {itemRefs.current[i] = el;}}
                             prefetch={false}
                             className={`group relative z-10 flex flex-col items-center justify-center gap-0.5 px-2.5 py-1.5 rounded-full transition-colors ${
