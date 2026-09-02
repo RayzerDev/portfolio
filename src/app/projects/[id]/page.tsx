@@ -82,7 +82,7 @@ export default function Project() {
                         <div className="flex flex-col gap-2">
                             <h2 className="text-xl font-bold text-secondary">{t("projectDetail.githubRepo")}</h2>
                             <Link href={project.githubLink}
-                                  className="flex items-center gap-2 text-foreground" prefetch={false}
+                                  className="flex items-center gap-2 text-foreground break-all" prefetch={false}
                                   target="_blank" rel="noopener noreferrer">
                                 <Github className="w-5 h-5"/>
                                 {project.githubLink}

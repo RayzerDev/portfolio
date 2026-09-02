@@ -4,6 +4,7 @@ import path from 'path';
 
 export const dynamic = 'force-dynamic';
 
+
 export async function GET() {
     try {
         const localPath = path.join(process.cwd(), 'public', 'images', 'profile.jpg');

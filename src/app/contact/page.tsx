@@ -37,15 +37,33 @@ export default function Contact() {
     const [withPhoto, setWithPhoto] = useState(true);
 
     const handleCvDownload = async () => {
+        // Open a blank window synchronously to avoid popup blockers
+        const newWindow = window.open('', '_blank');
+
+        if (!newWindow) {
+            window.alert('Unable to open the CV in a new tab. Please allow popups for this site in your browser settings and try again.');
+            return;
+        }
+
         setCvLoading(true);
         try {
             const res = await fetch(`/api/cv?lang=${lang}&photo=${withPhoto}&_t=${Date.now()}`, {
                 cache: 'no-store',
             });
+
+            if (!res.ok) {
+                window.alert(`Failed to load the CV (Status: ${res.status}). Please try again later.`);
+                newWindow.close();
+                return;
+            }
             const blob = await res.blob();
             const url = URL.createObjectURL(blob);
-            window.open(url, '_blank');
+            newWindow.location.href = url;
             setTimeout(() => URL.revokeObjectURL(url), 15000);
+        } catch (error) {
+            console.error('CV download error:', error);
+            window.alert('An error occurred while loading the CV. Please try again later.');
+            newWindow.close();
         } finally {
             setCvLoading(false);
         }
