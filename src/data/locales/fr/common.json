@@ -45,7 +45,10 @@
     "githubLabel": "GitHub",
     "locationLabel": "Localisation",
     "cvTitle": "Télécharger mon CV",
-    "cvSubtitle": "Cliquez sur le bouton ci-dessous pour télécharger mon CV au format PDF.",
+    "cvSubtitle": "Choisissez le format de CV souhaité et téléchargez-le au format PDF.",
+    "cvFormatLabel": "Format du CV :",
+    "cvFormatClassic": "Design Moderne",
+    "cvFormatAts": "Format ATS (Optimisé recruteurs)",
     "cvButton": "Télécharger le CV",
     "cvGenerating": "Génération en cours…",
     "cvWithPhoto": "Inclure la photo de profil"

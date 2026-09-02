@@ -45,7 +45,10 @@
     "githubLabel": "GitHub",
     "locationLabel": "Location",
     "cvTitle": "Download my resume",
-    "cvSubtitle": "Click the button below to download my resume in PDF format.",
+    "cvSubtitle": "Choose your preferred resume format and download it in PDF format.",
+    "cvFormatLabel": "Resume format:",
+    "cvFormatClassic": "Modern Design",
+    "cvFormatAts": "ATS Format (Recruiter optimized)",
     "cvButton": "Download Resume",
     "cvGenerating": "Generating…",
     "cvWithPhoto": "Include profile photo"

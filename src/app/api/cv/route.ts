@@ -4,20 +4,17 @@ import {renderToBuffer} from '@react-pdf/renderer';
 import React from 'react';
 import DataSingleton from '@/utils/dataUtils';
 import CvDocument from '@/components/CvDocument';
-
-export const dynamic = 'force-dynamic';
-
-const CV_CACHE_TTL_MS = 60 * 60 * 1000; // 1h
-const cvCache = new Map<string, { buffer: Buffer; ts: number }>();
-
+import CvAtsDocument from '@/components/CvAtsDocument';
 import path from 'path';
 import {promises as fs} from 'fs';
 
+export const dynamic = 'force-dynamic';
+
 // Helper pour créer l'élément sans conflit de types
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-function createCvElement(props: Record<string, unknown>): React.ReactElement<DocumentProps> {
+function createCvElement(Component: any, props: Record<string, unknown>): React.ReactElement<DocumentProps> {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    return (CvDocument as any)(props) as React.ReactElement<DocumentProps>;
+    return (Component as any)(props) as React.ReactElement<DocumentProps>;
 }
 
 async function fetchPortraitBase64(): Promise<string | null> {
@@ -34,6 +31,11 @@ async function fetchPortraitBase64(): Promise<string | null> {
 export async function GET(request: NextRequest) {
     const {searchParams} = new URL(request.url);
     const lang = (searchParams.get('lang') === 'en' ? 'en' : 'fr') as 'fr' | 'en';
+    
+    // Format selection: 'classic' (design) or 'ats' (ATS optimized single-column)
+    const formatParam = (searchParams.get('format') || (searchParams.get('ats') === 'true' ? 'ats' : 'classic')).toLowerCase();
+    const isAts = formatParam === 'ats';
+
     // Limit string lengths to prevent payload injection / memory bloat
     const rawTitle = searchParams.get('title');
     const rawDesc = searchParams.get('description');
@@ -41,7 +43,9 @@ export async function GET(request: NextRequest) {
     const customDescription = rawDesc ? rawDesc.slice(0, 500).trim() : undefined;
 
     const photoParam = searchParams.get('photo') ?? searchParams.get('picture') ?? searchParams.get('withPhoto');
-    const includePhoto = photoParam === null ? true : !['false', '0', 'no', 'none', 'off'].includes(photoParam.toLowerCase());
+    const includePhoto = isAts 
+        ? false 
+        : (photoParam === null ? true : !['false', '0', 'no', 'none', 'off'].includes(photoParam.toLowerCase()));
 
     const isDev = process.env.NODE_ENV !== 'production';
 
@@ -63,7 +67,7 @@ export async function GET(request: NextRequest) {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const schoolProjects = allProjects.filter((p: any) => p.category === schoolCat).slice(0, 2);
 
-    const element = createCvElement({
+    const commonProps = {
         lang,
         workExperiences,
         degrees,
@@ -71,16 +75,24 @@ export async function GET(request: NextRequest) {
         hobbies,
         personalProjects,
         schoolProjects,
-        portraitSrc,
         portfolioUrl: 'rayzerdev.vercel.app',
         customTitle,
         customDescription,
-    });
+    };
+
+    const element = isAts
+        ? createCvElement(CvAtsDocument, commonProps)
+        : createCvElement(CvDocument, {
+            ...commonProps,
+            portraitSrc,
+        });
 
     try {
         const buffer = await renderToBuffer(element);
 
-        const filename = `cv-louis-karamucki-${lang}.pdf`;
+        const filename = isAts
+            ? `cv-louis-karamucki-ats-${lang}.pdf`
+            : `cv-louis-karamucki-${lang}.pdf`;
 
         return new NextResponse(new Uint8Array(buffer), {
             status: 200,

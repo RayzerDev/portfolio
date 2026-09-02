@@ -1,7 +1,7 @@
 "use client";
 
 import {useState} from "react";
-import {FileText, Github, Linkedin, Loader2, Mail, MapPin} from "lucide-react";
+import {FileText, Github, Linkedin, Loader2, Mail, MapPin, Sparkles} from "lucide-react";
 import {useTranslation} from "@/hooks/useTranslation";
 
 const CONTACT_LINKS = [
@@ -34,6 +34,7 @@ const CONTACT_LINKS = [
 export function ContactSection() {
     const {t, lang} = useTranslation();
     const [cvLoading, setCvLoading] = useState(false);
+    const [cvFormat, setCvFormat] = useState<'classic' | 'ats'>('classic');
     const [withPhoto, setWithPhoto] = useState(true);
 
     const handleCvDownload = async () => {
@@ -47,7 +48,8 @@ export function ContactSection() {
 
         setCvLoading(true);
         try {
-            const res = await fetch(`/api/cv?lang=${lang}&photo=${withPhoto}&_t=${Date.now()}`, {
+            const photoQuery = cvFormat === 'ats' ? 'false' : String(withPhoto);
+            const res = await fetch(`/api/cv?lang=${lang}&format=${cvFormat}&photo=${photoQuery}&_t=${Date.now()}`, {
                 cache: 'no-store',
             });
 
@@ -129,7 +131,40 @@ export function ContactSection() {
                     <p className="mt-1 text-muted-foreground text-sm sm:text-base">
                         {t("contact.cvSubtitle")}
                     </p>
+
+                    {/* Format Selector Pills */}
+                    <div className="mt-4 flex flex-wrap items-center justify-center md:justify-start gap-2">
+                        <span className="text-xs font-medium text-muted-foreground mr-1">
+                            {t("contact.cvFormatLabel")}
+                        </span>
+                        <div className="inline-flex rounded-xl bg-background/80 p-1 border border-border/60 shadow-xs">
+                            <button
+                                type="button"
+                                onClick={() => setCvFormat('classic')}
+                                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+                                    cvFormat === 'classic'
+                                        ? 'bg-primary text-primary-foreground shadow-xs'
+                                        : 'text-muted-foreground hover:text-foreground'
+                                }`}
+                            >
+                                {t("contact.cvFormatClassic")}
+                            </button>
+                            <button
+                                type="button"
+                                onClick={() => setCvFormat('ats')}
+                                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+                                    cvFormat === 'ats'
+                                        ? 'bg-primary text-primary-foreground shadow-xs'
+                                        : 'text-muted-foreground hover:text-foreground'
+                                }`}
+                            >
+                                <Sparkles className="w-3 h-3"/>
+                                {t("contact.cvFormatAts")}
+                            </button>
+                        </div>
+                    </div>
                 </div>
+
                 <div className="flex flex-col items-center md:items-end gap-3 shrink-0">
                     <button
                         onClick={handleCvDownload}
@@ -143,15 +178,22 @@ export function ContactSection() {
                             : <FileText className="h-4 w-4"/>}
                         {cvLoading ? t("contact.cvGenerating") : t("contact.cvButton")}
                     </button>
-                    <label className="flex items-center gap-2 text-xs text-muted-foreground cursor-pointer select-none">
-                        <input
-                            type="checkbox"
-                            checked={withPhoto}
-                            onChange={(e) => setWithPhoto(e.target.checked)}
-                            className="rounded border-border text-primary focus:ring-primary h-3.5 w-3.5 cursor-pointer accent-primary"
-                        />
-                        <span>{t("contact.cvWithPhoto")}</span>
-                    </label>
+
+                    {cvFormat === 'classic' ? (
+                        <label className="flex items-center gap-2 text-xs text-muted-foreground cursor-pointer select-none">
+                            <input
+                                type="checkbox"
+                                checked={withPhoto}
+                                onChange={(e) => setWithPhoto(e.target.checked)}
+                                className="rounded border-border text-primary focus:ring-primary h-3.5 w-3.5 cursor-pointer accent-primary"
+                            />
+                            <span>{t("contact.cvWithPhoto")}</span>
+                        </label>
+                    ) : (
+                        <span className="text-[11px] text-muted-foreground">
+                            {lang === 'fr' ? 'Mono-colonne sans photo (Conforme ATS)' : 'Single-column without photo (ATS compliant)'}
+                        </span>
+                    )}
                 </div>
             </div>
         </section>
