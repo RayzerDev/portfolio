@@ -48,13 +48,23 @@ export function Header() {
         const sectionIds = NAV_ITEMS.map(i => i.id);
 
         const handleScroll = () => {
-            const scrollPosition = window.scrollY + 200;
-            // Check from bottom to top
+            // Check if user is at or near the bottom of the page
+            const isNearBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 100;
+            if (isNearBottom) {
+                setActiveSection("contact");
+                return;
+            }
+
+            const headerThreshold = 220;
+            // Check from bottom section to top
             for (let i = sectionIds.length - 1; i >= 0; i--) {
                 const el = document.getElementById(sectionIds[i]);
-                if (el && el.offsetTop <= scrollPosition) {
-                    setActiveSection(sectionIds[i]);
-                    return;
+                if (el) {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top <= headerThreshold) {
+                        setActiveSection(sectionIds[i]);
+                        return;
+                    }
                 }
             }
             setActiveSection("home");

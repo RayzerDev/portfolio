@@ -30,11 +30,11 @@ function ProjectImage({src, alt, date, lang}: { src: string; alt: string; date?:
                 alt={alt}
                 width={600}
                 height={340}
-                className={`w-full h-full object-cover transition-all duration-300 group-hover:scale-105 ${loaded ? "opacity-100" : "opacity-0"}`}
+                className={`w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 ${loaded ? "opacity-100" : "opacity-0"}`}
                 onLoad={() => setLoaded(true)}
             />
             {date && (
-                <span className="absolute top-3 left-3 flex items-center gap-1 rounded-full bg-black/50 backdrop-blur-sm text-white px-2.5 py-0.5 text-xs font-medium">
+                <span className="absolute top-3 left-3 flex items-center gap-1 rounded-full bg-black/60 backdrop-blur-md text-white px-2.5 py-0.5 text-xs font-medium shadow-sm">
                     <CalendarIcon className="w-3 h-3"/>
                     {formatDate(date, lang)}
                 </span>
@@ -45,7 +45,7 @@ function ProjectImage({src, alt, date, lang}: { src: string; alt: string; date?:
 
 function ProjectCardSkeleton() {
     return (
-        <div className="rounded-xl border border-border/60 bg-card overflow-hidden flex flex-col">
+        <div className="rounded-2xl border border-border/60 bg-card overflow-hidden flex flex-col">
             <Skeleton className="w-full aspect-video rounded-none"/>
             <div className="p-5 flex flex-col gap-3 flex-1">
                 <Skeleton className="h-5 w-3/4"/>
@@ -73,15 +73,15 @@ function ProjectCard({projet, lang, t, onSelect}: {
 }) {
     return (
         <div
-            className="group rounded-xl border border-border/60 bg-card overflow-hidden flex flex-col hover:-translate-y-1 hover:shadow-lg transition-all duration-200 cursor-pointer"
+            className="group rounded-2xl border border-border/60 bg-card/90 backdrop-blur-sm overflow-hidden flex flex-col hover:-translate-y-1.5 hover:shadow-xl hover:border-primary/40 transition-all duration-300 cursor-pointer"
             onClick={() => onSelect(projet.id)}
         >
             {/* Image + date overlay */}
             <ProjectImage src={projet.imagePreview} alt={projet.nom} date={projet.date} lang={lang}/>
 
             {/* Body */}
-            <div className="p-5 flex flex-col gap-2 flex-1">
-                <h4 className="font-semibold text-base text-foreground leading-snug">
+            <div className="p-5 flex flex-col gap-2.5 flex-1">
+                <h4 className="font-semibold text-base text-foreground leading-snug group-hover:text-primary transition-colors">
                     {projet.nom}
                 </h4>
                 <p className="text-sm text-muted-foreground line-clamp-2 leading-relaxed">
@@ -89,17 +89,17 @@ function ProjectCard({projet, lang, t, onSelect}: {
                 </p>
                 {/* Skill chips */}
                 {(projet.skills || []).length > 0 && (
-                    <div className="flex flex-wrap gap-1.5 mt-1">
+                    <div className="flex flex-wrap gap-1.5 mt-auto pt-2">
                         {(projet.skills || []).slice(0, 4).map((skill: any) => (
                             <span
                                 key={skill.id}
-                                className="inline-flex items-center rounded-full border border-border/60 bg-background px-2 py-0.5 text-xs text-muted-foreground"
+                                className="inline-flex items-center rounded-full border border-border/60 bg-background/80 px-2 py-0.5 text-xs text-muted-foreground"
                             >
                                 {skill.nom}
                             </span>
                         ))}
                         {(projet.skills || []).length > 4 && (
-                            <span className="inline-flex items-center rounded-full border border-border/60 bg-background px-2 py-0.5 text-xs text-muted-foreground">
+                            <span className="inline-flex items-center rounded-full border border-border/60 bg-background/80 px-2 py-0.5 text-xs text-muted-foreground">
                                 +{projet.skills.length - 4}
                             </span>
                         )}
@@ -118,7 +118,7 @@ function ProjectCard({projet, lang, t, onSelect}: {
                             href={projet.githubLink}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground transition-colors"
+                            className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors hover:scale-105 active:scale-95 duration-150"
                             onClick={e => e.stopPropagation()}
                         >
                             <Github className="w-3.5 h-3.5"/>
@@ -128,7 +128,7 @@ function ProjectCard({projet, lang, t, onSelect}: {
                 </div>
                 <button
                     onClick={() => onSelect(projet.id)}
-                    className="flex items-center gap-1 text-xs font-medium text-primary hover:text-primary/80 transition-colors cursor-pointer"
+                    className="flex items-center gap-1 text-xs font-medium text-primary hover:text-primary/80 transition-all hover:translate-x-0.5 active:scale-95 cursor-pointer"
                 >
                     <ExternalLink className="w-3.5 h-3.5"/>
                     {t("projects.seeProject")}
@@ -146,34 +146,70 @@ function CategorySection({categorie, projets, t, lang, onSelectProject}: {
     onSelectProject: (id: string) => void;
 }) {
     const [page, setPage] = useState(1);
+    const [direction, setDirection] = useState<'right' | 'left'>('right');
     const totalPages = Math.ceil(projets.length / PROJECTS_PER_PAGE);
     const paginated = projets.slice((page - 1) * PROJECTS_PER_PAGE, page * PROJECTS_PER_PAGE);
 
+    const handlePrev = () => {
+        if (page > 1) {
+            setDirection('left');
+            setPage(p => p - 1);
+        }
+    };
+
+    const handleNext = () => {
+        if (page < totalPages) {
+            setDirection('right');
+            setPage(p => p + 1);
+        }
+    };
+
     return (
-        <div className="mb-10">
+        <div className="mb-12">
             <div className="flex items-center justify-between mb-5">
                 <div className="flex items-center gap-3">
                     <h3 className="text-2xl font-bold text-secondary">{categorie}</h3>
-                    <span className="rounded-full bg-primary/10 text-primary px-2 py-0.5 text-xs font-semibold tabular-nums">
+                    <span className="rounded-full bg-primary/10 text-primary px-2.5 py-0.5 text-xs font-semibold tabular-nums">
                         {projets.length}
                     </span>
                 </div>
                 {totalPages > 1 && (
                     <div className="flex items-center gap-2">
-                        <Button variant="outline" size="icon" className="h-8 w-8" onClick={() => setPage(p => p - 1)} disabled={page === 1}>
+                        <Button
+                            variant="outline"
+                            size="icon"
+                            className="h-8 w-8 active:scale-95 transition-transform"
+                            onClick={handlePrev}
+                            disabled={page === 1}
+                            aria-label="Previous projects"
+                        >
                             <ChevronLeft className="w-4 h-4"/>
                         </Button>
-                        <span className="text-sm text-muted-foreground tabular-nums w-10 text-center">{page} / {totalPages}</span>
-                        <Button variant="outline" size="icon" className="h-8 w-8" onClick={() => setPage(p => p + 1)} disabled={page === totalPages}>
+                        <span className="text-sm font-medium text-muted-foreground tabular-nums w-12 text-center">{page} / {totalPages}</span>
+                        <Button
+                            variant="outline"
+                            size="icon"
+                            className="h-8 w-8 active:scale-95 transition-transform"
+                            onClick={handleNext}
+                            disabled={page === totalPages}
+                            aria-label="Next projects"
+                        >
                             <ChevronRight className="w-4 h-4"/>
                         </Button>
                     </div>
                 )}
             </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-                {paginated.map((projet) => (
-                    <ProjectCard key={projet.id} projet={projet} lang={lang} t={t} onSelect={onSelectProject}/>
-                ))}
+            <div className="overflow-hidden">
+                <div
+                    key={`${categorie}-page-${page}`}
+                    className={`grid sm:grid-cols-2 lg:grid-cols-3 gap-6 ${
+                        direction === 'right' ? 'animate-slide-right' : 'animate-slide-left'
+                    }`}
+                >
+                    {paginated.map((projet) => (
+                        <ProjectCard key={projet.id} projet={projet} lang={lang} t={t} onSelect={onSelectProject}/>
+                    ))}
+                </div>
             </div>
         </div>
     );
@@ -216,7 +252,7 @@ export function ProjectsSection() {
                     {[1, 2].map((cat) => (
                         <div key={cat} className="mb-6">
                             <Skeleton className="h-7 w-48 mb-5"/>
-                            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                                 {[1, 2, 3].map((i) => <ProjectCardSkeleton key={i}/>)}
                             </div>
                         </div>

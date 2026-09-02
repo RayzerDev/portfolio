@@ -122,12 +122,29 @@ body {
     }
 }
 
-.animate-skill-slide-right {
+.animate-skill-slide-right,
+.animate-slide-right {
     animation: skillSlideRight 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-.animate-skill-slide-left {
+.animate-skill-slide-left,
+.animate-slide-left {
     animation: skillSlideLeft 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 @layer utilities {

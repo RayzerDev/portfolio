@@ -254,7 +254,7 @@ export default function Home() {
     }));
 
     return (
-        <div className="container mx-auto py-8 px-4 md:px-6 lg:px-8 max-w-6xl">
+        <div className="container mx-auto py-8 px-4 md:px-6 lg:px-8 max-w-7xl">
             {/* ══════════════ SECTION: ACCUEIL / PROFIL ══════════════ */}
             <div id="home" className="scroll-mt-24">
                 <section className="mb-16">
@@ -265,7 +265,7 @@ export default function Home() {
                                 Louis Karamucki
                                 <span className="block h-1 mt-3 w-20 bg-primary rounded-full"/>
                             </h1>
-                            <p className="mt-4 max-w-[600px] text-muted-foreground md:text-xl leading-relaxed">
+                            <p className="mt-4 max-w-3xl text-muted-foreground md:text-xl leading-relaxed">
                                 {t("home.description")}
                             </p>
                         </div>
