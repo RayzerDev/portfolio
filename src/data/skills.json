@@ -264,21 +264,5 @@
     "categorie": "SGBD",
     "categorie_en": "Databases",
     "image": "images/skills/firebase.svg"
-  },
-  {
-    "id": "43",
-    "nom": "Français (Maternelle)",
-    "nom_en": "French (Native)",
-    "categorie": "Langues",
-    "categorie_en": "Languages",
-    "image": "images/skills/fr.svg"
-  },
-  {
-    "id": "44",
-    "nom": "Anglais (TOEIC 710)",
-    "nom_en": "English (TOEIC 710)",
-    "categorie": "Langues",
-    "categorie_en": "Languages",
-    "image": "images/skills/gb.svg"
   }
 ]

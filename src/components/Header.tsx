@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import {Briefcase, Github, Home, LinkedinIcon, Mail, Wrench} from "lucide-react";
+import {Briefcase, Github, Globe, Heart, Home, LinkedinIcon, Mail, Wrench} from "lucide-react";
 import {useCallback, useEffect, useRef, useState} from "react";
 import {usePathname} from "next/navigation";
 import {ModeToggle} from "@/components/ui/darkmodetoggle";
@@ -10,10 +10,12 @@ import {useTranslation} from "@/hooks/useTranslation";
 import {useLanguage} from "@/context/LanguageContext";
 
 const NAV_ITEMS = [
-    {id: "home",     href: "/#home",     tKey: "nav.home",     Icon: Home},
-    {id: "skills",   href: "/#skills",   tKey: "nav.skills",   Icon: Wrench},
-    {id: "projects", href: "/#projects", tKey: "nav.projects", Icon: Briefcase},
-    {id: "contact",  href: "/#contact",  tKey: "nav.contact",  Icon: Mail},
+    {id: "home",      href: "/#home",      tKey: "nav.home",      Icon: Home},
+    {id: "skills",    href: "/#skills",    tKey: "nav.skills",    Icon: Wrench},
+    {id: "projects",  href: "/#projects",  tKey: "nav.projects",  Icon: Briefcase},
+    {id: "languages", href: "/#languages", tKey: "nav.languages", Icon: Globe},
+    {id: "passions",  href: "/#passions",  tKey: "nav.passions",  Icon: Heart},
+    {id: "contact",   href: "/#contact",   tKey: "nav.contact",   Icon: Mail},
 ] as const;
 
 const glassClass = [

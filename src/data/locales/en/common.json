@@ -3,14 +3,14 @@
     "home": "Home",
     "skills": "Skills",
     "projects": "Projects",
+    "languages": "Languages",
+    "passions": "Hobbies",
     "contact": "Contact"
   },
   "home": {
-    "description": "First-year engineering student in computer science at IMT Nord Europe, on a work-study program. Discover my background, skills, and projects.",
+    "description": "Second-year engineering student in computer science at IMT Nord Europe, on a work-study program. Discover my background, skills, and projects.",
     "workExperiences": "Experience",
     "degrees": "Education",
-    "languages": "Languages",
-    "passions": "Hobbies",
     "present": "In progress"
   },
   "skills": {
@@ -21,6 +21,14 @@
     "title": "My Projects",
     "subtitle": "A selection of personal and academic projects.",
     "seeProject": "See project"
+  },
+  "languages": {
+    "title": "Languages",
+    "subtitle": "Spoken languages and language certifications."
+  },
+  "passions": {
+    "title": "Hobbies & Interests",
+    "subtitle": "My passions and activities outside of software engineering."
   },
   "projectDetail": {
     "notFound": "Project not found",

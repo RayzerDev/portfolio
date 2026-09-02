@@ -1,22 +1,14 @@
 "use client";
 
 import React, {useEffect, useState} from "react";
-import Image from "next/image";
-import {Building, CalendarIcon, Code, Dumbbell, Gamepad, Globe, Guitar, Heart, LucideProps, MapPin, School, Target} from "lucide-react";
-import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
+import {Building, CalendarIcon, MapPin, School} from "lucide-react";
 import {Skeleton} from "@/components/ui/skeleton";
 import {useTranslation} from "@/hooks/useTranslation";
 import {SkillsSection} from "@/components/sections/SkillsSection";
 import {ProjectsSection} from "@/components/sections/ProjectsSection";
+import {LanguagesSection} from "@/components/sections/LanguagesSection";
+import {HobbiesSection} from "@/components/sections/HobbiesSection";
 import {ContactSection} from "@/components/sections/ContactSection";
-
-const iconMap: Record<string, React.FC<LucideProps>> = {
-    Dumbbell,
-    Guitar,
-    Gamepad,
-    Code,
-    Target,
-};
 
 // Handles both MM/YY (experiences) and MM/YYYY (projects) formats
 function formatDate(dateStr: string, lang: string): string {
@@ -196,23 +188,10 @@ function ProfilePhoto() {
     );
 }
 
-function HobbySkeleton() {
-    return (
-        <Card className="flex flex-col">
-            <CardHeader className="items-center pb-2">
-                <Skeleton className="h-12 w-12 rounded-md"/>
-                <Skeleton className="h-5 w-28 mt-2"/>
-            </CardHeader>
-            <CardContent><Skeleton className="h-4 w-full mb-1"/><Skeleton className="h-4 w-3/4"/></CardContent>
-        </Card>
-    );
-}
-
 export default function Home() {
     const {t, lang} = useTranslation();
     const [workExperiences, setWorkExperiences] = useState<any[]>([]);
     const [degrees, setDegrees] = useState<any[]>([]);
-    const [hobbies, setHobbies] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -221,12 +200,10 @@ export default function Home() {
         Promise.all([
             fetch(`/api/work-experiences?lang=${lang}`).then(r => r.json()),
             fetch(`/api/degrees?lang=${lang}`).then(r => r.json()),
-            fetch(`/api/hobbies?lang=${lang}`).then(r => r.json()),
-        ]).then(([experiences, degs, hobs]) => {
+        ]).then(([experiences, degs]) => {
             if (active) {
                 setWorkExperiences(experiences);
                 setDegrees(degs);
-                setHobbies(hobs);
                 setLoading(false);
             }
         }).catch(() => {
@@ -312,80 +289,6 @@ export default function Home() {
                         </div>
                     </div>
                 </section>
-
-                {/* ── Langues ── */}
-                <section className="mb-14">
-                    <h2 className="text-2xl font-bold tracking-tight text-secondary mb-5 flex items-center gap-2">
-                        <Globe className="w-6 h-6 text-primary"/>
-                        {t("home.languages")}
-                    </h2>
-                    <div className="grid sm:grid-cols-2 gap-4">
-                        <div className="rounded-xl border border-border/60 bg-card/80 backdrop-blur-sm p-5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 flex items-center gap-4">
-                            <div className="relative w-12 h-12 shrink-0 rounded-full overflow-hidden shadow-sm border border-border/60">
-                                <Image src="/images/skills/fr.svg" alt="Français" fill className="object-cover"/>
-                            </div>
-                            <div className="flex-1 min-w-0">
-                                <div className="flex items-center justify-between gap-2">
-                                    <h3 className="font-semibold text-foreground text-base">
-                                        {lang === 'fr' ? 'Français' : 'French'}
-                                    </h3>
-                                    <span className="inline-flex items-center rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 px-2.5 py-0.5 text-xs font-medium">
-                                        {lang === 'fr' ? 'Maternelle' : 'Native'}
-                                    </span>
-                                </div>
-                                <p className="text-sm text-muted-foreground mt-0.5">
-                                    {lang === 'fr' ? 'Langue maternelle' : 'Native speaker'}
-                                </p>
-                            </div>
-                        </div>
-
-                        <div className="rounded-xl border border-border/60 bg-card/80 backdrop-blur-sm p-5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 flex items-center gap-4">
-                            <div className="relative w-12 h-12 shrink-0 rounded-full overflow-hidden shadow-sm border border-border/60">
-                                <Image src="/images/skills/gb.svg" alt="Anglais" fill className="object-cover"/>
-                            </div>
-                            <div className="flex-1 min-w-0">
-                                <div className="flex items-center justify-between gap-2">
-                                    <h3 className="font-semibold text-foreground text-base">
-                                        {lang === 'fr' ? 'Anglais' : 'English'}
-                                    </h3>
-                                    <span className="inline-flex items-center rounded-full bg-primary/10 text-primary px-2.5 py-0.5 text-xs font-medium">
-                                        TOEIC 710 · B2
-                                    </span>
-                                </div>
-                                <p className="text-sm text-muted-foreground mt-0.5">
-                                    {lang === 'fr' ? 'Score TOEIC : 710 points (Niveau B2 opérationnel)' : 'TOEIC score: 710 points (Working proficiency B2)'}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                {/* ── Passions ── */}
-                <section className="mb-16">
-                    <h2 className="text-2xl font-bold tracking-tight text-secondary mb-5 flex items-center gap-2">
-                        <Heart className="w-6 h-6 text-primary"/>
-                        {t("home.passions")}
-                    </h2>
-                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                        {loading
-                            ? [1, 2, 3].map(i => <HobbySkeleton key={i}/>)
-                            : hobbies.map((hobby) => {
-                                const Icon = iconMap[hobby.icon] ?? Code;
-                                return (
-                                    <Card key={hobby.id} className="flex flex-col hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
-                                        <CardHeader className="items-center text-center pb-2">
-                                            <Icon className="w-12 h-12 text-primary mb-1"/>
-                                            <CardTitle className="text-xl m-0 mt-1">{hobby.nom}</CardTitle>
-                                        </CardHeader>
-                                        <CardContent className="text-center text-muted-foreground text-sm">
-                                            {hobby.description}
-                                        </CardContent>
-                                    </Card>
-                                );
-                            })
-                        }
-                    </div>
-                </section>
             </div>
 
             {/* ── Divider ── */}
@@ -399,6 +302,18 @@ export default function Home() {
 
             {/* ══════════════ SECTION: PROJETS ══════════════ */}
             <ProjectsSection/>
+
+            {/* ── Divider ── */}
+            <hr className="border-border/60 my-12"/>
+
+            {/* ══════════════ SECTION: LANGUES ══════════════ */}
+            <LanguagesSection/>
+
+            {/* ── Divider ── */}
+            <hr className="border-border/60 my-12"/>
+
+            {/* ══════════════ SECTION: PASSIONS ══════════════ */}
+            <HobbiesSection/>
 
             {/* ── Divider ── */}
             <hr className="border-border/60 my-12"/>

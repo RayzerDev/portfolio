@@ -3,14 +3,14 @@
     "home": "Accueil",
     "skills": "Compétences",
     "projects": "Projets",
+    "languages": "Langues",
+    "passions": "Passions",
     "contact": "Contact"
   },
   "home": {
-    "description": "Étudiant en 1ère année du cycle ingénieur en informatique à l'IMT Nord Europe, en alternance. Découvrez mon parcours, mes compétences ainsi que mes projets.",
+    "description": "Étudiant en 2ème année du cycle ingénieur en informatique à l'IMT Nord Europe, en alternance. Découvrez mon parcours, mes compétences ainsi que mes projets.",
     "workExperiences": "Expériences",
     "degrees": "Diplômes",
-    "languages": "Langues",
-    "passions": "Passions",
     "present": "En cours"
   },
   "skills": {
@@ -21,6 +21,14 @@
     "title": "Mes Projets",
     "subtitle": "Une sélection de projets personnels et académiques.",
     "seeProject": "Voir le projet"
+  },
+  "languages": {
+    "title": "Langues",
+    "subtitle": "Langues maîtrisées et certifications linguistiques."
+  },
+  "passions": {
+    "title": "Centres d'intérêt",
+    "subtitle": "Mes passions et activités en dehors de l'informatique."
   },
   "projectDetail": {
     "notFound": "Projet non trouvé",
