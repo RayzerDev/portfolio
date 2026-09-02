@@ -88,6 +88,7 @@ export function ZoomableImage({
     alt,
     className = "",
     fill = false,
+    sizes = "(max-width: 768px) 100vw, 50vw",
     width,
     height,
     onClick,
@@ -96,6 +97,7 @@ export function ZoomableImage({
     alt: string;
     className?: string;
     fill?: boolean;
+    sizes?: string;
     width?: number;
     height?: number;
     onClick?: () => void;
@@ -107,7 +109,7 @@ export function ZoomableImage({
             title="Cliquer pour agrandir l'image"
         >
             {fill ? (
-                <Image src={src} alt={alt} fill className={className}/>
+                <Image src={src} alt={alt} fill sizes={sizes} className={className}/>
             ) : (
                 <Image src={src} alt={alt} width={width || 500} height={height || 500} className={className}/>
             )}

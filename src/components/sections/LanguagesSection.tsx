@@ -56,7 +56,7 @@ export function LanguagesSection() {
                     >
                         <div className="flex items-start gap-4">
                             <div className="relative w-14 h-14 shrink-0 rounded-2xl overflow-hidden shadow-sm border border-border/70 group-hover:scale-105 transition-transform duration-300">
-                                <Image src={item.flag} alt={item.name} fill className="object-cover"/>
+                                <Image src={item.flag} alt={item.name} fill sizes="56px" className="object-cover"/>
                             </div>
                             <div className="flex-1 min-w-0">
                                 <div className="flex items-center justify-between gap-2 mb-1">

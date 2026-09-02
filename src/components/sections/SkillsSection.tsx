@@ -85,6 +85,7 @@ function CategorySection({category, skills}: { category: string; skills: any[] }
                                         src={`/${skill.image}`}
                                         alt={skill.nom}
                                         fill
+                                        sizes="56px"
                                         className="object-contain"
                                     />
                                 </div>
