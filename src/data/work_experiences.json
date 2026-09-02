@@ -38,7 +38,13 @@
     "debut": "01/24",
     "fin": "09/28",
     "description": "Développement, maintenance corrective et évolutive, et migration d'applications d'entreprise (Java, Jakarta, Hibernate, Vaadin, WildFly, PostgreSQL, Windows Server). Intégration de protocoles XMPP (Smack), cartographie (Leaflet GeoJSON), moteur de règles métier (Drools) et développement mobile Android. Réalisation de projets en autonomie ou en binôme, et support technique utilisateur (mail et téléphone).",
-    "description_en": "Development, bug fixing, maintenance, and migration of enterprise software (Java, Jakarta, Hibernate, Vaadin, WildFly, PostgreSQL, Windows Server). Integration of XMPP messaging (Smack), mapping features (Leaflet GeoJSON), business rules engine (Drools), and Android mobile development. Conducting projects independently or in pairs, alongside user technical support (email and phone).",
+    "description_en": "Developed and maintained robust enterprise software applications utilizing Java, Jakarta, Hibernate, Vaadin, and PostgreSQL on Windows Server environments. Integrated complex features including XMPP messaging (Smack), interactive mapping (Leaflet GeoJSON), and a business rules engine (Drools). Built and deployed Android mobile applications, working both independently and in Agile pairs to meet project milestones. Provided direct technical support to end-users via phone and email, ensuring rapid bug resolution and customer satisfaction.",
+    "bullets_en": [
+      "Developed and maintained robust enterprise software applications utilizing Java, Jakarta, Hibernate, Vaadin, and PostgreSQL on Windows Server environments.",
+      "Integrated complex features including XMPP messaging (Smack), interactive mapping (Leaflet GeoJSON), and a business rules engine (Drools).",
+      "Built and deployed Android mobile applications, working both independently and in Agile pairs to meet project milestones.",
+      "Provided direct technical support to end-users via phone and email, ensuring rapid bug resolution and customer satisfaction."
+    ],
     "competences": []
   }
 ]

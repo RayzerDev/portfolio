@@ -172,9 +172,13 @@ class DataSingleton {
                 nom: e.nom_en || e.nom,
                 type: e.type_en || e.type,
                 description: e.description_en || e.description,
+                bullets: e.bullets_en || e.bullets,
             }));
         }
-        return sorted;
+        return sorted.map(e => ({
+            ...e,
+            bullets: e.bullets,
+        }));
     }
 
     public async getDegreesData(lang: Lang = 'fr'): Promise<any[]> {

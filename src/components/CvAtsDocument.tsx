@@ -1,5 +1,5 @@
 import React from 'react';
-import {Document, Link, Page, StyleSheet, Text, View} from '@react-pdf/renderer';
+import { Document, Link, Page, StyleSheet, Text, View } from '@react-pdf/renderer';
 
 interface WorkExperience {
     id: string;
@@ -10,6 +10,7 @@ interface WorkExperience {
     debut: string;
     fin: string;
     description?: string;
+    bullets?: string[];
 }
 
 interface Degree {
@@ -67,9 +68,9 @@ const C = {
 
 const styles = StyleSheet.create({
     page: {
-        paddingTop: 24,
-        paddingBottom: 22,
-        paddingHorizontal: 30,
+        paddingTop: 22,
+        paddingBottom: 20,
+        paddingHorizontal: 28,
         backgroundColor: '#ffffff',
         fontFamily: 'Helvetica',
         color: C.text,
@@ -80,10 +81,10 @@ const styles = StyleSheet.create({
     // ── Header ───────────────────────────────────────────────────────────────
     header: {
         textAlign: 'center',
-        marginBottom: 8,
+        marginBottom: 7,
         borderBottomWidth: 1.5,
         borderBottomColor: C.accent,
-        paddingBottom: 7,
+        paddingBottom: 6,
     },
     name: {
         fontSize: 18,
@@ -98,6 +99,7 @@ const styles = StyleSheet.create({
         fontFamily: 'Helvetica-Bold',
         color: '#1e3a8a',
         marginBottom: 4,
+        marginTop: 6,
     },
     contactRow: {
         flexDirection: 'row',
@@ -122,7 +124,7 @@ const styles = StyleSheet.create({
 
     // ── Section ──────────────────────────────────────────────────────────────
     section: {
-        marginBottom: 7.5,
+        marginBottom: 6.5,
     },
     sectionTitle: {
         fontSize: 9.5,
@@ -146,7 +148,7 @@ const styles = StyleSheet.create({
 
     // ── Item Blocks (Experience / Education) ──────────────────────────────────
     item: {
-        marginBottom: 4,
+        marginBottom: 3.8,
     },
     itemHeader: {
         flexDirection: 'row',
@@ -177,6 +179,26 @@ const styles = StyleSheet.create({
         color: C.text,
         lineHeight: 1.28,
         textAlign: 'justify',
+    },
+    bulletRow: {
+        flexDirection: 'row',
+        alignItems: 'flex-start',
+        marginBottom: 1.5,
+        paddingLeft: 2,
+    },
+    bulletDot: {
+        width: 2.8,
+        height: 2.8,
+        borderRadius: 1.4,
+        backgroundColor: C.text,
+        marginTop: 3.5,
+        marginRight: 4.5,
+    },
+    bulletText: {
+        fontSize: 7.8,
+        color: C.text,
+        lineHeight: 1.28,
+        flex: 1,
     },
 
     // ── Projects ─────────────────────────────────────────────────────────────
@@ -255,7 +277,7 @@ export const CvAtsDocument: React.FC<CvAtsDocumentProps> = ({
 
     const L = isEn ? {
         defaultJob: 'Software Developer',
-        defaultTagline: 'Engineering student in Computer Science at IMT Nord Europe, seeking software development opportunities. Experienced in full-stack web, mobile, and distributed systems.',
+        defaultTagline: 'Results-oriented Full-Stack Developer with hands-on experience in Java, React, and server architecture. Proven ability to build enterprise software, deploy self-hosted cloud environments, and integrate complex APIs. Seeking a 14-week Summer 2027 Co-op/Internship to leverage my skills in an innovative tech environment.',
         secSummary: 'Professional Summary',
         secEdu: 'Education',
         secExp: 'Work Experience',
@@ -345,16 +367,25 @@ export const CvAtsDocument: React.FC<CvAtsDocumentProps> = ({
                         <View key={e.id} style={styles.item}>
                             <View style={styles.itemHeader}>
                                 <Text style={styles.itemTitle}>
-                                    {e.nom} – <Text style={{fontFamily: 'Helvetica', color: C.muted}}>{e.entreprise} ({e.ville})</Text>
+                                    {e.nom} – <Text style={{ fontFamily: 'Helvetica', color: C.muted }}>{e.entreprise} ({e.ville})</Text>
                                 </Text>
                                 <Text style={styles.itemDates}>
                                     {fmtDate(e.debut, lang)} – {fmtDate(e.fin, lang)}
                                 </Text>
                             </View>
                             <Text style={styles.itemSub}>{e.type}</Text>
-                            {e.description && (
+                            {e.bullets && e.bullets.length > 0 ? (
+                                <View style={{ marginTop: 1.5 }}>
+                                    {e.bullets.map((bullet: string, idx: number) => (
+                                        <View key={idx} style={styles.bulletRow}>
+                                            <View style={styles.bulletDot} />
+                                            <Text style={styles.bulletText}>{bullet}</Text>
+                                        </View>
+                                    ))}
+                                </View>
+                            ) : e.description ? (
                                 <Text style={styles.itemDesc}>{e.description}</Text>
-                            )}
+                            ) : null}
                         </View>
                     ))}
                 </View>
@@ -366,7 +397,7 @@ export const CvAtsDocument: React.FC<CvAtsDocumentProps> = ({
                         <View key={d.id} style={styles.item}>
                             <View style={styles.itemHeader}>
                                 <Text style={styles.itemTitle}>
-                                    {d.nom} – <Text style={{fontFamily: 'Helvetica', color: C.muted}}>{d.ecole} ({d.ville})</Text>
+                                    {d.nom} – <Text style={{ fontFamily: 'Helvetica', color: C.muted }}>{d.ecole} ({d.ville})</Text>
                                 </Text>
                                 <Text style={styles.itemDates}>
                                     {fmtDate(d.debut, lang)} – {fmtDate(d.fin, lang)}
